@@ -4,6 +4,8 @@ These links point to exact public commits owned by `saliftankoano`, so the readi
 
 For each study, first write your own architecture guess from the README and file tree. Then ask Codex to inspect the pinned commit, correct the guess with evidence, and connect one lesson to the current story.
 
+For external examples—including Sim, Supabase, shadcn/ui, Vercel Commerce, Documenso, OpenStatus, Trigger.dev, and Cal.diy—use the [open-source project learning lab](open-source-projects.md).
+
 | Project | Pinned commit | Curriculum lens |
 | --- | --- | --- |
 | [OpenSourceWorkshop](https://github.com/saliftankoano/OpenSourceWorkshop/tree/e5972441ce81f0f1e5f3b791a5afe37411df11c9) | `e597244` | Forks, issues, PRs, and reviews |

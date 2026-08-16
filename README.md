@@ -417,6 +417,43 @@ flowchart TB
 
 Pierre must independently plan for Codex, clarify requirements, explain and modify generated code, debug from evidence, evaluate unfamiliar tools, model Supabase data and RLS, protect and rotate credentials, handle feedback, and deploy, roll back, document, and hand off a client application.
 
+## Learn by taking a gander at real open-source products
+
+```mermaid
+flowchart LR
+    SMALL["FOCUSED EXAMPLES<br/>SaaS Starter · Supabase<br/>shadcn/ui"]
+    PRODUCT["COMPLETE PRODUCTS<br/>Vercel Commerce<br/>Documenso"]
+    SYSTEM["LARGE SYSTEMS<br/>Sim · OpenStatus<br/>Trigger.dev · Cal.diy"]
+    METHOD["STUDY METHOD<br/>look → map → trace<br/>challenge → adapt"]
+    RESULT["RESULT<br/>one verified pattern<br/>not a copied architecture"]
+
+    SMALL --> METHOD
+    PRODUCT --> METHOD
+    SYSTEM --> METHOD
+    METHOD --> RESULT
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    class SMALL,PRODUCT context;
+    class SYSTEM plan;
+    class METHOD,RESULT build;
+```
+
+The [open-source project learning lab](case-studies/open-source-projects.md) includes pinned, licensed examples chosen for a specific lesson:
+
+- [Sim](https://github.com/simstudioai/sim) for Next.js AI workflow UX, visual graph editing, realtime systems, provider boundaries, background jobs, and environment contracts.
+- Next.js SaaS Starter for a smaller full-stack application skeleton.
+- shadcn/ui for accessible component source and design-system adaptation.
+- Supabase's Next.js user-management example for browser/server clients, Auth, cookies, Storage, and RLS reasoning.
+- Vercel Commerce for data providers, caching, storefront states, and responsive product UI.
+- Documenso for role-aware document workflows, storage, email, and security boundaries.
+- OpenStatus for APIs, monitoring, incidents, logs, analytics, and multi-service architecture.
+- Trigger.dev for queues, retries, idempotency, long-running work, and observability.
+- Cal.diy for scheduling, time zones, integration complexity, and scope discovery.
+
+Each study starts with Pierre's own architecture guess, then uses Codex to correct it with exact file evidence. He traces one user action, challenges security and operational tradeoffs, and adapts one small pattern only when the current story needs it.
+
 ## Repository map
 
 ```mermaid
