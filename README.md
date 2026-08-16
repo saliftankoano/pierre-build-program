@@ -76,6 +76,21 @@ For every story:
 
 Every milestone also requires you to explain, trace, modify, and debug generated code. A working page that you cannot reason about is not complete.
 
+## Graduation contract
+
+Graduation requires accepted evidence for every milestone, working production deployments for the shipped projects, and recorded mentor approval at milestones 4, 8, 10, and 11. The final mentor rubric must score at least 3 of 4 in product usefulness, UI/UX, code comprehension, maintainability, security, testing, deployment/operations, and client communication. No critical authorization or secret-management failure may remain.
+
+The learner must independently demonstrate that he can:
+
+- Turn an idea or agency story into an acceptance-driven plan for Codex and ask useful requirement questions.
+- Inspect and explain generated code, trace a workflow across runtime boundaries, and make a controlled change.
+- Debug with reproduction steps, logs, hypotheses, tests, and a regression check.
+- Evaluate an unfamiliar API, library, or service through primary documentation and a safe experiment.
+- Model Supabase data and ownership, create migrations/seeds, and reason about RLS with cross-user tests.
+- Protect, revoke, and rotate credentials without leaking values.
+- Respond professionally to QA, accessibility, security, and client scope feedback.
+- Deploy, inspect, roll back, document, and hand off a client application.
+
 ## Repository map
 
 - `curriculum/` — the twelve milestone guides and just-in-time field notes.
