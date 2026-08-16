@@ -1,0 +1,40 @@
+name: QA bug
+description: Report reproducible incorrect behavior.
+title: "[BUG] "
+labels: ["bug", "qa"]
+body:
+  - type: dropdown
+    id: severity
+    attributes: { label: Severity, options: [Critical, High, Medium, Low] }
+    validations: { required: true }
+  - type: textarea
+    id: environment
+    attributes:
+      {
+        label: Environment,
+        description: URL,
+        commit,
+        browser/device,
+        account role,
+        and relevant safe test data.,
+      }
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes: { label: Reproduction steps, placeholder: "1. …\n2. …\n3. …" }
+    validations: { required: true }
+  - type: textarea
+    id: behavior
+    attributes: { label: Expected versus actual behavior }
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes: { label: Redacted screenshot/log evidence }
+  - type: textarea
+    id: regression
+    attributes:
+      {
+        label: Regression expectation,
+        description: What test should fail before the fix and pass after?,
+      }
+    validations: { required: true }

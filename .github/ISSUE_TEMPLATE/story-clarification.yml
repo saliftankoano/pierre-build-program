@@ -1,0 +1,37 @@
+name: Story clarification
+description: Ask a material question before implementation.
+title: "[CLARIFY] SWAI-___: "
+labels: ["clarification"]
+body:
+  - type: input
+    id: story
+    attributes:
+      {
+        label: Story and acceptance criterion,
+        placeholder: "SWAI-___ / criterion 2",
+      }
+    validations: { required: true }
+  - type: textarea
+    id: known
+    attributes:
+      {
+        label: What the supplied context says,
+        description: Separate facts from your interpretation.,
+      }
+    validations: { required: true }
+  - type: textarea
+    id: question
+    attributes:
+      {
+        label: Decision question,
+        description: Ask one answerable question and explain what it changes.,
+      }
+    validations: { required: true }
+  - type: textarea
+    id: options
+    attributes:
+      {
+        label: Options and recommendation,
+        description: Include tradeoffs and a safe default if no response arrives.,
+      }
+    validations: { required: true }

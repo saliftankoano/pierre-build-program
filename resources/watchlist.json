@@ -1,0 +1,77 @@
+{
+  "reviewPolicy": "Open the source, verify it is still maintained and relevant, and update lastReviewed/expiresOn. Expired entries are prompts to review, not automatic endorsements.",
+  "entries": [
+    {
+      "name": "OpenAI Codex documentation",
+      "url": "https://learn.chatgpt.com/docs/codex",
+      "category": "official-ai-agent-docs",
+      "whyUseful": "Primary guidance for Codex setup, project instructions, workflows, permissions, and extensions.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "Next.js documentation",
+      "url": "https://nextjs.org/docs",
+      "category": "official-framework-docs",
+      "whyUseful": "Primary reference for the App Router, server/client boundaries, data access, caching, routing, and deployment behavior.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "Vercel documentation",
+      "url": "https://vercel.com/docs",
+      "category": "official-deployment-docs",
+      "whyUseful": "Primary reference for environments, previews, CLI diagnostics, logs, domains, and rollbacks.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "Supabase documentation",
+      "url": "https://supabase.com/docs",
+      "category": "official-database-docs",
+      "whyUseful": "Primary reference for local development, migrations, Auth, Storage, Postgres, and Row Level Security.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "GitHub Skills",
+      "url": "https://skills.github.com/",
+      "category": "official-git-collaboration-learning",
+      "whyUseful": "Interactive practice for repositories, pull requests, review, Actions, and security workflows.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "Fireship",
+      "url": "https://www.youtube.com/@Fireship",
+      "category": "creator-tool-radar",
+      "whyUseful": "Fast awareness of developer tools and concepts; use it to discover topics, then verify details in primary docs.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "Web Dev Simplified",
+      "url": "https://www.youtube.com/@WebDevSimplified",
+      "category": "creator-web-learning",
+      "whyUseful": "Focused explanations and practical web examples that can reveal a concept to reproduce in the current project.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "Traversy Media",
+      "url": "https://www.youtube.com/@TraversyMedia",
+      "category": "creator-project-learning",
+      "whyUseful": "Project-oriented tours of web stacks; compare publication date and versions before following code.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
+      "name": "Theo — t3.gg",
+      "url": "https://www.youtube.com/@t3dotgg",
+      "category": "creator-tool-commentary",
+      "whyUseful": "Opinionated coverage of modern TypeScript and web tooling; treat claims as leads to investigate, not architecture decisions.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    }
+  ]
+}

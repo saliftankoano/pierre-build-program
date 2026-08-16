@@ -1,0 +1,26 @@
+name: Scope change
+description: Evaluate a request without silently expanding the sprint.
+title: "[CHANGE] "
+labels: ["scope-change", "needs-decision"]
+body:
+  - type: textarea
+    id: request
+    attributes: { label: Requested change and business reason }
+    validations: { required: true }
+  - type: textarea
+    id: acceptance
+    attributes: { label: Clarified observable acceptance }
+    validations: { required: true }
+  - type: textarea
+    id: impact
+    attributes:
+      { label: Time, cost, data, security, design, testing, and support impact }
+    validations: { required: true }
+  - type: textarea
+    id: options
+    attributes: { label: Defer, swap, or expand options and recommendation }
+    validations: { required: true }
+  - type: textarea
+    id: approval
+    attributes: { label: Approval needed and implementation hold }
+    validations: { required: true }

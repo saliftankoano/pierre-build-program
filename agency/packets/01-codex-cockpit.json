@@ -1,0 +1,45 @@
+{
+  "milestone": 1,
+  "title": "Codex developer cockpit",
+  "hours": 8,
+  "project": "Ship With AI learner workspace",
+  "mentorGate": false,
+  "context": "Codex is the only AI coding environment in the core curriculum. Configure it with safe instructions, project context, GitHub access, current documentation habits, browser evidence, and Vercel diagnostics before building client work.",
+  "stories": [
+    {
+      "id": "SWAI-011", "type": "story", "priority": "P0", "epic": "Codex environment", "title": "Install and orient Codex in the curriculum repository", "persona": "Developer", "outcome": "Codex can inspect the correct local repository under understood permission boundaries.", "context": "Install and sign in using official Codex documentation. Start from the curriculum clone and use status, permissions, and review features before asking for changes.",
+      "acceptanceCriteria": ["Node 24, npm, Git, GitHub CLI, and Codex versions are recorded with sensitive output removed", "Codex starts in the curriculum Git root and accurately explains the repository map", "The learner explains permissions and chooses a safe setting for exploratory versus mutating tasks"],
+      "designRefs": ["https://learn.chatgpt.com/docs/codex/cli"], "dataContract": "docs/TOOLS.md environment inventory.",
+      "expectations": {"security": "Never publish login/token output; review permissions before work.", "privacy": "No employer code or private client data.", "accessibility": "Terminal evidence includes readable text.", "analytics": "None."},
+      "dependencies": ["Milestone 0 accepted"], "nonGoals": ["Trying every AI coding product"], "definitionOfDone": ["Codex can inspect and review a harmless change"], "evidence": ["Redacted version/status output", "Repository explanation", "Permission rationale"], "concepts": ["working directory", "permission", "sandbox", "context", "review"]
+    },
+    {
+      "id": "SWAI-012", "type": "story", "priority": "P0", "epic": "Codex environment", "title": "Create durable Codex instructions and project context", "persona": "Senior engineer", "outcome": "Every Codex session begins with accurate working agreements and product context.", "context": "Use the supplied global template and repository AGENTS.md. Create product, architecture, decisions, environment, debugging, and tools documents.",
+      "acceptanceCriteria": ["Global instructions cover safety and learning behavior without hard-coding one project's stack", "Repository AGENTS.md defines Next.js commands, docs, quality gates, and secret rules", "Codex reports the loaded instruction sources", "Context documents have owners and update triggers"],
+      "designRefs": ["https://learn.chatgpt.com/docs/agent-configuration/agents-md"], "dataContract": "Markdown context documents; environment inventory contains names/owners only, never values.",
+      "expectations": {"security": "No secret or personal path in committed instructions.", "privacy": "Project docs contain approved context only.", "accessibility": "Instructions require semantic and keyboard checks.", "analytics": "None."},
+      "dependencies": ["SWAI-011"], "nonGoals": ["Encoding every possible command"], "definitionOfDone": ["Codex follows and can summarize the instruction chain"], "evidence": ["AGENTS files", "Context docs", "Codex instruction summary"], "concepts": ["AGENTS.md", "global instruction", "project instruction", "durable context"]
+    },
+    {
+      "id": "SWAI-013", "type": "story", "priority": "P0", "epic": "Deployment tool belt", "title": "Give Codex GitHub and Vercel diagnostics", "persona": "Developer", "outcome": "Codex can inspect repository and deployment evidence from the local environment.", "context": "Authenticate GitHub CLI and install/authenticate Vercel CLI. Use only harmless practice resources and start with read-only diagnostics.",
+      "acceptanceCriteria": ["gh auth status works without token output being committed", "Vercel CLI can list deployments and inspect one practice deployment/build log", "docs/TOOLS.md identifies safe read-only commands and mutating commands requiring explicit approval", "The learner explains how CLI access gives Codex better evidence than a screenshot alone"],
+      "designRefs": ["https://vercel.com/docs/cli", "https://vercel.com/docs/cli/inspect"], "dataContract": "Tool inventory and redacted diagnostic transcript.",
+      "expectations": {"security": "No CLI token or env value in prompts/evidence.", "privacy": "Practice deployment only.", "accessibility": "Log excerpts include text context.", "analytics": "None."},
+      "dependencies": ["SWAI-011"], "nonGoals": ["Giving blanket approval for production mutation"], "definitionOfDone": ["Read-only diagnostics work from Codex's repository environment"], "evidence": ["Redacted gh/Vercel output", "Tool permission table"], "concepts": ["CLI", "authentication", "deployment", "build log", "runtime log"]
+    },
+    {
+      "id": "SWAI-014", "type": "spike", "priority": "P1", "epic": "Agent tool awareness", "title": "Evaluate documentation, browser, MCP, and future tools", "persona": "AI product builder", "outcome": "The learner can decide when an agent needs another tool and what trust it introduces.", "context": "Compare a documentation website, Codex web search, browser/screenshot context, CLI, API, SDK, MCP server, and plugin. Do not install random MCP servers.",
+      "acceptanceCriteria": ["Each tool type is defined through a current-project example", "Inventory lists data exposed, permissions, publisher, install/auth, read/write actions, and removal", "At least one proposed tool is rejected as unnecessary", "Supabase CLI and Playwright are deferred to the milestones that need them"],
+      "designRefs": ["https://learn.chatgpt.com/docs/extend/mcp?surface=cli"], "dataContract": "Tool-evaluation template.",
+      "expectations": {"security": "Every new tool expands trust surface.", "privacy": "Identify data transmitted outside the machine.", "accessibility": "Browser evidence includes keyboard/visual context.", "analytics": "None."},
+      "dependencies": ["SWAI-012", "SWAI-013"], "nonGoals": ["Maximizing the number of installed tools"], "definitionOfDone": ["Tool decisions are evidence-backed"], "evidence": ["Tool comparison", "Rejected-tool rationale"], "concepts": ["API", "SDK", "CLI", "MCP", "plugin", "browser tool"]
+    },
+    {
+      "id": "SWAI-015", "type": "review", "priority": "P0", "epic": "Codex environment", "title": "Complete the teach-inspect-debug exercise", "persona": "Senior engineer", "outcome": "Codex is used to learn and diagnose, not only generate code.", "context": "Use a harmless failed Next.js practice deployment or fixture. Ask Codex to inspect project context and Vercel logs, teach the unfamiliar concept, cite primary docs, predict the fix, make a focused change, and review the diff.",
+      "acceptanceCriteria": ["Debugging packet contains expected, actual, reproduction, error, logs, attempts, and resolution", "Codex cites primary docs relevant to the installed tool/framework version", "The learner explains the cause back and answers a prediction question", "An unnecessary generated change is rejected during diff review"],
+      "designRefs": [], "dataContract": "docs/DEBUGGING.md entry.",
+      "expectations": {"security": "Logs are redacted before prompting/committing.", "privacy": "Synthetic failure only.", "accessibility": "Resulting user failure state is understandable.", "analytics": "None."},
+      "dependencies": ["SWAI-013", "SWAI-014"], "nonGoals": ["Copying a generated fix without explanation"], "definitionOfDone": ["Developer cockpit checklist passes"], "evidence": ["Debugging record", "Docs citations", "Diff review", "Teach-back"], "concepts": ["debugging packet", "primary documentation", "prediction", "diff review"]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "milestone": 5,
+  "title": "API research spike",
+  "hours": 12,
+  "project": "Learner-selected API idea",
+  "mentorGate": false,
+  "context": "A timeboxed discovery sprint must prove that an external API can support one valuable user workflow on acceptable technical and business terms.",
+  "stories": [
+    {
+      "id": "SWAI-301", "type": "spike", "priority": "P0", "epic": "API product discovery", "title": "Define the minimum API capability", "persona": "Target user", "outcome": "Research is constrained by a concrete user decision or task.", "context": "Start from the selected milestone 0 idea. Write the smallest useful workflow and the exact data/capability it requires.",
+      "acceptanceCriteria": ["One user, problem, trigger, decision, and success measure are stated", "Required and optional data fields are separated", "Freshness, geography, volume, latency, and cost constraints are explicit"],
+      "designRefs": [], "dataContract": "PRD and API evaluation template.",
+      "expectations": {"security": "Classify requested data and authentication risk.", "privacy": "Avoid personal data unless necessary and justified.", "accessibility": "Describe outcome in plain language.", "analytics": "Define one product success event."},
+      "dependencies": ["Milestone 4 accepted", "API idea selected"], "nonGoals": ["Building production UI"], "definitionOfDone": ["Research question is answerable in the timebox"], "evidence": ["Problem statement", "Required data contract"], "concepts": ["API", "constraint", "data contract", "success metric"]
+    },
+    {
+      "id": "SWAI-302", "type": "spike", "priority": "P0", "epic": "API product discovery", "title": "Compare three API candidates", "persona": "Technical lead", "outcome": "The provider decision accounts for reliability, rights, cost, and failure rather than documentation aesthetics.", "context": "Use official docs and live sandbox requests. Record auth, pricing, rate limits, pagination, freshness, terms, SDK health, Vercel compatibility, and support.",
+      "acceptanceCriteria": ["At least three candidates have linked primary documentation", "One redacted success request and response is captured per viable candidate", "401, 404, 429, timeout, and provider outage behaviors are investigated or documented", "Each option has rejection risk and exit cost"],
+      "designRefs": [], "dataContract": "API evaluation matrix.",
+      "expectations": {"security": "Keys stay in local ignored files; logs and captures are redacted.", "privacy": "Terms and data rights are recorded.", "accessibility": "Provider does not determine UI accessibility.", "analytics": "Record provider usage/cost observability."},
+      "dependencies": ["SWAI-301"], "nonGoals": ["Choosing solely because AI generated an SDK example"], "definitionOfDone": ["Evidence supports a ranked comparison"], "evidence": ["Evaluation matrix", "Redacted request evidence"], "concepts": ["HTTP", "JSON", "authentication", "rate limit", "SDK", "terms"]
+    },
+    {
+      "id": "SWAI-303", "type": "bug", "priority": "P1", "epic": "API product discovery", "title": "Diagnose authentication and rate-limit failures", "persona": "Developer", "outcome": "Common API failures are understood before production implementation.", "context": "Use safe test requests or supplied fixtures to reproduce a 401 and 429. Do not solve them by exposing a key in browser code or disabling limits.",
+      "acceptanceCriteria": ["The 401 cause is distinguished from authorization and missing-resource failures", "Rate-limit headers and retry guidance are recorded", "Proposed UI behavior avoids infinite retries and gives a useful next action"],
+      "designRefs": [], "dataContract": "Redacted HTTP transcript.",
+      "expectations": {"security": "Credentials never appear in command history shared as evidence.", "privacy": "No private payloads.", "accessibility": "Error copy is understandable.", "analytics": "Operational categories contain no credentials."},
+      "dependencies": ["SWAI-302"], "nonGoals": ["Circumventing provider controls"], "definitionOfDone": ["Root cause and safe response are explained"], "evidence": ["Redacted transcript", "Failure decision table"], "concepts": ["401", "403", "404", "429", "header", "backoff"], "seededBug": "Use a deliberately wrong placeholder credential and a recorded 429 fixture; never use a real leaked key."
+    },
+    {
+      "id": "SWAI-304", "type": "review", "priority": "P0", "epic": "API product discovery", "title": "Approve API architecture decision", "persona": "Senior engineer", "outcome": "Milestone 6 has a chosen provider, normalized contract, and fallback.", "context": "Summarize the evidence and choose, reject, or stop the idea. A stop decision is valid when no provider meets the constraints.",
+      "acceptanceCriteria": ["ADR states decision, evidence, consequences, cost trigger, and exit plan", "Normalized internal data shape is provider-independent", "Cache/freshness and error strategy are defined", "The next milestone scope fits sixteen hours"],
+      "designRefs": [], "dataContract": "ADR plus normalized JSON example.",
+      "expectations": {"security": "Secret boundary is explicit.", "privacy": "Data retention is explicit.", "accessibility": "All provider states map to user-facing states.", "analytics": "Usage/cost signals defined."},
+      "dependencies": ["SWAI-302", "SWAI-303"], "nonGoals": ["Production implementation"], "definitionOfDone": ["Decision is reviewable and falsifiable"], "evidence": ["ADR", "Normalized contract", "Milestone 6 scope"], "concepts": ["architecture decision", "adapter", "cache", "fallback"]
+    }
+  ]
+}

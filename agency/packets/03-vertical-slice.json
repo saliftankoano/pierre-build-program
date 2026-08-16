@@ -1,0 +1,31 @@
+{
+  "milestone": 3,
+  "title": "First vertical slice",
+  "hours": 12,
+  "project": "ClearPath Home Services",
+  "mentorGate": false,
+  "context": "ClearPath needs one complete hero-to-quote entry experience that proves the visual direction and mobile usability before the rest of the site is built.",
+  "stories": [
+    {
+      "id": "SWAI-101", "type": "kickoff", "priority": "P0", "epic": "ClearPath launch", "title": "Create the ClearPath project and implementation brief", "persona": "Account manager", "outcome": "The story is understood and the project has a reproducible baseline.", "context": "Review the client brief, discovery notes, and design handoff before scaffolding the application.",
+      "acceptanceCriteria": ["A separate clearpath-home repository is created with the curriculum bootstrap command", "README states user, business goal, scope, non-goals, and source documents", "A component inventory and acceptance plan are committed before UI implementation"],
+      "designRefs": ["agency/clients/clearpath-home-services/brief.md", "agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "Static typed configuration for business facts and navigation.",
+      "expectations": {"security": "No credentials are needed.", "privacy": "Use fictional client contact information.", "accessibility": "Plan semantic landmarks and heading order.", "analytics": "Name quote-start and phone-click events but do not implement yet."},
+      "dependencies": ["Milestone 2 accepted"], "nonGoals": ["Building the entire website"], "definitionOfDone": ["Project baseline builds", "Plan is reviewable"], "evidence": ["Repository URL", "Initial PR"], "concepts": ["project structure", "component", "configuration", "acceptance criteria"]
+    },
+    {
+      "id": "SWAI-102", "type": "story", "priority": "P0", "epic": "ClearPath launch", "title": "Build responsive navigation and hero", "persona": "Homeowner", "outcome": "A visitor understands the service area and can begin a quote or phone call quickly.", "context": "Use the approved content hierarchy and only verifiable trust statements. Mobile traffic is the primary design case.",
+      "acceptanceCriteria": ["Navigation, hero promise, service area, trust proof, primary quote CTA, and secondary phone CTA are present", "Layout works at 375px, 768px, and 1440px without horizontal overflow", "All controls have visible keyboard focus and understandable labels", "Repeated trust items are rendered from typed data rather than duplicated markup"],
+      "designRefs": ["agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "Business config contains name, service area, phone display/raw values, and trust statements.",
+      "expectations": {"security": "Do not use unsafe HTML injection.", "privacy": "No visitor data is collected.", "accessibility": "Semantic header/nav/main, one page h1, focus-visible controls, reduced motion.", "analytics": "Document event names only."},
+      "dependencies": ["SWAI-101"], "nonGoals": ["Functional email submission", "Unapproved animations"], "definitionOfDone": ["Vercel preview is available", "Responsive and keyboard evidence is attached"], "evidence": ["Desktop/mobile screenshots", "Preview URL", "Component explanation"], "concepts": ["HTML semantics", "CSS layout", "props", "arrays", "objects", "map"]
+    },
+    {
+      "id": "SWAI-103", "type": "bug", "priority": "P1", "epic": "ClearPath launch", "title": "Correct mobile hero overflow", "persona": "QA analyst", "outcome": "The hero remains usable on narrow devices and at text zoom.", "context": "At 320px width and 200% text zoom, the CTA row creates horizontal scrolling and clips the phone action.",
+      "acceptanceCriteria": ["The issue reproduces before the change and no longer reproduces after it", "Actions stack or wrap without losing meaning", "The fix does not regress the desktop layout"],
+      "designRefs": ["agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "None.",
+      "expectations": {"security": "None.", "privacy": "None.", "accessibility": "Test 200% zoom and keyboard focus.", "analytics": "None."},
+      "dependencies": ["SWAI-102"], "nonGoals": ["Redesigning the full hero"], "definitionOfDone": ["Regression evidence is attached"], "evidence": ["Before/after capture", "Explanation of CSS cause"], "concepts": ["responsive layout", "flex wrapping", "overflow", "regression"], "seededBug": "Apply a non-wrapping CTA row with a fixed minimum width in the learner project, then diagnose it with browser tools."
+    }
+  ]
+}

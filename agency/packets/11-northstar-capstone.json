@@ -1,0 +1,66 @@
+{
+  "milestone": 11,
+  "title": "Northstar Digital Forensics capstone",
+  "hours": 32,
+  "project": "Northstar Digital Forensics portal",
+  "mentorGate": true,
+  "context": "Run a complete simulated agency engagement for a secure case-intake and evidence-metadata portal using synthetic data and explicit non-production claims.",
+  "stories": [
+    {
+      "id": "SWAI-901", "type": "kickoff", "priority": "P0", "epic": "Northstar discovery", "title": "Turn the RFP into an approved product plan", "persona": "Client founder", "outcome": "Stakeholders agree on users, release scope, risks, estimate, and acceptance before implementation.", "context": "Review the Northstar brief and write discovery questions before reading the supplied discovery notes as client answers.",
+      "acceptanceCriteria": ["PRD defines personas, journeys, goals, success, scope, non-goals, assumptions, risks, and acceptance", "Estimate shows discovery/design/build/QA/launch/handoff and uncertainty", "The phrase chain of custody is corrected to educational timestamped activity history", "Client approval record captures the accepted scope"],
+      "designRefs": ["agency/clients/northstar-digital-forensics/brief.md", "agency/clients/northstar-digital-forensics/discovery-notes.md"], "dataContract": "PRD, discovery, estimate, and approval templates.",
+      "expectations": {"security": "Synthetic data and non-production boundary explicit.", "privacy": "No real evidence or client identity.", "accessibility": "Journeys include keyboard/mobile needs.", "analytics": "Define intake completion and review readiness only."},
+      "dependencies": ["Milestone 10 accepted"], "nonGoals": ["Legal/compliance claims", "Forensic processing", "Billing"], "definitionOfDone": ["Plan and estimate approved"], "evidence": ["Discovery questions", "PRD", "Estimate", "Approval record"], "concepts": ["discovery", "scope", "estimate", "assumption", "approval"]
+    },
+    {
+      "id": "SWAI-902", "type": "spike", "priority": "P0", "epic": "Northstar architecture", "title": "Approve schema, authorization, and threat model", "persona": "Senior engineer", "outcome": "The technical design proves tenant and role boundaries before feature work.", "context": "Model profiles, organizations, memberships, cases, evidence_items, and audit_events with migrations, seeds, RLS, private storage, and an access matrix.",
+      "acceptanceCriteria": ["ER diagram and data dictionary define keys, relationships, lifecycle, and safe event context", "Access matrix covers anonymous, client A, client B, investigator, admin, revoked membership, URL, database, and storage", "Threat model addresses IDOR, role tampering, broad RLS, unsafe uploads, sensitive logs, notifications, and credentials", "Architecture decisions state tradeoffs and non-claims"],
+      "designRefs": ["agency/clients/northstar-digital-forensics/security-boundaries.md"], "dataContract": "Minimum domain model from curriculum milestone 11.",
+      "expectations": {"security": "Fail closed at database/server/storage boundaries.", "privacy": "Synthetic minimum data and retention.", "accessibility": "Domain language is understandable.", "analytics": "No evidence description/content."},
+      "dependencies": ["SWAI-901"], "nonGoals": ["Immutable legal ledger"], "definitionOfDone": ["Architecture review passes before UI build"], "evidence": ["ER diagram", "Access matrix", "Threat model", "ADRs"], "concepts": ["tenant", "role", "RLS", "threat model", "audit event"]
+    },
+    {
+      "id": "SWAI-903", "type": "story", "priority": "P0", "epic": "Northstar client workflow", "title": "Deliver client case intake", "persona": "Law-firm client", "outcome": "An authorized client can create a case, save structured intake, add safe evidence metadata/sample files, and submit for review.", "context": "Use the approved status transitions and private storage. File contents are harmless fixtures only.",
+      "acceptanceCriteria": ["Client sees only their organization's cases", "Required metadata and transition to ready_for_review are server validated", "Sample uploads enforce allowed type/size, private path, and authorized signed access", "Important actions create safe timestamped audit events", "Loading, validation, upload failure, retry, and success states are accessible"],
+      "designRefs": ["agency/clients/northstar-digital-forensics/design-handoff.md"], "dataContract": "Approved cases/evidence_items/audit_events schema and status transition table.",
+      "expectations": {"security": "Identity/organization from trusted session; private storage.", "privacy": "No content in logs/notifications/analytics.", "accessibility": "Error summary, progress, status text, mobile behavior.", "analytics": "Case intake completion only."},
+      "dependencies": ["SWAI-902"], "nonGoals": ["Real evidence", "External sharing"], "definitionOfDone": ["Client workflow browser and authorization tests pass"], "evidence": ["Preview", "Workflow recording", "Data-flow trace"], "concepts": ["multi-step form", "status transition", "upload", "audit event"]
+    },
+    {
+      "id": "SWAI-904", "type": "story", "priority": "P0", "epic": "Northstar investigator workflow", "title": "Deliver investigator queue and review", "persona": "Investigator", "outcome": "An investigator can identify assigned work, review authorized cases, request information, and change valid statuses.", "context": "Queue filters must not become a global data leak. Client-visible updates and internal operational context are distinct.",
+      "acceptanceCriteria": ["Queue contains only authorized assigned/role-visible cases", "Search and filters preserve tenant/role boundaries", "Only allowed role/status transitions succeed", "Client-visible notification contains reference/action only", "Every state change creates an attributable safe audit event"],
+      "designRefs": ["agency/clients/northstar-digital-forensics/design-handoff.md"], "dataContract": "Approved authorization and status-transition matrix.",
+      "expectations": {"security": "Filter is not authorization; enforce underlying query/policy.", "privacy": "No evidence content in notification.", "accessibility": "Status not color-only; tables responsive.", "analytics": "Queue and status outcomes only."},
+      "dependencies": ["SWAI-903"], "nonGoals": ["Automated forensic conclusions"], "definitionOfDone": ["Investigator workflow and transition tests pass"], "evidence": ["Role demo", "Policy tests", "Audit example"], "concepts": ["queue", "filter", "status machine", "notification"]
+    },
+    {
+      "id": "SWAI-905", "type": "story", "priority": "P1", "epic": "Northstar administration", "title": "Deliver membership and assignment administration", "persona": "Administrator", "outcome": "An administrator can manage training memberships and assignments without trusting client-provided roles.", "context": "Privilege changes and disabled memberships must have explicit effects and audit events.",
+      "acceptanceCriteria": ["Only administrator can change role/membership and investigator assignment", "Revoked member loses new access immediately according to documented session behavior", "Existing cases remain owned by organization and are not orphaned", "Privilege and assignment changes create safe audit events"],
+      "designRefs": ["agency/clients/northstar-digital-forensics/design-handoff.md"], "dataContract": "Membership/assignment rules from architecture review.",
+      "expectations": {"security": "Role cannot be selected in an untrusted profile update.", "privacy": "Member list limited by admin scope.", "accessibility": "Confirmation and focus for privileged changes.", "analytics": "No member personal fields."},
+      "dependencies": ["SWAI-902"], "nonGoals": ["Enterprise directory synchronization"], "definitionOfDone": ["Privilege tests pass"], "evidence": ["Admin demo", "Revocation tests"], "concepts": ["privilege", "membership", "revocation", "assignment"]
+    },
+    {
+      "id": "SWAI-906", "type": "change", "priority": "P1", "epic": "Northstar scope", "title": "Respond to external evidence-sharing request", "persona": "Client founder", "outcome": "The client receives a safe scope recommendation without a rushed public link feature.", "context": "Renee asks for a link that outside counsel can open without an account. Assess recipient identity, expiration, revocation, download scope, legal/process ownership, notification, audit, abuse, and support.",
+      "acceptanceCriteria": ["Response identifies why a hard-to-guess link alone is insufficient", "Authenticated guest, one-time exchange, and defer/manual alternatives are compared", "Recommendation states schema, authorization, storage, UX, tests, process, estimate, and risk", "Current release is not weakened before explicit approval"],
+      "designRefs": [], "dataContract": "Change request and threat-model update.",
+      "expectations": {"security": "Recipient verification, expiration, revocation, scope.", "privacy": "Minimum shared data.", "accessibility": "Guest flow considered.", "analytics": "Access audit only if approved."},
+      "dependencies": ["SWAI-903"], "nonGoals": ["Implementing an unapproved public link"], "definitionOfDone": ["Client decision recorded"], "evidence": ["Change request", "Updated risk analysis"], "concepts": ["guest access", "scope change", "revocation", "process control"]
+    },
+    {
+      "id": "SWAI-907", "type": "bug", "priority": "P0", "epic": "Northstar release", "title": "Close cross-client direct object access", "persona": "Security reviewer", "outcome": "Client B cannot discover or access client A's case or object through any tested path.", "context": "Marcus supplies synthetic client A/B accounts and a case ID. The visible list is filtered, but a direct detail or download request is exposed.",
+      "acceptanceCriteria": ["Exposure is reproduced and impact bounded with synthetic data", "Database/server/storage boundary is corrected rather than only the UI", "Regression covers UI, direct URL, server action, database, signed-link issuance, copied link, and revoked member", "Incident-style root cause and prevention are documented"],
+      "designRefs": ["agency/clients/northstar-digital-forensics/security-boundaries.md"], "dataContract": "Access matrix from SWAI-902.",
+      "expectations": {"security": "Critical release blocker.", "privacy": "Synthetic fixtures only.", "accessibility": "Denied state safe and understandable.", "analytics": "Safe denied-access category."},
+      "dependencies": ["SWAI-903", "SWAI-904"], "nonGoals": ["Obscuring IDs"], "definitionOfDone": ["Full regression matrix passes"], "evidence": ["Before/after tests", "Root cause", "Prevention"], "concepts": ["IDOR", "defense in depth", "tenant isolation", "regression"], "seededBug": "Load case detail by ID in privileged server code without constraining organization/assignment, then return a signed object URL."
+    },
+    {
+      "id": "SWAI-908", "type": "review", "priority": "P0", "epic": "Northstar release", "title": "Launch and defend the capstone", "persona": "Client and mentor panel", "outcome": "Northstar is delivered with evidence, non-claims, operating documentation, and demonstrated comprehension.", "context": "Run final QA/security triage, production verification, client demo, credential incident drill, rollback discussion, and handoff.",
+      "acceptanceCriteria": ["Production deployment and all critical role journeys are verified", "Client guide, admin runbook, deployment guide, incident plan, maintenance proposal, known limitations, and support boundary are complete", "Learner explains architecture and traces intake through validation, authorization, storage, audit, notification, and UI", "Learner performs a migration-backed field change and diagnoses the seeded access bug", "Every graduation category scores at least 3 of 4 and no critical issue remains"],
+      "designRefs": ["All Northstar client documents"], "dataContract": "Complete handoff packet.",
+      "expectations": {"security": "No critical authorization/credential failure.", "privacy": "Synthetic data and non-production claims visible.", "accessibility": "Critical journeys meet release gate.", "analytics": "Privacy-reviewed product/health signals."},
+      "dependencies": ["SWAI-903", "SWAI-904", "SWAI-905", "SWAI-906", "SWAI-907"], "nonGoals": ["Claiming legal admissibility, certification, or production evidence readiness"], "definitionOfDone": ["Mentor approves graduation", "Handoff is complete"], "evidence": ["Production URL", "Demo", "Test reports", "Handoff packet", "Mentor rubric", "Final retrospective"], "concepts": ["client delivery", "defense", "handoff", "incident", "maintenance"]
+    }
+  ]
+}

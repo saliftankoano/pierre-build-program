@@ -1,0 +1,45 @@
+{
+  "milestone": 2,
+  "title": "Agent-assisted project planning and UI discovery",
+  "hours": 12,
+  "project": "ClearPath Home Services planning engagement",
+  "mentorGate": false,
+  "context": "Planning only. Use Codex to interview, research unfamiliar tools, define the Next.js system, learn frontend terminology, explore live component sources, and deliver a decision-complete build plan without writing production application code.",
+  "stories": [
+    {
+      "id": "SWAI-021", "type": "spike", "priority": "P0", "epic": "ClearPath planning", "title": "Run the Codex product-planning interview", "persona": "Product builder", "outcome": "The raw client idea becomes an explicit set of facts, preferences, assumptions, unknowns, and decisions.", "context": "Provide the ClearPath brief and discovery notes. Instruct Codex not to implement and to ask one material question at a time.",
+      "acceptanceCriteria": ["Interview covers user, outcome, workflow, scope, non-goals, data, integrations, budget, content, design, operations, and success", "Facts, preferences, assumptions, unknowns, and decisions are separated", "Material unanswered questions are escalated rather than invented"],
+      "designRefs": ["playbooks/planning-with-codex.md", "agency/clients/clearpath-home-services/brief.md"], "dataContract": "Discovery and PRD templates.",
+      "expectations": {"security": "No real client secrets or private data.", "privacy": "Only fictional ClearPath context.", "accessibility": "Accessibility is a planning input.", "analytics": "Success metrics defined without sensitive data."},
+      "dependencies": ["Milestone 1 accepted"], "nonGoals": ["Writing application code"], "definitionOfDone": ["Understanding summary is approved by learner"], "evidence": ["Interview transcript summary", "Assumption/unknown register"], "concepts": ["fact", "preference", "assumption", "unknown", "decision"]
+    },
+    {
+      "id": "SWAI-022", "type": "spike", "priority": "P0", "epic": "ClearPath planning", "title": "Research the Next.js delivery options", "persona": "Technical lead", "outcome": "The system plan uses current tools for a stated reason and rejects unnecessary complexity.", "context": "Ask Codex to research current official documentation for Next.js, Vercel, form/email delivery, analytics, testing, and UI foundations. Compare library/service/build alternatives.",
+      "acceptanceCriteria": ["Decision matrix links primary docs and records current compatibility", "Every option covers purpose, cost/limit, security/data boundary, maintenance, lock-in, and rejection reason", "Browser, Next.js server, external service, and deployment responsibilities are diagrammed", "At least one novel Codex recommendation is verified and one is rejected"],
+      "designRefs": ["playbooks/planning-with-codex.md"], "dataContract": "Architecture/tool decision matrix and system diagram.",
+      "expectations": {"security": "Credential/data boundaries explicit.", "privacy": "Third-party data sharing explicit.", "accessibility": "Tool choice does not waive accessibility.", "analytics": "Minimum event plan."},
+      "dependencies": ["SWAI-021"], "nonGoals": ["Installing tools", "Writing code"], "definitionOfDone": ["Decisions have evidence and reversal triggers"], "evidence": ["Decision matrix", "Primary-doc links", "System diagram"], "concepts": ["research", "primary documentation", "build vs buy", "runtime", "tradeoff"]
+    },
+    {
+      "id": "SWAI-023", "type": "spike", "priority": "P0", "epic": "Frontend discovery", "title": "Build a visual frontend vocabulary", "persona": "Product designer", "outcome": "The learner can name common UI patterns and specify intent precisely to Codex.", "context": "Use live component documentation and the UI field guide. Capture at least thirty terms with a visual example, purpose, and misuse case.",
+      "acceptanceCriteria": ["Glossary covers layout, navigation, content, forms, feedback, overlays, data display, responsive, tokens, states, and motion", "Every term has a direct live example and plain-language definition", "The learner can identify ten randomly selected patterns from screenshots and explain their role"],
+      "designRefs": ["resources/ui-library-field-guide.md"], "dataContract": "Visual glossary with links/screenshots and text alternatives.",
+      "expectations": {"security": "No untrusted component is installed.", "privacy": "No private screenshots.", "accessibility": "Images have text explanation; patterns include keyboard/state behavior.", "analytics": "None."},
+      "dependencies": ["SWAI-021"], "nonGoals": ["Memorizing CSS syntax", "Choosing components by trend"], "definitionOfDone": ["Terminology defense passes"], "evidence": ["Visual glossary", "Terminology recording/notes"], "concepts": ["component", "pattern", "state", "token", "responsive reflow"]
+    },
+    {
+      "id": "SWAI-024", "type": "spike", "priority": "P0", "epic": "Frontend discovery", "title": "Select and audit the component sources", "persona": "Frontend lead", "outcome": "ClearPath has one coherent UI foundation and a small justified specialist shortlist.", "context": "Explore shadcn/ui, Radix, Base UI, React Aria, Aceternity UI, Magic UI, 21st.dev, and Motion visually. Select one foundation and at most two specialist components for later implementation.",
+      "acceptanceCriteria": ["Every considered source has direct link, role, license, version fit, install model, dependencies, accessibility, mobile/reduced-motion, and maintenance notes", "One foundation is selected for behavior/consistency", "At most two specialist components are shortlisted and mapped to user/story value", "Rejected sources include reasons"],
+      "designRefs": ["resources/ui-library-field-guide.md"], "dataContract": "Component-source audit and shortlist.",
+      "expectations": {"security": "Third-party source will be reviewed before installation.", "privacy": "No data concerns at planning stage.", "accessibility": "Keyboard/focus/touch/reduced motion are gates.", "analytics": "None."},
+      "dependencies": ["SWAI-022", "SWAI-023"], "nonGoals": ["Installing every library", "Mixing multiple primitive systems for the same control"], "definitionOfDone": ["Shortlist is coherent and auditable"], "evidence": ["Source audit", "Selected/rejected rationale"], "concepts": ["component package", "primitive", "registry", "copied source", "license", "dependency"]
+    },
+    {
+      "id": "SWAI-025", "type": "review", "priority": "P0", "epic": "ClearPath planning", "title": "Approve the implementation-ready plan and design direction", "persona": "Agency review panel", "outcome": "Milestone 3 can begin without unresolved product, technical, or visual decisions that would change the build.", "context": "Present three genuinely different design directions, score them, select one, then convert the project into epics/stories with acceptance and test evidence.",
+      "acceptanceCriteria": ["PRD, journey, sitemap, system diagram, decisions, risks, non-goals, and story map agree", "Three visual directions differ in hierarchy/style, not only color", "Chosen direction defines tokens, components, states, responsive behavior, motion, and source audit", "Codex red-team review is answered and material open decisions are resolved or explicitly spiked", "No production app code was written"],
+      "designRefs": ["agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "Complete planning packet.",
+      "expectations": {"security": "Threats and credential boundaries included.", "privacy": "Data minimization included.", "accessibility": "Critical states and keyboard behavior specified.", "analytics": "Events mapped to success measures."},
+      "dependencies": ["SWAI-022", "SWAI-023", "SWAI-024"], "nonGoals": ["Implementation"], "definitionOfDone": ["Plan is decision-complete and approved"], "evidence": ["Planning packet", "Three directions", "Scored selection", "Codex red-team response"], "concepts": ["PRD", "story map", "design system", "acceptance strategy", "decision complete"]
+    }
+  ]
+}

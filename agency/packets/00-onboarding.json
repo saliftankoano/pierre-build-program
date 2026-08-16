@@ -1,0 +1,38 @@
+{
+  "milestone": 0,
+  "title": "GitHub and agency foundations",
+  "hours": 8,
+  "project": "Ship With AI learner workspace",
+  "mentorGate": false,
+  "context": "No GitHub account or Git knowledge is assumed. Priya needs evidence that the new developer understands why the agency uses version control and can move work from a secured account through fork, clone, branch, commit, push, PR, review, and merge.",
+  "stories": [
+    {
+      "id": "SWAI-001", "type": "kickoff", "priority": "P0", "epic": "Developer onboarding", "title": "Create and secure a professional GitHub identity", "persona": "New agency developer", "outcome": "The learner owns a verified, protected account suitable for personal and client repositories.", "context": "Create a free personal account using a durable email and professional username. Verify email, use a password manager, enable 2FA, save recovery codes outside the repository, and complete a basic profile.",
+      "acceptanceCriteria": ["GitHub email is verified and two-factor authentication is enabled", "Profile name, short professional bio, and optional appropriate image are present", "The learner explains why accounts are personal and why credentials/recovery codes are never committed or shared"],
+      "designRefs": ["https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github"], "dataContract": "No application data.",
+      "expectations": {"security": "Hide email addresses, 2FA secrets, recovery codes, and session details in evidence.", "privacy": "Public profile contains only intentionally public information.", "accessibility": "Use descriptive profile text.", "analytics": "None."},
+      "dependencies": [], "nonGoals": ["Buying a GitHub plan", "Creating organization accounts"], "definitionOfDone": ["Account-security checklist is complete"], "evidence": ["Redacted profile/security screenshots", "Written account-safety explanation"], "concepts": ["account", "identity", "2FA", "repository owner", "credential"]
+    },
+    {
+      "id": "SWAI-002", "type": "story", "priority": "P0", "epic": "Developer onboarding", "title": "Complete the first repository, fork, and local workflow", "persona": "New agency developer", "outcome": "The learner can explain and perform the complete GitHub collaboration path.", "context": "Begin with GitHub's browser Hello World exercise. Then fork the curriculum, install GitHub Desktop or Git, clone the fork, identify origin/upstream, and use disposable text files for conflict and recovery practice.",
+      "acceptanceCriteria": ["A browser-created practice repository includes README, issue, branch, commit, PR, review, and merge", "The curriculum is forked under the learner account and the learner explains why changes do not alter the canonical repository", "The fork is cloned locally and origin/upstream are identified", "A practice PR contains at least three coherent commits", "A merge conflict is resolved and its markers are explained", "A safe commit is reverted and the original change is recovered through history"],
+      "designRefs": [], "dataContract": "Practice text only.",
+      "expectations": {"security": "Inspect git diff before staging.", "privacy": "No employer repository or private code.", "accessibility": "Commit messages communicate intent.", "analytics": "None."},
+      "dependencies": ["SWAI-001"], "nonGoals": ["Memorizing the full Git command set", "Installing Codex or deployment tools"], "definitionOfDone": ["Practice PR is merged", "Recovery explanation is included"], "evidence": ["Hello World repository", "Fork URL", "PR URL", "Conflict screenshot", "Redacted command transcript"], "concepts": ["repository", "fork", "clone", "origin", "upstream", "branch", "commit", "push", "PR", "merge", "revert"]
+    },
+    {
+      "id": "SWAI-003", "type": "spike", "priority": "P1", "epic": "Idea portfolio", "title": "Inventory and score ten software ideas", "persona": "Product builder", "outcome": "Three right-sized project candidates are selected using evidence rather than excitement alone.", "context": "Ideas are scored 1–5 for user pain, user access, smallest scope, security/data risk, API dependency, learning value, and client potential.",
+      "acceptanceCriteria": ["At least ten ideas are described in one sentence each", "Every idea has all seven scores and a short rationale", "One quick win, one API idea, and one database idea are selected", "Deferred ideas include a reason and a condition for reconsideration"],
+      "designRefs": [], "dataContract": "IDEAS.md table using the supplied idea-scorecard template.",
+      "expectations": {"security": "Flag ideas involving regulated or employer data.", "privacy": "Use generalized descriptions when an idea involves a real person or employer.", "accessibility": "Plain-language problem statements.", "analytics": "Define one success signal per selected idea."},
+      "dependencies": ["SWAI-001"], "nonGoals": ["Writing code", "Choosing a stack"], "definitionOfDone": ["Selection rationale survives an AI critique"], "evidence": ["IDEAS.md", "AI critique and response"], "concepts": ["scope", "risk", "user outcome", "prioritization"]
+    },
+    {
+      "id": "SWAI-004", "type": "chore", "priority": "P1", "epic": "Developer onboarding", "title": "Explain the agency GitHub workflow", "persona": "Developer", "outcome": "The learner understands why each GitHub object exists instead of following clicks by memory.", "context": "Draw and narrate the path from a client story to local work, review, merge, deployment, and recovery. Include who owns each repository and when a fork is appropriate.",
+      "acceptanceCriteria": ["Diagram includes account, canonical repository, fork, clone, branch, commit, push, issue, PR, review, merge, and deployment", "The learner explains what exists locally versus on GitHub", "The learner explains a safe recovery path after a bad change"],
+      "designRefs": ["https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account"], "dataContract": "Markdown or Mermaid workflow diagram.",
+      "expectations": {"security": "No tokens or private repository details.", "privacy": "Public examples only.", "accessibility": "Diagram has a text explanation.", "analytics": "None."},
+      "dependencies": ["SWAI-002"], "nonGoals": ["Codex setup"], "definitionOfDone": ["Workflow can be explained without reading definitions"], "evidence": ["Workflow diagram", "Explanation"], "concepts": ["local", "remote", "review", "deployment", "recovery"]
+    }
+  ]
+}

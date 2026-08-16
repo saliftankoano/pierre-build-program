@@ -1,0 +1,45 @@
+{
+  "milestone": 8,
+  "title": "Authenticated product",
+  "hours": 18,
+  "project": "Learner-selected database idea",
+  "mentorGate": true,
+  "context": "Add identity, ownership or organization membership, roles, protected routes/storage, and a tested authorization matrix while handling a mid-sprint sharing request.",
+  "stories": [
+    {
+      "id": "SWAI-601", "type": "story", "priority": "P0", "epic": "Identity and ownership", "title": "Implement authentication and onboarding", "persona": "New user", "outcome": "A user can sign in, establish the required profile/ownership state, and recover from incomplete onboarding.", "context": "Treat authentication as identity only; resource authorization is delivered separately.",
+      "acceptanceCriteria": ["Signed-out, signed-in incomplete, active, and disabled states have defined behavior", "Protected server actions derive user identity from trusted session", "Redirects preserve a safe intended destination", "Errors do not reveal whether another person's account exists"],
+      "designRefs": ["Learner-created onboarding flow"], "dataContract": "Profile and optional organization/membership model from approved migration.",
+      "expectations": {"security": "No client-supplied user ID or role is trusted.", "privacy": "Minimum profile data.", "accessibility": "Form errors and focus behavior work.", "analytics": "Track onboarding completion only."},
+      "dependencies": ["SWAI-504"], "nonGoals": ["Every social provider"], "definitionOfDone": ["Auth-state browser tests pass"], "evidence": ["State matrix", "Session-to-profile trace"], "concepts": ["authentication", "session", "profile", "redirect"]
+    },
+    {
+      "id": "SWAI-602", "type": "story", "priority": "P0", "epic": "Identity and ownership", "title": "Enforce role and ownership boundaries", "persona": "Authorized user", "outcome": "Every resource action checks actor, action, resource, and tenant/owner relationship.", "context": "Add the minimum roles needed by the idea and enforce them in database/server boundaries.",
+      "acceptanceCriteria": ["Access matrix covers anonymous, user A, user B, privileged role, revoked membership, and missing resource", "Direct URL, server action, database query, and UI behavior agree", "Role changes require a privileged verified actor", "Unauthorized responses avoid leaking sensitive resource details"],
+      "designRefs": [], "dataContract": "Access matrix and RLS/server authorization rules.",
+      "expectations": {"security": "Authorization is not a hidden button.", "privacy": "Tenant boundaries tested with synthetic data.", "accessibility": "Authorized alternatives and errors are understandable.", "analytics": "Safe denied-action category only."},
+      "dependencies": ["SWAI-601"], "nonGoals": ["Arbitrary custom permissions"], "definitionOfDone": ["Authorization integration tests pass"], "evidence": ["Access matrix", "Test output", "Policy walkthrough"], "concepts": ["authorization", "role", "tenant", "IDOR", "fail closed"]
+    },
+    {
+      "id": "SWAI-603", "type": "story", "priority": "P1", "epic": "Protected content", "title": "Add private storage when justified", "persona": "Authorized user", "outcome": "Files required by the primary workflow are accessible only through checked, short-lived access.", "context": "Skip this story if the approved idea has no genuine file requirement; document the decision instead.",
+      "acceptanceCriteria": ["Bucket is private and object path cannot be chosen to overwrite another user's file", "Type and size are validated at trusted boundary", "Signed access is short lived and issued only after authorization", "Deletion/replacement behavior and orphan cleanup are documented"],
+      "designRefs": [], "dataContract": "Object metadata links to an authorized parent record.",
+      "expectations": {"security": "No public bucket or permanent URL.", "privacy": "Use safe synthetic files in tests.", "accessibility": "Upload progress/errors and file descriptions.", "analytics": "No filenames or content."},
+      "dependencies": ["SWAI-602"], "nonGoals": ["Antivirus or forensic processing"], "definitionOfDone": ["Cross-user storage tests pass"], "evidence": ["Storage policy tests", "Lifecycle explanation"], "concepts": ["object storage", "signed URL", "file validation", "lifecycle"]
+    },
+    {
+      "id": "SWAI-604", "type": "change", "priority": "P1", "epic": "Product scope", "title": "Assess cross-user sharing request", "persona": "Stakeholder", "outcome": "A sharing request receives a safe scoped recommendation without weakening ownership boundaries.", "context": "The stakeholder asks to let any user send a share link to another person. Analyze identity, invitation expiry, revocation, resource scope, audit, UI, notification, abuse, and support.",
+      "acceptanceCriteria": ["Current authorization model impact is explained", "At least two implementation approaches and a defer option are compared", "Recommendation identifies schema, RLS, UX, test, abuse, estimate, and rollout impact"],
+      "designRefs": [], "dataContract": "Change-request template.",
+      "expectations": {"security": "Do not propose unguessable URL as sole control.", "privacy": "Recipient and shared data scope minimized.", "accessibility": "Invitation states considered.", "analytics": "Share accepted/revoked events only if approved."},
+      "dependencies": ["SWAI-602"], "nonGoals": ["Immediate implementation"], "definitionOfDone": ["Mentor approves the scope response"], "evidence": ["Change request", "Threat update"], "concepts": ["scope change", "sharing", "revocation", "abuse case"]
+    },
+    {
+      "id": "SWAI-605", "type": "bug", "priority": "P0", "epic": "Protected content", "title": "Close cross-tenant storage exposure", "persona": "Security reviewer", "outcome": "A user cannot obtain another tenant's file through a guessed path or copied URL.", "context": "Marcus provides a synthetic reproduction where the metadata page is protected but the object can still be downloaded.",
+      "acceptanceCriteria": ["Exposure is reproduced safely before the change", "Authorization occurs before signed-link creation and storage policy matches parent ownership", "Copied/expired links and revoked membership cases are tested"],
+      "designRefs": [], "dataContract": "Storage path maps to authorized database record.",
+      "expectations": {"security": "Fix the boundary, not the visible link.", "privacy": "Synthetic files only.", "accessibility": "Denied state is understandable.", "analytics": "Safe denial category."},
+      "dependencies": ["SWAI-603"], "nonGoals": ["Making object names harder to guess"], "definitionOfDone": ["Regression suite passes", "Mentor accepts milestone"], "evidence": ["Before/after test", "Root-cause explanation", "Mentor rubric"], "concepts": ["storage policy", "signed URL", "tenant", "regression"], "seededBug": "Issue signed URLs from a server route that checks only whether the caller is signed in, not ownership of the parent record."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Blocker escalation
+description: Escalate a blocked story with diagnostic evidence.
+title: "[BLOCKED] SWAI-___: "
+labels: ["blocked"]
+body:
+  - type: input
+    id: story
+    attributes: { label: Story/PR/environment }
+    validations: { required: true }
+  - type: textarea
+    id: impact
+    attributes: { label: Blocked outcome and impact }
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes:
+      {
+        label: Evidence,
+        description: Redacted error,
+        relevant log lines,
+        commands,
+        and links. Never paste tokens.,
+      }
+    validations: { required: true }
+  - type: textarea
+    id: attempts
+    attributes:
+      {
+        label: Attempts and results,
+        description: Include predictions and what each result ruled out.,
+      }
+    validations: { required: true }
+  - type: textarea
+    id: request
+    attributes: { label: Smallest help or decision needed }
+    validations: { required: true }

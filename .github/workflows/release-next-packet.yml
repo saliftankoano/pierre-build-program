@@ -1,0 +1,39 @@
+name: Release next sprint packet
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  release:
+    if: >-
+      github.event.pull_request.merged == true &&
+      contains(github.event.pull_request.labels.*.name, 'milestone-accepted') &&
+      startsWith(github.event.pull_request.title, 'Milestone ')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Extract accepted milestone
+        id: milestone
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          milestone="$(printf '%s' "$TITLE" | sed -E 's/^Milestone ([0-9]+).*/\1/')"
+          if ! printf '%s' "$milestone" | grep -Eq '^(0|1|2|3|4|5|6|7|8|9|10|11)$'; then
+            echo "Could not safely parse milestone from PR title: $TITLE"
+            exit 1
+          fi
+          echo "number=$milestone" >> "$GITHUB_OUTPUT"
+      - name: Release packet idempotently
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run agency:next -- --repo "$GITHUB_REPOSITORY" --milestone "${{ steps.milestone.outputs.number }}" --apply

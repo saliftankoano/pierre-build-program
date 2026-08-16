@@ -1,0 +1,42 @@
+name: Mentor review
+description: Request a milestone 4, 8, 10, or 11 review.
+title: "[MENTOR] Milestone _: "
+labels: ["mentor-review"]
+body:
+  - type: dropdown
+    id: milestone
+    attributes:
+      {
+        label: Mentor gate,
+        options: [Milestone 4, Milestone 8, Milestone 10, Milestone 11],
+      }
+    validations: { required: true }
+  - type: input
+    id: pr
+    attributes: { label: Milestone PR URL }
+    validations: { required: true }
+  - type: input
+    id: deployment
+    attributes: { label: Working deployment URL }
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes:
+      {
+        label: Evidence index,
+        description: Link demo,
+        tests,
+        accessibility/security checks,
+        comprehension gate,
+        and retrospective.,
+      }
+    validations: { required: true }
+  - type: checkboxes
+    id: ready
+    attributes:
+      label: Readiness
+      options:
+        - label: I verified the deployment and all submitted links.
+          required: true
+        - label: I disclosed remaining limitations and did not expose secrets or private client data.
+          required: true

@@ -1,0 +1,47 @@
+name: Idea intake
+description: Turn a personal or client idea into a candidate project.
+title: "[IDEA] "
+labels: ["intake", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include employer-confidential data, real credentials, or regulated personal data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: User and problem
+      description: Who has the problem, what happens today, and why does it matter?
+      placeholder: A specific user needs to… because…
+    validations: { required: true }
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Smallest useful outcome
+      description: Describe an observable result, not a feature list.
+    validations: { required: true }
+  - type: textarea
+    id: access
+    attributes:
+      label: Evidence and user access
+      description: How do you know this matters, and who can review it?
+    validations: { required: true }
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Data/security risk
+      options:
+        [
+          Low — public or synthetic data,
+          Medium — accounts or private data,
+          High — regulated,
+          financial,
+          health,
+          legal,
+          employer,
+          or forensic data,
+        ]
+    validations: { required: true }
+  - type: textarea
+    id: unknowns
+    attributes:
+      label: APIs, data, and unknowns

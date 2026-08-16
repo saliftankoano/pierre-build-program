@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saliftankoano/ship-with-ai/schemas/sprint-packet.schema.json",
+  "title": "Ship With AI sprint packet",
+  "type": "object",
+  "required": [
+    "milestone",
+    "title",
+    "hours",
+    "project",
+    "mentorGate",
+    "context",
+    "stories"
+  ],
+  "properties": {
+    "milestone": { "type": "integer", "minimum": 0, "maximum": 11 },
+    "title": { "type": "string", "minLength": 3 },
+    "hours": { "type": "integer", "minimum": 1 },
+    "project": { "type": "string", "minLength": 3 },
+    "mentorGate": { "type": "boolean" },
+    "context": { "type": "string", "minLength": 20 },
+    "stories": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "story.schema.json" }
+    }
+  },
+  "additionalProperties": false
+}

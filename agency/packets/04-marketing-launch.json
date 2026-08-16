@@ -1,0 +1,38 @@
+{
+  "milestone": 4,
+  "title": "Client marketing launch",
+  "hours": 14,
+  "project": "ClearPath Home Services",
+  "mentorGate": true,
+  "context": "The client approved the visual direction. Complete the conversion site, handle a scope change, launch, and hand off ownership.",
+  "stories": [
+    {
+      "id": "SWAI-201", "type": "story", "priority": "P0", "epic": "ClearPath launch", "title": "Publish configurable services and service areas", "persona": "Homeowner", "outcome": "Visitors can verify that ClearPath provides the needed service in their location.", "context": "The owner must be able to add an approved service or suburb through one configuration source.",
+      "acceptanceCriteria": ["Service and service-area pages derive from typed configuration", "Unknown slugs produce a real not-found response", "Every page has accurate unique title, description, canonical, and useful internal links"],
+      "designRefs": ["agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "Service has slug, name, summary, body, featured flag; location has slug, name, region, summary.",
+      "expectations": {"security": "Configured content is trusted repository content only.", "privacy": "No visitor data.", "accessibility": "Logical headings and descriptive link text.", "analytics": "Page views may use route only, not personal data."},
+      "dependencies": ["SWAI-102"], "nonGoals": ["A content-management system"], "definitionOfDone": ["Adding one fixture generates the expected page and sitemap entry"], "evidence": ["Example generated pages", "Configuration walkthrough"], "concepts": ["dynamic route", "object", "array", "type", "metadata"]
+    },
+    {
+      "id": "SWAI-202", "type": "story", "priority": "P0", "epic": "ClearPath lead flow", "title": "Deliver validated quote requests", "persona": "Homeowner", "outcome": "A qualified visitor can request a quote and understands success or failure.", "context": "Collect only name, contact method/value, service, suburb, and a short description. Email is delivered through Resend from server code.",
+      "acceptanceCriteria": ["Client and server validation provide specific accessible errors", "Server response distinguishes validation, provider, configuration, and success outcomes without exposing internals", "Form prevents duplicate submits while pending and preserves safe input on retry", "A missing provider key produces a documented non-production fallback without claiming delivery"],
+      "designRefs": ["agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "Quote request: name, contactPreference, contactValue, service, suburb, description, consent; normalize and limit lengths.",
+      "expectations": {"security": "Validate server-side, rate-limit reasonably, keep provider key server-only.", "privacy": "Collect minimum data; never log full request or send it to analytics.", "accessibility": "Labels, error summary, focus management, status announcement.", "analytics": "Record quote_success or quote_failure category without field values."},
+      "dependencies": ["SWAI-201"], "nonGoals": ["CRM", "Instant estimate"], "definitionOfDone": ["Success and provider-failure tests pass", "env example documents names only"], "evidence": ["Form-state recording", "Redacted provider evidence", "Data-flow explanation"], "concepts": ["form", "validation", "HTTP", "API route", "environment variable", "async"]
+    },
+    {
+      "id": "SWAI-203", "type": "change", "priority": "P1", "epic": "ClearPath account", "title": "Assess online appointment scheduling request", "persona": "Business owner", "outcome": "The client receives a professional scope recommendation before implementation.", "context": "Dana asks, 'Can we quickly let people book any open slot on our calendar before launch?' This introduces workflow and integration decisions not in the signed scope.",
+      "acceptanceCriteria": ["Response identifies unanswered business, calendar, cancellation, privacy, design, testing, and support questions", "At least two approaches and a defer option are compared", "Recommendation states cost, schedule impact, risk, and next approval"],
+      "designRefs": [], "dataContract": "Change-request template.",
+      "expectations": {"security": "Consider calendar permissions and webhook authenticity.", "privacy": "Minimize scheduling data.", "accessibility": "Any vendor embed must be evaluated.", "analytics": "Define booking success only if approved."},
+      "dependencies": ["SWAI-202"], "nonGoals": ["Implementing scheduling without approval"], "definitionOfDone": ["Change response is approved or deferred explicitly"], "evidence": ["Completed change request"], "concepts": ["scope", "estimate", "integration", "tradeoff"]
+    },
+    {
+      "id": "SWAI-204", "type": "review", "priority": "P0", "epic": "ClearPath launch", "title": "Complete launch and client handoff", "persona": "Account manager", "outcome": "The site is production-ready and the client can operate the agreed content.", "context": "Run content, responsive, accessibility, SEO, privacy, form, environment, and rollback checks before promoting production.",
+      "acceptanceCriteria": ["Production domain and core journeys are verified after deployment", "Sitemap, robots, metadata, and structured data use accurate fictional business facts", "Handoff identifies content source, environment ownership, image replacements, analytics, rollback, and support boundary", "Mentor review reaches at least 3 of 4 in every category with no critical security failure"],
+      "designRefs": ["agency/clients/clearpath-home-services/brief.md"], "dataContract": "Launch and handoff templates.",
+      "expectations": {"security": "Production configuration reviewed; no secret in client bundle or repository.", "privacy": "Analytics excludes form content.", "accessibility": "Keyboard and automated checks complete.", "analytics": "CTA events verified with synthetic actions."},
+      "dependencies": ["SWAI-201", "SWAI-202", "SWAI-203"], "nonGoals": ["Unapproved post-launch features"], "definitionOfDone": ["Mentor approves milestone", "Production and handoff evidence are complete"], "evidence": ["Production URL", "Launch checklist", "Handoff", "Mentor rubric"], "concepts": ["deployment", "SEO", "analytics", "handoff", "rollback"]
+    }
+  ]
+}

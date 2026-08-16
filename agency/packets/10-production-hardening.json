@@ -1,0 +1,45 @@
+{
+  "milestone": 10,
+  "title": "Production hardening",
+  "hours": 14,
+  "project": "Learner-selected database idea",
+  "mentorGate": true,
+  "context": "QA and security review produced release findings. Triage by user impact and exploitability, resolve blockers, and deliver an operable handoff rather than chasing a perfect score.",
+  "stories": [
+    {
+      "id": "SWAI-801", "type": "review", "priority": "P0", "epic": "Release readiness", "title": "Triage the release review", "persona": "Technical lead", "outcome": "Release blockers, follow-ups, owners, and rationale are explicit.", "context": "Classify supplied functional, accessibility, performance, privacy, security, and dependency findings using severity and likelihood.",
+      "acceptanceCriteria": ["Every finding is reproduce, accept, fix, defer, or reject with evidence", "Critical authorization/credential issues block release", "Deferred issues include user impact, mitigation, owner, and target"],
+      "designRefs": [], "dataContract": "Release triage table.",
+      "expectations": {"security": "Severity is based on impact and exploitability.", "privacy": "Privacy findings are not treated as polish.", "accessibility": "Keyboard blockers are release blockers for critical paths.", "analytics": "None."},
+      "dependencies": ["Milestone 9 accepted"], "nonGoals": ["Fixing every low-value cosmetic issue"], "definitionOfDone": ["Triage is approved"], "evidence": ["Triage table", "Reproduction evidence"], "concepts": ["severity", "likelihood", "mitigation", "release gate"]
+    },
+    {
+      "id": "SWAI-802", "type": "story", "priority": "P0", "epic": "Release readiness", "title": "Establish the release safety net", "persona": "Maintainer", "outcome": "Risky boundaries and critical journeys are checked before deployment.", "context": "Add CI for lint, type checking, tests, and build; browser tests for the primary journey; accessibility checks; and privacy-aware logging.",
+      "acceptanceCriteria": ["PR CI blocks on lint, type, unit/integration tests, and production build", "Critical browser journey covers success and one failure path", "Accessibility checks include automated results plus keyboard evidence", "Logs contain correlation and safe categories but no credentials or sensitive values"],
+      "designRefs": [], "dataContract": "CI and test documentation.",
+      "expectations": {"security": "Secret scan and authorization regression included.", "privacy": "Log allowlist documented.", "accessibility": "Critical journey keyboard tested.", "analytics": "Analytics reviewed for sensitive properties."},
+      "dependencies": ["SWAI-801"], "nonGoals": ["100% coverage"], "definitionOfDone": ["Checks pass on clean clone"], "evidence": ["CI URL", "Browser test report", "Log sample"], "concepts": ["unit test", "integration test", "browser test", "CI", "log"]
+    },
+    {
+      "id": "SWAI-803", "type": "bug", "priority": "P0", "epic": "Release readiness", "title": "Diagnose the production-only configuration failure", "persona": "QA analyst", "outcome": "Environment-specific failure is found through evidence and fixed without exposing configuration.", "context": "Preview works, but production returns a generic failure because one environment variable is absent or scoped incorrectly.",
+      "acceptanceCriteria": ["Logs and environment inventory identify the missing/mis-scoped variable", "Fix updates the correct environment and redeploys without printing the value", "A startup or health check detects the condition earlier next time"],
+      "designRefs": [], "dataContract": "Environment-variable inventory lists name, purpose, owner, environments, rotation date—not value.",
+      "expectations": {"security": "Never print or screenshot secret values.", "privacy": "Synthetic reproduction only.", "accessibility": "User receives safe actionable fallback.", "analytics": "Operational configuration error category."},
+      "dependencies": ["SWAI-802"], "nonGoals": ["Copying every preview variable blindly"], "definitionOfDone": ["Production verification passes"], "evidence": ["Redacted diagnostic timeline", "Verification"], "concepts": ["environment", "deployment", "log", "health check"], "seededBug": "Configure a harmless training variable only in Preview and make a production-only code path require it."
+    },
+    {
+      "id": "SWAI-804", "type": "chore", "priority": "P0", "epic": "Release readiness", "title": "Run credential and rollback drills", "persona": "Security reviewer", "outcome": "The maintainer can contain a fictional leak and recover from a bad deployment.", "context": "Use only the curriculum's harmless training-token pattern. Practice detect, revoke/replace, update environments, redeploy, verify, document, and review exposure.",
+      "acceptanceCriteria": ["Secret scanner detects the harmless training token in a disposable untracked fixture", "Incident timeline covers containment, rotation, redeployment, verification, history considerations, and prevention", "A safe application change is deployed then rolled back", "Database migration compatibility during rollback is explained"],
+      "designRefs": [], "dataContract": "Incident report and rollback record.",
+      "expectations": {"security": "No real credential is created or committed.", "privacy": "No real incident/customer data.", "accessibility": "Rollback restores user journey.", "analytics": "Verification signals documented."},
+      "dependencies": ["SWAI-803"], "nonGoals": ["Rewriting public Git history during the exercise"], "definitionOfDone": ["Mentor observes or reviews drills"], "evidence": ["Scanner output", "Incident report", "Rollback evidence"], "concepts": ["secret rotation", "containment", "redeploy", "rollback", "migration compatibility"]
+    },
+    {
+      "id": "SWAI-805", "type": "review", "priority": "P0", "epic": "Release readiness", "title": "Deliver operational handoff", "persona": "Client administrator", "outcome": "A new maintainer can operate, recover, and support the product.", "context": "Complete client guide, admin runbook, deployment guide, backup/restore, known limitations, support boundary, and maintenance proposal.",
+      "acceptanceCriteria": ["Runbook covers environments, credentials ownership, monitoring, common failures, backup/restore, and escalation", "Restore or reset procedure is tested with synthetic data", "Maintenance proposal distinguishes included support, change work, response expectations, and client-owned services", "Mentor scores every graduation category at least 3 of 4"],
+      "designRefs": [], "dataContract": "Handoff and maintenance templates.",
+      "expectations": {"security": "Runbook names secrets but stores no values.", "privacy": "Retention and deletion documented.", "accessibility": "Known limitations explicit.", "analytics": "Success/health dashboard documented."},
+      "dependencies": ["SWAI-802", "SWAI-804"], "nonGoals": ["Unlimited free support"], "definitionOfDone": ["Mentor approves milestone"], "evidence": ["Handoff packet", "Restore evidence", "Mentor rubric"], "concepts": ["operations", "backup", "restore", "support boundary", "maintenance"]
+    }
+  ]
+}

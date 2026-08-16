@@ -1,0 +1,38 @@
+{
+  "milestone": 9,
+  "title": "Integrations and AI",
+  "hours": 16,
+  "project": "Learner-selected database idea",
+  "mentorGate": false,
+  "context": "Choose one external integration and one bounded AI capability only when they improve the core workflow, then make failure safe and observable.",
+  "stories": [
+    {
+      "id": "SWAI-701", "type": "spike", "priority": "P0", "epic": "External capabilities", "title": "Choose integrations by user value and risk", "persona": "Technical lead", "outcome": "The release contains only justified external dependencies.", "context": "Compare proposed email, webhook, payment, automation, and AI capabilities against the primary workflow, baseline alternative, cost, failure, security, and lock-in.",
+      "acceptanceCriteria": ["At least three proposed capabilities are evaluated", "One integration and at most one AI capability are selected or explicitly rejected", "ADR defines provider, baseline, budget, failure behavior, disable path, and data boundary"],
+      "designRefs": [], "dataContract": "Integration/AI ADR.",
+      "expectations": {"security": "Classify credentials and inbound trust.", "privacy": "List exactly what leaves the application.", "accessibility": "Core workflow remains usable when provider is down.", "analytics": "Cost, latency, success/failure signals defined."},
+      "dependencies": ["Milestone 8 accepted"], "nonGoals": ["Adding technology for portfolio buzzwords"], "definitionOfDone": ["Decision is evidence-backed"], "evidence": ["ADR", "Data-flow diagram"], "concepts": ["build vs buy", "vendor risk", "fallback", "budget"]
+    },
+    {
+      "id": "SWAI-702", "type": "story", "priority": "P0", "epic": "External capabilities", "title": "Implement a reliable provider integration", "persona": "Primary user", "outcome": "The selected email, webhook, payment, or automation capability completes safely and reports failure clearly.", "context": "Use server-only credentials, provider-specific verification, validation, idempotency where needed, and synthetic test fixtures.",
+      "acceptanceCriteria": ["Credentials and webhook secrets remain server-only", "Inbound events are authenticated according to official provider docs and validated", "Duplicate/retried events cannot duplicate the business action", "Provider outage leaves core data consistent and gives an actionable state"],
+      "designRefs": [], "dataContract": "Validated provider event mapped to internal command/result.",
+      "expectations": {"security": "Verify signatures and authorization.", "privacy": "Send minimum fields and redact logs.", "accessibility": "Pending/success/failure announced.", "analytics": "Provider status and latency without payload."},
+      "dependencies": ["SWAI-701"], "nonGoals": ["Multiple providers"], "definitionOfDone": ["Fixture/integration tests pass"], "evidence": ["Test output", "Redacted event trace"], "concepts": ["webhook", "signature", "idempotency", "retry", "event"]
+    },
+    {
+      "id": "SWAI-703", "type": "story", "priority": "P1", "epic": "External capabilities", "title": "Ship a bounded AI capability", "persona": "Primary user", "outcome": "AI improves one specific task without becoming an unreviewed decision-maker or hard dependency.", "context": "Compare to a deterministic baseline. Use structured output, narrow context, explicit token/cost limit, adversarial evaluation, and fallback.",
+      "acceptanceCriteria": ["Feature purpose and non-AI baseline are documented", "Output is runtime validated and unsafe/unavailable output falls back safely", "Evaluation set covers normal, edge, injection, malformed, timeout, and cost-limit cases", "Feature can be disabled without breaking the core product"],
+      "designRefs": [], "dataContract": "Versioned input/output schema with no unnecessary personal data.",
+      "expectations": {"security": "Treat user/retrieved text and model output as untrusted.", "privacy": "Record provider retention policy; minimize prompts/logs.", "accessibility": "Label AI output and provide correction path.", "analytics": "Latency, cost, fallback, user acceptance without prompt content."},
+      "dependencies": ["SWAI-701"], "nonGoals": ["Autonomous high-impact decisions", "Sending files by default"], "definitionOfDone": ["Evaluation report and fallback pass"], "evidence": ["Evaluation dataset/report", "Cost estimate", "Demo"], "concepts": ["structured output", "prompt injection", "evaluation", "token budget", "fallback"]
+    },
+    {
+      "id": "SWAI-704", "type": "bug", "priority": "P0", "epic": "External capabilities", "title": "Prevent duplicate provider side effects", "persona": "QA analyst", "outcome": "Repeated delivery produces one intended business result.", "context": "Elena replays the same synthetic event twice and observes duplicate rows or notifications.",
+      "acceptanceCriteria": ["A regression test reproduces the duplicate before the fix", "Stable provider event ID or idempotency key prevents duplicate processing", "Concurrent and failed-then-retried behavior are documented"],
+      "designRefs": [], "dataContract": "Persist processed event identity where needed.",
+      "expectations": {"security": "Verification still runs before duplicate handling.", "privacy": "Store no unnecessary payload.", "accessibility": "No duplicate user alerts.", "analytics": "Duplicate delivery may be operationally counted."},
+      "dependencies": ["SWAI-702"], "nonGoals": ["Ignoring every repeated request globally"], "definitionOfDone": ["Replay tests pass"], "evidence": ["Failing/passing test", "Concurrency explanation"], "concepts": ["idempotency", "race", "retry", "side effect"], "seededBug": "Process the business action before recording the provider event ID, allowing the same event to run twice."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+name: Security finding (fictional/safe only)
+description: Record a curriculum security concern without exposing sensitive details.
+title: "[SECURITY] "
+labels: ["security", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Never disclose a real credential or exploitable public-production detail here. Use private disclosure for a real vulnerability.
+  - type: dropdown
+    id: severity
+    attributes: { label: Severity, options: [Critical, High, Medium, Low] }
+    validations: { required: true }
+  - type: textarea
+    id: boundary
+    attributes: { label: Asset, actor, and trust boundary }
+    validations: { required: true }
+  - type: textarea
+    id: scenario
+    attributes:
+      {
+        label: Safe abuse case and impact,
+        description: Use synthetic identifiers and redact secrets.,
+      }
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes: { label: Reproduction evidence and affected version }
+    validations: { required: true }
+  - type: textarea
+    id: control
+    attributes: { label: Proposed control and regression test }
+    validations: { required: true }
