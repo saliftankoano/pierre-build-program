@@ -7,6 +7,30 @@
 
 Maya has approved a timeboxed discovery sprint for your API-centered idea. No production UI will be built until you prove the necessary data or capability exists on acceptable terms.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    NEED["Exact user capability<br/>fields + freshness + volume"] --> FIND["Find ≥ 3 providers<br/>official documentation"]
+    FIND --> TEST["Safe test requests<br/>success + 401 + 429 + failure"]
+    TEST --> COMPARE["Compare<br/>fit · cost · rights · reliability<br/>security · lock-in"]
+    COMPARE --> DECIDE{"Usable option?"}
+    DECIDE -->|"yes"| ADR["ADR + normalized contract<br/>proceed to milestone 6"]
+    DECIDE -->|"not yet"| SPIKE["Smaller spike<br/>or change idea"]
+    DECIDE -->|"no"| STOP["Reject without<br/>wasting build time"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    class NEED,FIND,TEST context;
+    class COMPARE,DECIDE plan;
+    class ADR build;
+    class SPIKE,STOP risk;
+```
+
+The spike proves whether the needed capability exists on acceptable terms. It ends with a documented decision and contract, not a production interface.
+
 ## Just-in-time field notes
 
 - An API is a contract for software-to-software communication. The URL and JSON are only part of it; authentication, limits, pricing, freshness, error behavior, and terms determine whether it is usable.

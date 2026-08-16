@@ -5,7 +5,28 @@
 
 ## Agency assignment
 
-Maya has added you to Ship With AI Studio as a developer/product builder. No account or Git experience is assumed. Before client work, Priya needs proof that you understand what GitHub is for and can complete the basic collaboration loop without someone clicking through it for you.
+Maya has added you to Pierre Build Studio as a developer/product builder. No account or Git experience is assumed. Before client work, Priya needs proof that you understand what GitHub is for and can complete the basic collaboration loop without someone clicking through it for you.
+
+## Visual map
+
+```mermaid
+flowchart LR
+    A["GitHub account<br/>identity + 2FA"] --> B["Canonical repository<br/>course source"]
+    B -->|"fork"| C["Your GitHub fork<br/>your remote workspace"]
+    C -->|"clone"| D["Local repository<br/>files on your computer"]
+    D -->|"branch + commit"| E["Story changes<br/>safe checkpoints"]
+    E -->|"push + PR"| C
+    C -->|"review + merge"| F["Accepted milestone<br/>next packet"]
+
+    classDef account fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef git fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef review fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
+    class A,B account;
+    class C,D,E git;
+    class F review;
+```
+
+Read left to right: establish identity, copy the course safely, work locally in checkpoints, then send evidence back through a pull request.
 
 ## Just-in-time field notes
 
@@ -29,7 +50,7 @@ Complete the released milestone 0 stories (SWAI-001 through SWAI-004):
 
 1. Create a free personal GitHub account, verify the email address, enable 2FA, complete a professional profile, and explain why shared accounts are unsafe.
 2. Complete GitHub's browser-based Hello World exercise: create a practice repository, README, branch, commit, issue, pull request, review, and merge.
-3. Fork `saliftankoano/ship-with-ai` through the GitHub interface and explain why work belongs in the fork.
+3. Fork `saliftankoano/pierre-build-program` through the GitHub interface and explain why work belongs in the fork.
 4. Install GitHub Desktop or Git, clone the fork, identify `origin` and `upstream`, make a small branch, commit, push, and PR.
 5. Practice status, diff, conflict resolution, revert, and restoring one file using disposable lesson content.
 6. Create an `IDEAS.md` inventory with at least ten ideas using the [idea scorecard](../templates/idea-scorecard.md). Score each 1–5 for user pain, access to users, smallest useful scope, data/security risk, API dependency, learning value, and client potential.

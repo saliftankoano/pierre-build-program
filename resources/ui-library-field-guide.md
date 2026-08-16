@@ -2,6 +2,29 @@
 
 This is a curated starting map, not a shopping list. Check the source's current documentation, license, release activity, dependencies, and framework compatibility at the time you use it.
 
+```mermaid
+flowchart TD
+    NEED["Story + user need"] --> BASE{"Choose one<br/>primary foundation"}
+    BASE --> SHAD["shadcn/ui<br/>owned component source"]
+    BASE --> HEAD["Radix · Base UI · React Aria<br/>unstyled accessible behavior"]
+    SHAD --> AUDIT["Audit source · license<br/>dependencies · accessibility"]
+    HEAD --> AUDIT
+    NEED --> SPECIAL{"Specialist visual value<br/>actually required?"}
+    SPECIAL -->|"yes · max 2"| VIS["Aceternity · Magic UI<br/>21st.dev · Motion"]
+    SPECIAL -->|"no"| AUDIT
+    VIS --> AUDIT
+    AUDIT --> SYSTEM["Normalize tokens + states<br/>test mobile + keyboard + motion"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef choice fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    class NEED context;
+    class BASE,SPECIAL choice;
+    class SHAD,HEAD,VIS,AUDIT,SYSTEM build;
+```
+
+Start from the story, select one behavior foundation, add specialist visuals only when they create user value, then normalize and test everything as one system.
+
 ## Foundation choices
 
 Choose one primary foundation per project. Mixing multiple primitive systems for the same interaction often duplicates dependencies and creates inconsistent focus, portal, styling, and state behavior.

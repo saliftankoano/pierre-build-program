@@ -7,6 +7,30 @@
 
 Choose the database-oriented idea from milestone 0. The first release must solve one complete user problem; it is not permission to build every table imagined in the backlog.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    J["User journey"] --> M["Entity + ownership model"]
+    M --> MIG["Versioned migration<br/>tables + constraints + RLS"]
+    MIG --> SEED["Synthetic seed data"]
+    SEED --> RESET["Local reset<br/>reproducible state"]
+    RESET --> CRUD["Next.js workflow<br/>validate + CRUD"]
+    CRUD --> TEST["Access tests<br/>anonymous · owner · other user"]
+    TEST -. "policy failure" .-> MIG
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    class J context;
+    class M plan;
+    class MIG,SEED,RESET,CRUD build;
+    class TEST risk;
+```
+
+The database is reproducible because schema, policies, and seed state live in versioned files. Security is proven by testing identities with different ownership relationships.
+
 ## Just-in-time field notes
 
 - A table represents one kind of entity. A row is one record; a column is one fact with a type.

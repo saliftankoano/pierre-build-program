@@ -2,7 +2,7 @@
   "milestone": 1,
   "title": "Codex developer cockpit",
   "hours": 8,
-  "project": "Ship With AI learner workspace",
+  "project": "Pierre Build learner workspace",
   "mentorGate": false,
   "context": "Codex is the only AI coding environment in the core curriculum. Configure it with safe instructions, project context, GitHub access, current documentation habits, browser evidence, and Vercel diagnostics before building client work.",
   "stories": [

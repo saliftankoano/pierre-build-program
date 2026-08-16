@@ -7,6 +7,31 @@
 
 Stakeholders have proposed email, payments, automation, webhooks, and AI. Your job is not to add all of them. Select the smallest capabilities that improve the primary user workflow and document why the others are deferred.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    EVENT["Provider event<br/>untrusted input"] --> SIG{"Valid signature<br/>and timestamp?"}
+    SIG -->|"no"| REJECT["Reject + safe log"]
+    SIG -->|"yes"| SCHEMA{"Valid event schema?"}
+    SCHEMA -->|"no"| REJECT
+    SCHEMA -->|"yes"| IDEM{"Event ID<br/>already processed?"}
+    IDEM -->|"yes"| ACK["Acknowledge<br/>no duplicate effect"]
+    IDEM -->|"no"| WORK["Bounded work<br/>retry-safe + budgeted"]
+    WORK --> FALL["Structured result<br/>or deterministic fallback"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef safe fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    class EVENT context;
+    class SIG,SCHEMA,IDEM decision;
+    class ACK,WORK,FALL safe;
+    class REJECT risk;
+```
+
+Every external capability is untrusted and fallible. Signatures, validation, idempotency, budgets, evaluation, and fallbacks keep provider behavior from corrupting the core workflow.
+
 ## Just-in-time field notes
 
 - Integrations introduce another system's identity, limits, failures, cost, and change schedule.

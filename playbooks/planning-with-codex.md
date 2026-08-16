@@ -1,5 +1,26 @@
 # Planning With Codex
 
+```mermaid
+flowchart LR
+    H["Human owns<br/>intent · constraints · taste"] --> C["Codex contributes<br/>questions · research · options"]
+    C --> D["Shared artifacts<br/>journey · system · visual plan"]
+    D --> R["Red-team review<br/>risks · gaps · excess"]
+    R --> A{"Human decision"}
+    A -->|"revise"| C
+    A -->|"approve"| S["Agency stories<br/>ready for implementation"]
+
+    classDef human fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef ready fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    class H,A human;
+    class C context;
+    class D,R plan;
+    class S ready;
+```
+
+The human supplies meaning and makes the decision. Codex widens the option space, researches evidence, structures the plan, and challenges missing or contradictory thinking.
+
 ## What the human owns
 
 Intent, users, taste, business constraints, ethical boundaries, acceptable risk, budget, and final decisions. Codex can expose missing questions and research alternatives; it should not silently invent these inputs.

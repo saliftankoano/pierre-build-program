@@ -8,6 +8,30 @@
 
 The client approved the visual direction but supplied revised service copy, a new service area, and a request that sounds small but affects scope. Maya expects you to distinguish launch-critical work from later enhancements, document the decision, and complete the site.
 
+## Visual map
+
+```mermaid
+sequenceDiagram
+    participant U as Visitor
+    participant UI as Next.js UI
+    participant S as Next.js server
+    participant E as Email service
+    participant V as Vercel
+    U->>UI: Complete quote form
+    UI->>S: Submit untrusted values
+    S->>S: Validate + minimize data
+    alt valid request
+        S->>E: Send with server-only key
+        E-->>S: Provider result
+        S-->>UI: Safe success state
+    else invalid or provider failure
+        S-->>UI: Useful accessible error
+    end
+    V-->>S: Environment + runtime logs
+```
+
+The visitor never receives the email credential. The server validates the request, calls the provider, and returns only the state the interface needs; Vercel supplies separate preview/production configuration and diagnostic evidence.
+
 ## Just-in-time field notes
 
 - A form is a data boundary. Validate on the server even when the browser validates too.

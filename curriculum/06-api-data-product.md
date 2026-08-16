@@ -7,6 +7,29 @@
 
 The spike was accepted. Jon has supplied a user flow, Priya has constrained the first release to one valuable workflow, and QA will test slow, empty, malformed, and rate-limited responses.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    U["User request"] --> S["Next.js server<br/>secret + request policy"]
+    S --> A["External API<br/>untrusted JSON"]
+    A --> V{"Runtime validation"}
+    V -->|"valid"| N["Normalized product type"]
+    V -->|"invalid/failure"| F["Typed failure<br/>log + safe fallback"]
+    N --> C["Cache successful data only"]
+    C --> UI["UI<br/>success or empty state"]
+    F --> UI2["UI<br/>error + useful next action"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    class U,S,A context;
+    class V,N,C,UI build;
+    class F,UI2 risk;
+```
+
+Success, empty success, malformed data, rate limits, and provider failure remain distinct. The seeded bug demonstrates why a failed response must never be normalized and cached as valid empty data.
+
 ## Just-in-time field notes
 
 - `async` work finishes later; `await` pauses the current function without making the network instant.

@@ -8,6 +8,30 @@
 
 The product now needs real user boundaries. The client also requested a design revision and an apparently urgent sharing feature midway through the sprint. You must protect the release while responding professionally.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    REQ["Request<br/>actor + resource + action"] --> AUTHN{"Authenticated?"}
+    AUTHN -->|"no"| DENY["Deny + safe response"]
+    AUTHN -->|"yes"| OWN{"Owner / allowed role<br/>in correct tenant?"}
+    OWN -->|"no"| DENY
+    OWN -->|"yes"| RLS["RLS + storage policy<br/>enforce boundary"]
+    RLS --> DATA["Authorized rows<br/>or signed access"]
+    DATA --> AUDIT["Privacy-safe event<br/>and UI response"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef allowed fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef denied fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    class REQ context;
+    class AUTHN,OWN decision;
+    class RLS,DATA,AUDIT allowed;
+    class DENY denied;
+```
+
+Authentication identifies the actor; authorization evaluates the actor, action, resource, role, and ownership. Hiding a button never replaces the server, RLS, or storage boundary.
+
 ## Just-in-time field notes
 
 - Authentication answers “who are you?” Authorization answers “may you do this?” A logged-in user is not automatically allowed to read every row.

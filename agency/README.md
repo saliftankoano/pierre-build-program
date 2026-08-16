@@ -1,6 +1,27 @@
-# Ship With AI Studio
+# Pierre Build Studio
 
 This folder contains the fictional agency context used by the curriculum. The client and stakeholder names are invented. All data, credentials, incidents, and files must remain synthetic.
+
+```mermaid
+flowchart LR
+    BRIEF["Client brief"] --> PACKET["Sprint packet JSON"]
+    PACKET --> ISSUE["Released GitHub issues"]
+    ISSUE --> PR["Milestone evidence PR"]
+    PR --> REVIEW{"Accepted?"}
+    REVIEW -->|"changes"| ISSUE
+    REVIEW -->|"yes"| NEXT["Automation releases<br/>next packet"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef work fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef delivery fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
+    class BRIEF,PACKET context;
+    class ISSUE,PR work;
+    class REVIEW decision;
+    class NEXT delivery;
+```
+
+Client context becomes structured work, work becomes evidence, and accepted evidence unlocks the next assignment.
 
 ## Team
 

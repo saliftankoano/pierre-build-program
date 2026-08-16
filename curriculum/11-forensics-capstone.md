@@ -13,6 +13,40 @@ Northstar Digital Forensics is a fictional three-investigator consultancy. Intak
 
 The initial release must support client, investigator, and administrator roles; case intake/status; evidence metadata; small safe sample uploads in private storage; signed access; timestamped audit events; notifications; role-specific dashboards; search/filtering; accessible responsive states; and proof that one client cannot access another client's cases.
 
+## Visual system map
+
+```mermaid
+flowchart LR
+    CLIENT["Client<br/>own organization's cases"]
+    INVEST["Investigator<br/>assigned case work"]
+    ADMIN["Administrator<br/>agency operations"]
+    APP["Next.js portal<br/>validation + authorization"]
+    DB["Supabase Postgres<br/>tenant-scoped RLS"]
+    STORE["Private storage<br/>short-lived signed access"]
+    AUDIT["Audit events<br/>actor + action + time"]
+    NOTIFY["Notifications<br/>minimum safe context"]
+
+    CLIENT --> APP
+    INVEST --> APP
+    ADMIN --> APP
+    APP --> DB
+    APP --> STORE
+    APP --> AUDIT
+    APP --> NOTIFY
+    DB -. "organization + role policy" .-> APP
+
+    classDef role fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef app fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef sensitive fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    classDef support fill:#fef3c7,stroke:#d97706,color:#451a03;
+    class CLIENT,INVEST,ADMIN role;
+    class APP app;
+    class DB,STORE sensitive;
+    class AUDIT,NOTIFY support;
+```
+
+Every path passes through an explicit role and tenant decision. Storage and database access remain private; audit events and notifications use minimal safe context. This is an educational portal, not a legally sufficient evidence system.
+
 ## Engagement flow
 
 1. Review the request for proposal and write discovery questions.

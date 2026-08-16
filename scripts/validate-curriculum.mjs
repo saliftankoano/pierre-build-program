@@ -40,6 +40,13 @@ for (const packet of allPackets) if (![4, 8, 10, 11].includes(packet.milestone) 
 
 const curriculum = (await readdir(path.join(root, "curriculum"))).filter((name) => name.endsWith(".md"));
 if (curriculum.length !== 12) errors.push(`expected 12 curriculum guides, found ${curriculum.length}`);
+for (const guide of curriculum) {
+  const content = await readFile(path.join(root, "curriculum", guide), "utf8");
+  if (!content.includes("```mermaid")) errors.push(`${guide} is missing its required visual map`);
+}
+const readme = await readFile(path.join(root, "README.md"), "utf8");
+const readmeDiagrams = readme.match(/```mermaid/g)?.length ?? 0;
+if (readmeDiagrams < 8) errors.push(`README visual guide requires at least 8 Mermaid diagrams; found ${readmeDiagrams}`);
 
 const markdownFiles = [];
 async function walk(directory) {
@@ -66,4 +73,4 @@ if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join("\n"));
   process.exit(1);
 }
-console.log(`Validated ${allPackets.length} packets, ${ids.size} stories, ${curriculum.length} guides, ${hours} hours, and ${markdownFiles.length} Markdown files.`);
+console.log(`Validated ${allPackets.length} packets, ${ids.size} stories, ${curriculum.length} visual guides, ${readmeDiagrams} README diagrams, ${hours} hours, and ${markdownFiles.length} Markdown files.`);

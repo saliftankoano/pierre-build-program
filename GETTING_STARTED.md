@@ -1,5 +1,23 @@
 # Getting Started
 
+```mermaid
+flowchart LR
+    ACCOUNT["Account<br/>identity + security"] --> WEB["Browser practice<br/>repo + branch + PR"]
+    WEB --> FORK["Fork<br/>your GitHub copy"]
+    FORK --> CLONE["Clone<br/>your computer"]
+    CLONE --> TOOLS["Install tools<br/>Git · Node · Codex · CLIs"]
+    TOOLS --> ISSUES["Create milestone 0 issues<br/>begin one story"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    class ACCOUNT,WEB context;
+    class FORK,CLONE plan;
+    class TOOLS,ISSUES build;
+```
+
+Move from left to right. Do not install the developer toolchain before you understand the account, repository, fork, and local-copy relationship.
+
 ## Start even if you have no accounts yet
 
 You can read this public repository without signing in. Milestone 0 walks you through creating a GitHub account, verifying the email address, enabling two-factor authentication, understanding why the agency uses GitHub, and making your first fork. Do not skip those explanations merely because a mentor could click the buttons for you.
@@ -26,7 +44,7 @@ npm --version
 
 ## Why fork and clone?
 
-The canonical `saliftankoano/ship-with-ai` repository is the curriculum source. A **fork** is your GitHub-owned copy: you can create branches, issues, PRs, and progress without changing the canonical course. A **clone** is the working copy downloaded to your computer so Codex and local tools can inspect and change files. A **push** sends your local commits back to your GitHub fork.
+The canonical `saliftankoano/pierre-build-program` repository is the curriculum source. A **fork** is your GitHub-owned copy: you can create branches, issues, PRs, and progress without changing the canonical course. A **clone** is the working copy downloaded to your computer so Codex and local tools can inspect and change files. A **push** sends your local commits back to your GitHub fork.
 
 GitHub's [forking and cloning explanation](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop) is required milestone 0 reading.
 
@@ -35,12 +53,12 @@ GitHub's [forking and cloning explanation](https://docs.github.com/en/desktop/ad
 Fork this repository rather than editing the canonical curriculum. Your fork keeps its own issues, pull requests, Actions, and progress while retaining an upstream relationship for curriculum updates.
 
 ```bash
-gh repo fork saliftankoano/ship-with-ai --clone
-cd ship-with-ai
+gh repo fork saliftankoano/pierre-build-program --clone
+cd pierre-build-program
 npm install
 npm run validate
-npm run agency:bootstrap -- --repo YOUR_HANDLE/ship-with-ai
-npm run agency:bootstrap -- --repo YOUR_HANDLE/ship-with-ai --apply
+npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program
+npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program --apply
 ```
 
 The first bootstrap command is a dry run; read its output before using `--apply`. Invite your mentor as a collaborator on your fork. In repository **Settings → Actions → General → Workflow permissions**, allow GitHub Actions to create issues. Keep your application repositories separate from this curriculum fork. If a command is unfamiliar, ask Codex what it will read or change before running it.

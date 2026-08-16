@@ -8,6 +8,33 @@
 
 Elena and Marcus have completed release review. Their tickets cover accessibility, performance, authorization regression, logging, dependency risk, backup/restore, a simulated credential leak, and rollback. The client also needs an operating handoff.
 
+## Visual map
+
+```mermaid
+flowchart TD
+    FIND["QA + security findings"] --> TRIAGE["Severity × likelihood<br/>release blocker or follow-up"]
+    TRIAGE --> FIX["Focused remediation<br/>test + evidence"]
+    FIX --> OBS["Logs + analytics + alerts<br/>privacy reviewed"]
+    OBS --> DRILL["Restore · rotation<br/>rollback drills"]
+    DRILL --> HAND["Runbook + handoff<br/>maintenance ownership"]
+    HAND --> GATE{"Mentor launch gate"}
+    GATE -->|"changes"| FIX
+    GATE -->|"approved"| PROD["Supportable production"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    classDef deliver fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
+    class FIND risk;
+    class TRIAGE,GATE plan;
+    class FIX,OBS,DRILL build;
+    class HAND context;
+    class PROD deliver;
+```
+
+Hardening turns a working feature into an operable product: failures become detectable, risky boundaries gain regression tests, recovery is rehearsed, and ownership survives handoff.
+
 ## Just-in-time field notes
 
 - Tests buy confidence at risky boundaries; they are not a score-collecting exercise. Unit-test transformations, integration-test boundaries, and browser-test critical user journeys.

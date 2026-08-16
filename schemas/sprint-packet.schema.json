@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/saliftankoano/ship-with-ai/schemas/sprint-packet.schema.json",
-  "title": "Ship With AI sprint packet",
+  "$id": "https://github.com/saliftankoano/pierre-build-program/schemas/sprint-packet.schema.json",
+  "title": "Pierre Build Program sprint packet",
   "type": "object",
   "required": [
     "milestone",

@@ -1,8 +1,8 @@
 {
-  "name": "ship-with-ai-curriculum",
+  "name": "pierre-build-program",
   "version": "1.0.0",
   "private": true,
-  "description": "Agency-style, project-based curriculum for becoming an AI product builder",
+  "description": "Visual agency-style program for learning to plan and ship Next.js products with Codex",
   "type": "module",
   "engines": {
     "node": ">=24"
