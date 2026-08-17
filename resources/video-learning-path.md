@@ -28,7 +28,7 @@ flowchart LR
 
 | Watch when | Video | Why it helps | Verify afterward |
 | --- | --- | --- | --- |
-| Fork, branch, commit, merge, and history feel like unrelated words | [Git Explained in 100 Seconds — Fireship](https://www.youtube.com/watch?v=hwP7WQkmECE) | Gives a fast visual model before the Hello World exercise | [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world) |
+| Fork, branch, commit, merge, and history feel like unrelated words | [Git Explained in 100 Seconds — Fireship](https://www.youtube.com/watch?v=hwP7WQkmECE) | Gives a fast visual model before the Hello World exercise | [GitHub Hello World](https://docs.github.com/en/get-started/using-github/hello-world) |
 | You need to see the full Git/GitHub loop performed slowly | [Git and GitHub for Beginners — freeCodeCamp](https://www.youtube.com/watch?v=RGOj5yH7evk) | Demonstrates repositories, branches, commits, remotes, and GitHub together | [GitHub Git guides](https://docs.github.com/en/get-started/using-git/about-git) |
 | The Next.js App Router and browser/server boundary are new | [Introducing Next.js App Router — Vercel](https://www.youtube.com/watch?v=DrxiNfbr63s) | Shows the framework's routing and server-component mental model | [Current Next.js App Router docs](https://nextjs.org/docs/app) |
 | You want a longer beginner build after the first small slice | [Next.js App Router with TypeScript — Programming with Mosh](https://www.youtube.com/watch?v=ZVnjOPwW4ZA) | Connects files, routes, components, data, caching, styling, and TypeScript | Compare every API with the installed Next.js version and current docs |

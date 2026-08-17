@@ -51,7 +51,7 @@ Codex may explain screens and inspect redacted screenshots. It must not receive 
 
 ## Checkpoint 2 — create and protect the GitHub account
 
-1. Open [Join GitHub](https://github.com/signup).
+1. Open GitHub's [Create an account guide](https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github), then select its **Sign up for GitHub** link.
 2. Use a durable personal email address—not an employer address.
 3. Choose a professional username you would be comfortable showing a client.
 4. Create a unique password in a password manager.
@@ -71,7 +71,7 @@ If the labels differ, send Codex a screenshot cropped to the navigation and head
 
 ## Checkpoint 3 — practice GitHub before touching the curriculum
 
-Complete GitHub's [Hello World exercise](https://docs.github.com/en/get-started/start-your-journey/hello-world). It teaches the objects used by every assignment.
+Complete GitHub's [Hello World exercise](https://docs.github.com/en/get-started/using-github/hello-world). It teaches the objects used by every assignment.
 
 Create a disposable public repository named `github-hello-world`, then:
 

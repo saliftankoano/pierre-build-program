@@ -26,7 +26,7 @@ Move from left to right. Do not install the developer toolchain before you under
 
 You can read this public repository without signing in. Milestone 0 walks you through creating a GitHub account, verifying the email address, enabling two-factor authentication, understanding why the agency uses GitHub, and making your first fork. Do not skip those explanations merely because a mentor could click the buttons for you.
 
-Use GitHub's official guides for [creating an account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [getting started with an account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account). Record what each action accomplishes in your own words.
+Use GitHub's official guides for [creating an account](https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github) and [getting started with an account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account). Record what each action accomplishes in your own words.
 
 If a visual walkthrough helps, use the matching Git and GitHub entries in the [task-specific video learning path](resources/video-learning-path.md), then verify the behavior in GitHub's current documentation.
 
