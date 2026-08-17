@@ -28,10 +28,13 @@ test("every milestone contains one core interactive lab", async () => {
 
 test("released issue body preserves required agency interface", async () => {
   const [packet] = await packets();
-  const body = issueBody(packet.stories[0], packet);
+  const body = issueBody(packet.stories[0], packet, "pierre/pierre-build-program");
   for (const heading of ["Acceptance criteria", "Data/API contract", "Expectations", "Dependencies", "Explicit non-goals", "Definition of Done", "Evidence required", "Just-in-time concepts"]) {
     assert.match(body, new RegExp(`## ${heading}`));
   }
+  assert.match(body, /## Start with Codex/);
+  assert.match(body, /github\.com\/pierre\/pierre-build-program\/blob\/main\/START_HERE\.md/);
+  assert.doesNotMatch(body, /OWNER/);
 });
 
 test("lab issue body includes build, incident, verification, and defense contracts", async () => {
@@ -67,6 +70,8 @@ test("mission control derives released, blocked, evidence, and accepted states",
 });
 
 test("empty mission control begins with the web-first bootstrap", async () => {
-  const body = missionControlBody(await packets(), [], []);
+  const body = missionControlBody(await packets(), [], [], "pierre/pierre-build-program");
   assert.match(body, /Run the Start Pierre Build Program workflow/);
+  assert.match(body, /github\.com\/pierre\/pierre-build-program\/blob\/main\/START_HERE\.md/);
+  assert.match(body, /learning-partner playbook/);
 });

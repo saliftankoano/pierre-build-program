@@ -5,6 +5,8 @@
 Pierre does not need to wait until he can write an application from memory. He begins with complete projects, learns each concept when the work requires it, and remains responsible for understanding, testing, securing, and communicating what Codex helps create.
 
 > [!IMPORTANT]
+> **Pierre begins at [START_HERE.md](START_HERE.md).** It provides the exact first Codex prompt, account and MFA boundaries, click-by-click fork and Actions setup, success checks, and recovery paths. Routine questions go to Codex using the repository's [learning-partner playbook](playbooks/codex-learning-partner.md); mentor time is reserved for the four formal gates and decisions requiring human authority.
+>
 > AI writes quickly; the product builder owns the result. Never paste real secrets, private client data, forensic evidence, or unapproved employer code into an AI tool. Never run a command you cannot explain well enough to predict what it will affect.
 
 ## Built around Pierre’s existing strengths
@@ -85,7 +87,7 @@ flowchart TD
     class H local;
 ```
 
-Start with [Getting Started](GETTING_STARTED.md). It explains why each object exists before asking Pierre to use it. The canonical repository is the course; a **fork** is Pierre’s GitHub-owned workbook; a **clone** is the copy on his computer; a **branch** isolates one assignment; a **pull request** is the review packet.
+Start with the zero-assumption [first-session runbook](START_HERE.md), then use [Getting Started](GETTING_STARTED.md) as the continuing reference. The canonical repository is the course; a **fork** is Pierre’s GitHub-owned workbook; a **clone** is the copy on his computer; a **branch** isolates one assignment; a **pull request** is the review packet.
 
 After forking, open **Actions → Start Pierre Build Program → Run workflow**. The idempotent workflow creates milestone 0 and a living Mission Control issue before any local CLI is installed. Review the workflow permissions before enabling it.
 

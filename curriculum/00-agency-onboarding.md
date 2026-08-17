@@ -3,6 +3,8 @@
 **Timebox:** 8 hours
 **Outcome:** a secured GitHub identity, a first fork/clone/branch/PR, and a ranked inventory of real product ideas.
 
+Begin with the click-by-click [first guided session](../START_HERE.md). Keep Codex open with the supplied onboarding prompt so an unfamiliar label, page, or error is diagnosed immediately from redacted evidence.
+
 ## Agency assignment
 
 Maya has added you to Pierre Build Studio as a developer/product builder. No account or Git experience is assumed. Before client work, Priya needs proof that you understand what GitHub is for and can complete the basic collaboration loop without someone clicking through it for you.
@@ -43,6 +45,8 @@ A repository is the project and its history. A fork is your GitHub-owned copy of
 You do not need to memorize every Git command. You must know your current branch, inspect changes before committing, avoid committing secrets, and recover from common mistakes without deleting work.
 
 Use the analogy: canonical repository = agency handbook; fork = your issued workbook on GitHub; clone = the copy on your desk; branch = one assignment in progress; commit = a labeled checkpoint; PR = the review packet.
+
+For visual reinforcement, use only the matching Git/GitHub entries in the [video learning path](../resources/video-learning-path.md). Videos do not replace GitHub's current documentation or the hands-on exercise.
 
 ## Work
 
