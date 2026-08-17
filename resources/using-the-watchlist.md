@@ -10,3 +10,5 @@ The creator list is an idea radar. It is not the curriculum's authority. A video
 6. Complete `templates/tool-radar.md`; reject the tool when its costs outweigh its value.
 
 Create one tool-radar issue each week. “Cool demo” is not a reason to add a dependency.
+
+For videos already matched to required curriculum work, begin with the [task-specific video learning path](video-learning-path.md). It states when to watch, why it helps, and which official documentation must verify the lesson.

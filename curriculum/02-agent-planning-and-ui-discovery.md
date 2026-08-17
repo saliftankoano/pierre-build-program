@@ -73,6 +73,8 @@ Use the [UI Library Field Guide](../resources/ui-library-field-guide.md). Browse
 
 Do not install everything. Select one accessible primitive/component foundation for consistency, then at most two specialized copied components whose value is obvious. For every candidate inspect source, license, dependencies, bundle/client boundary, keyboard behavior, small-screen behavior, reduced motion, theme fit, and maintenance.
 
+When semantic components or accessibility vocabulary remain unclear after exploring the live libraries, use the UI/accessibility entries in the [video learning path](../resources/video-learning-path.md), verify them against WAI and component-library documentation, and apply the idea to one wireframe critique. Do not implement production code in this milestone.
+
 ## Design-direction deliverables
 
 Produce three clearly different directions, not three color swaps. Each direction must specify:

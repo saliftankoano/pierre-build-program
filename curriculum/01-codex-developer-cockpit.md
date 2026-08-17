@@ -31,6 +31,8 @@ The agent becomes more useful when it receives accurate context and inspectable 
 
 Use the [official Codex CLI quickstart](https://learn.chatgpt.com/docs/codex/cli) to install Codex, sign in, start it inside your curriculum clone, inspect session status, understand permissions, and ask it to explain the repository before making changes.
 
+Use [Codex as your learning partner](../playbooks/codex-learning-partner.md) for the standard assignment, screen mismatch, command safety, debugging, tool research, and end-of-session prompts. Milestone 1 moves the same guided behavior used during browser onboarding into the local repository where Codex can inspect files, run checks, and read CLI evidence.
+
 ## Why the tool belt matters
 
 Codex can reason from the files and commands available in its environment. A deployment URL alone tells it less than a linked Vercel project plus CLI access to deployment status, build logs, runtime logs, and environment names. The same principle later applies to GitHub, Supabase, browser testing, and API documentation.

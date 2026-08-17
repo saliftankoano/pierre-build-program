@@ -39,6 +39,8 @@ The database is reproducible because schema, policies, and seed state live in ve
 - A migration is a versioned database change. Seed data creates a safe, repeatable development state.
 - Supabase's anon key is designed to be used by clients; Row Level Security is what restricts accessible rows. The service-role key bypasses RLS and must remain server-only.
 
+If policy evaluation needs a visual walkthrough, use the Supabase RLS entry in the [video learning path](../resources/video-learning-path.md), then compare it with current Supabase documentation and prove AtlasOps tenant isolation using the milestone's own synthetic access tests.
+
 ## Work
 
 Write the user journey, ER diagram, data dictionary, threat model, and minimum schema. Install Supabase CLI as a pinned dev dependency in the Next.js project, initialize it through `npx supabase`, and add its commands to `docs/TOOLS.md` so Codex can inspect local/linked state safely. Store schema, RLS policies, and seed data as migrations; prove a local reset reproduces the environment.

@@ -145,6 +145,10 @@ ${story.outcome}
 ${story.context}
 ${bugContract}${spikeContract}${labContract}
 
+## Start with Codex
+
+Open a Codex task in your fork and provide this issue URL. Ask Codex to read \`AGENTS.md\`, \`START_HERE.md\`, \`playbooks/codex-learning-partner.md\`, and the milestone guide before acting. Codex must inspect first, explain one checkpoint at a time, name the success signal, use current official documentation, and help diagnose redacted evidence. Never paste passwords, MFA or recovery codes, tokens, cookies, employer information, client data, or real incident/forensic material.
+
 ## Acceptance criteria
 
 ${list(story.acceptanceCriteria.map((item) => `[ ] ${item}`))}

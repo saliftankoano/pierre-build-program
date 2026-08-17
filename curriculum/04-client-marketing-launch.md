@@ -40,6 +40,8 @@ The visitor never receives the email credential. The server validates the reques
 - SEO starts with useful content, accurate metadata, understandable URLs, semantic structure, and consistent business facts.
 - Accessibility includes keyboard use, focus, labels, contrast, motion preferences, and understandable errors.
 
+Use the forms and accessibility entries in the [video learning path](../resources/video-learning-path.md) when you need to see these behaviors demonstrated. Reproduce only the relevant concept in ClearPath and verify it through MDN/WAI guidance, keyboard use, and the story's automated checks.
+
 ## Work
 
 Complete the remaining ClearPath stories: service pages, service-area content, testimonials, FAQ, accessible navigation, quote form, Resend integration, metadata, sitemap/robots, analytics event plan, responsive QA, and launch checklist.

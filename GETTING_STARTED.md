@@ -1,5 +1,8 @@
 # Getting Started
 
+> [!IMPORTANT]
+> If this is your first session, begin with [START_HERE.md](START_HERE.md). It contains the exact Codex prompt and every click from creating a GitHub account through generating Mission Control. Return here after the startup workflow succeeds.
+
 ```mermaid
 flowchart LR
     ACCOUNT["Account<br/>identity + security"] --> WEB["Browser practice<br/>repo + branch + PR"]
@@ -24,6 +27,8 @@ Move from left to right. Do not install the developer toolchain before you under
 You can read this public repository without signing in. Milestone 0 walks you through creating a GitHub account, verifying the email address, enabling two-factor authentication, understanding why the agency uses GitHub, and making your first fork. Do not skip those explanations merely because a mentor could click the buttons for you.
 
 Use GitHub's official guides for [creating an account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [getting started with an account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account). Record what each action accomplishes in your own words.
+
+If a visual walkthrough helps, use the matching Git and GitHub entries in the [task-specific video learning path](resources/video-learning-path.md), then verify the behavior in GitHub's current documentation.
 
 ## What you will install
 
@@ -86,6 +91,8 @@ The first bootstrap command is a dry run; read its output before using `--apply`
 Every milestone also releases one `lab` issue. Begin with a prediction, run the normal baseline, activate the synthetic incident, collect evidence, make a focused repair, and submit `evidence/labs/LAB-XX.md`. The generated Mission Control issue displays active, blocked, evidence-ready, accepted, and locked milestones.
 
 Use `npm run agency:next -- --repo OWNER/REPO --milestone 0` to preview what the progressive release automation will open next.
+
+Use the reusable prompts in [Codex as your learning partner](playbooks/codex-learning-partner.md). The repository expects Codex to handle routine explanations and evidence-based troubleshooting; mentor escalation is for formal review gates, external authority, and material product decisions.
 
 ## When you are stuck
 

@@ -41,6 +41,8 @@ The slice is vertical because it connects real client intent to implemented UI, 
 - **Variables** name values. **Arrays** hold lists. **Objects** group named values. A loop such as `map` transforms a list into repeated UI.
 - Browser code can react to clicks. Server code can safely use private credentials. The `use client` directive is a boundary, not decoration.
 
+If the App Router, component tree, or browser/server boundary is not yet visual, watch the matching Next.js entry in the [video learning path](../resources/video-learning-path.md), then ask Codex to map that concept to the exact installed files and current Next.js documentation before editing.
+
 ## Work
 
 1. Create the project with `npm run project:new -- clearpath-home`. This generates a Next.js App Router application; do not substitute another framework in the core path.
