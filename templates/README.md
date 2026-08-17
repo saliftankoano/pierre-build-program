@@ -22,3 +22,4 @@ Copy these documents into the project repository and complete them as story evid
 | `milestone-evidence.md` | Required PR evidence and comprehension gate |
 | `tool-radar.md` | Weekly unfamiliar-tool review |
 | `idea-scorecard.md` | Rank ideas by value, feasibility, risk, and learning value |
+| `open-source-study.md` | Map, trace, challenge, and selectively adapt a public project |

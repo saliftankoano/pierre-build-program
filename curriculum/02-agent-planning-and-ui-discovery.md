@@ -10,6 +10,27 @@ Maya has assigned the ClearPath project, but Priya will not approve implementati
 
 The agent is not an oracle. It may know a tool you have never seen, but it can also recommend an obsolete, expensive, insecure, or mismatched option. Planning means combining your product knowledge with researched evidence.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    I["Idea"] --> Q["Codex interview"] --> U["Facts + unknowns"]
+    U --> R["Primary-doc research"] --> O["Options + tradeoffs"]
+    O --> V["3 visual directions"] --> S["Stories + acceptance"]
+    S --> G{"Decision complete?"}
+    G -->|"no"| Q
+    G -->|"yes"| A["Approve implementation"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef ready fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    class I,Q,U,R context;
+    class O,V,S,G plan;
+    class A ready;
+```
+
+This milestone ends at approval. No production application code is created until the important product, technical, and visual decisions are explicit.
+
 ## The partner-planning loop
 
 1. Give Codex the raw idea, known users, desired outcome, constraints, examples, and what you do not know.
@@ -74,6 +95,10 @@ Choose one direction through a scored critique against trust, clarity, conversio
 - Identify ten frontend patterns by name from live examples and explain their job.
 - Compare a component package, an unstyled primitive, and copied registry source.
 - Present the final plan and design direction without asking Codex to speak for you.
+
+## Interactive lab — LAB-02
+
+Complete [the accessible UI system lab](../labs/core/LAB-02/README.md) using the [UI library field guide](../resources/ui-library-field-guide.md). The lab code is an isolated design experiment, not ClearPath production implementation.
 
 ## Done when
 

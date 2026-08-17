@@ -1,10 +1,10 @@
 {
   "milestone": 10,
-  "title": "Production hardening",
+  "title": "AtlasOps production hardening",
   "hours": 14,
-  "project": "Learner-selected database idea",
+  "project": "AtlasOps operations portal",
   "mentorGate": true,
-  "context": "QA and security review produced release findings. Triage by user impact and exploitability, resolve blockers, and deliver an operable handoff rather than chasing a perfect score.",
+  "context": "AtlasOps QA and security review produced release findings. Triage by user impact and exploitability, resolve blockers, run a multi-fault professional game day, and deliver an operable handoff.",
   "stories": [
     {
       "id": "SWAI-801", "type": "review", "priority": "P0", "epic": "Release readiness", "title": "Triage the release review", "persona": "Technical lead", "outcome": "Release blockers, follow-ups, owners, and rationale are explicit.", "context": "Classify supplied functional, accessibility, performance, privacy, security, and dependency findings using severity and likelihood.",

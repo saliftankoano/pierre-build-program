@@ -1,11 +1,36 @@
 # Milestone 9 — Integrations and AI
 
 **Timebox:** 16 hours
-**Outcome:** one reliable third-party integration and one bounded AI capability with measurable value.
+**Outcome:** AtlasOps has one reliable notification/webhook integration and one bounded AI handoff-summary capability with measurable value.
 
 ## Agency assignment
 
-Stakeholders have proposed email, payments, automation, webhooks, and AI. Your job is not to add all of them. Select the smallest capabilities that improve the primary user workflow and document why the others are deferred.
+AtlasOps stakeholders have proposed email, chat notifications, automation, webhooks, and AI-generated shift handoffs. Select the smallest notification and summarization capabilities that improve operational handoff, and document why the others are deferred.
+
+## Visual map
+
+```mermaid
+flowchart LR
+    EVENT["Provider event<br/>untrusted input"] --> SIG{"Valid signature<br/>and timestamp?"}
+    SIG -->|"no"| REJECT["Reject + safe log"]
+    SIG -->|"yes"| SCHEMA{"Valid event schema?"}
+    SCHEMA -->|"no"| REJECT
+    SCHEMA -->|"yes"| IDEM{"Event ID<br/>already processed?"}
+    IDEM -->|"yes"| ACK["Acknowledge<br/>no duplicate effect"]
+    IDEM -->|"no"| WORK["Bounded work<br/>retry-safe + budgeted"]
+    WORK --> FALL["Structured result<br/>or deterministic fallback"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef safe fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef risk fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    class EVENT context;
+    class SIG,SCHEMA,IDEM decision;
+    class ACK,WORK,FALL safe;
+    class REJECT risk;
+```
+
+Every external capability is untrusted and fallible. Signatures, validation, idempotency, budgets, evaluation, and fallbacks keep provider behavior from corrupting the core workflow.
 
 ## Just-in-time field notes
 
@@ -26,6 +51,10 @@ Implement one AI feature only if a non-AI baseline cannot meet the user need as 
 - Trace an integration event from provider to verified request, business action, database update, and user-visible result.
 - Change one structured AI output field and its rendering manually.
 - Fix the seeded duplicate-webhook processing bug.
+
+## Interactive lab — LAB-09
+
+Complete [the replay and prompt-injection lab](../labs/core/LAB-09/README.md). Verify the synthetic signature, atomically contain duplicate delivery, validate structured output, and exercise the deterministic non-AI fallback.
 
 ## Done when
 

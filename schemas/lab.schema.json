@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/saliftankoano/pierre-build-program/schemas/lab.schema.json",
+  "title": "Pierre Build Program lab contract",
+  "type": "object",
+  "required": [
+    "id",
+    "storyId",
+    "title",
+    "milestone",
+    "delivery",
+    "timeboxMinutes",
+    "core",
+    "bridge",
+    "buildBrief",
+    "incidentBrief",
+    "starterPath",
+    "sandboxUrl",
+    "fallbackUrl",
+    "scenario",
+    "acceptanceTests",
+    "evidence",
+    "predictionQuestions",
+    "defenseQuestions",
+    "hints"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^LAB-(0[0-9]|1[01])$" },
+    "storyId": { "type": "string", "pattern": "^SWAI-[0-9]{3}$" },
+    "title": { "type": "string", "minLength": 8 },
+    "milestone": { "type": "integer", "minimum": 0, "maximum": 11 },
+    "delivery": { "enum": ["github", "stackblitz", "project-preview"] },
+    "timeboxMinutes": { "type": "integer", "minimum": 30, "maximum": 240 },
+    "core": { "const": true },
+    "bridge": {
+      "type": "object",
+      "required": ["knownConcept", "applicationConcept", "analogyLimit"],
+      "properties": {
+        "knownConcept": { "type": "string", "minLength": 3 },
+        "applicationConcept": { "type": "string", "minLength": 3 },
+        "analogyLimit": { "type": "string", "minLength": 15 }
+      },
+      "additionalProperties": false
+    },
+    "buildBrief": { "type": "string", "minLength": 20 },
+    "incidentBrief": { "type": "string", "minLength": 20 },
+    "starterPath": { "type": "string", "pattern": "^(labs/core/LAB-(0[0-9]|10)|project-preview)$" },
+    "sandboxUrl": { "type": "string", "minLength": 1 },
+    "fallbackUrl": { "type": "string", "minLength": 1 },
+    "scenario": {
+      "type": "object",
+      "required": ["activation", "symptoms", "reset"],
+      "properties": {
+        "activation": { "type": "string", "minLength": 3 },
+        "symptoms": { "type": "string", "minLength": 10 },
+        "reset": { "type": "string", "minLength": 3 }
+      },
+      "additionalProperties": false
+    },
+    "acceptanceTests": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string", "minLength": 8 }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "predictionQuestions": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string", "minLength": 8 }
+    },
+    "defenseQuestions": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string", "minLength": 8 }
+    },
+    "hints": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "string", "minLength": 8 }
+    }
+  },
+  "additionalProperties": false
+}

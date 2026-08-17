@@ -2,7 +2,7 @@
   "milestone": 0,
   "title": "GitHub and agency foundations",
   "hours": 8,
-  "project": "Ship With AI learner workspace",
+  "project": "Pierre Build learner workspace",
   "mentorGate": false,
   "context": "No GitHub account or Git knowledge is assumed. Priya needs evidence that the new developer understands why the agency uses version control and can move work from a secured account through fork, clone, branch, commit, push, PR, review, and merge.",
   "stories": [

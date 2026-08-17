@@ -7,6 +7,28 @@
 
 Priya wants one supported AI environment before client work. Codex is the core environment for this curriculum. You should know that Claude, Cursor, Copilot, v0, and other tools exist, but you will not switch among them while learning the basic workflow. The principles transfer later; the shortcuts and interfaces can wait.
 
+## Visual map
+
+```mermaid
+flowchart TB
+    P["Pierre's intent<br/>story + constraints"] --> C["Codex session<br/>inside correct repository"]
+    I["AGENTS.md + project docs<br/>durable context"] --> C
+    T["Tools<br/>GitHub · Vercel · browser · web"] --> C
+    C --> D["Evidence-backed diagnosis<br/>or focused change"]
+    D --> R["Pierre reviews commands<br/>diff + checks + explanation"]
+
+    classDef human fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef agent fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef verified fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    class P,R human;
+    class I,T context;
+    class C agent;
+    class D verified;
+```
+
+The agent becomes more useful when it receives accurate context and inspectable evidence; Pierre remains the approval and verification boundary.
+
 Use the [official Codex CLI quickstart](https://learn.chatgpt.com/docs/codex/cli) to install Codex, sign in, start it inside your curriculum clone, inspect session status, understand permissions, and ask it to explain the repository before making changes.
 
 ## Why the tool belt matters
@@ -63,6 +85,12 @@ Create `docs/TOOLS.md` with each tool's job, authenticated account, commands Cod
 - Ask Codex to inspect a harmless failed practice deployment using Vercel CLI, identify the actual cause, and cite the relevant log line.
 - Review a Codex-generated change with `git diff`, reject one unnecessary change, and keep the focused fix.
 - Explain the difference between a CLI, API, SDK, MCP server, plugin, and documentation website.
+
+Use the [PAUSE protocol](../playbooks/pause-protocol.md) whenever generated code is unclear.
+
+## Interactive lab — LAB-01
+
+Complete [the Codex and Vercel toolchain game day](../labs/core/LAB-01/README.md). Build the tool-access matrix, diagnose the missing preview configuration from evidence, make the smallest safe repair, and explain which tool could observe or mutate each system.
 
 ## Done when
 

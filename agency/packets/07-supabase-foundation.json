@@ -1,10 +1,10 @@
 {
   "milestone": 7,
-  "title": "Supabase product foundation",
+  "title": "AtlasOps Supabase foundation",
   "hours": 16,
-  "project": "Learner-selected database idea",
+  "project": "AtlasOps operations portal",
   "mentorGate": false,
-  "context": "Turn the selected database idea into one reproducible vertical workflow with a deliberate schema, migrations, seed data, validation, and row-level authorization.",
+  "context": "Extend AtlasOps with organizations, memberships, sites, services, maintenance windows, incidents, incident updates, shift handoffs, subscriptions, and audit events using migrations, synthetic seeds, validation, and row-level authorization.",
   "stories": [
     {
       "id": "SWAI-501", "type": "spike", "priority": "P0", "epic": "Data product foundation", "title": "Model the minimum product data", "persona": "Product builder", "outcome": "The schema supports one valuable workflow without speculative tables.", "context": "Create the user journey, entity-relationship diagram, data dictionary, access matrix, and threat model before migrations.",

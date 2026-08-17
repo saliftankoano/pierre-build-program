@@ -1,0 +1,48 @@
+{
+  "id": "LAB-08",
+  "storyId": "SWAI-606",
+  "title": "Close an AtlasOps cross-tenant access path",
+  "milestone": 8,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 120,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Segmentation and trust boundaries",
+    "applicationConcept": "Authentication, organization roles, object authorization, protected routes, and signed storage access",
+    "analogyLimit": "A signed-in session proves identity, not permission to every object or route in the application."
+  },
+  "buildBrief": "Add AtlasOps operator, lead, and stakeholder journeys with organization ownership, protected routes, search, filtering, and role-appropriate controls.",
+  "incidentBrief": "A server route checks only that the caller is signed in before issuing access to another organization’s record. Exploit it with synthetic accounts, fix the resource boundary, and test enumeration resistance.",
+  "starterPath": "labs/core/LAB-08",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-08",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-08/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "An authenticated operator can request a predictable record identifier owned by a different organization.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "Role journeys expose only approved actions and records",
+    "Cross-tenant direct-object requests fail at the server and database boundaries",
+    "Authorization tests cover owned, other-tenant, missing, expired, and changed-role cases"
+  ],
+  "evidence": [
+    "Role and authorization matrix",
+    "Exploit reproduction and passing regression suite",
+    "evidence/labs/LAB-08.md"
+  ],
+  "predictionQuestions": [
+    "Which boundary currently proves only identity rather than ownership?",
+    "What response avoids revealing whether the other tenant’s record exists?"
+  ],
+  "defenseQuestions": [
+    "Trace a protected record request through route, database, and response.",
+    "Explain authentication versus authorization using the exploit.",
+    "Remove one UI control and explain why that alone is not a security fix."
+  ],
+  "hints": [
+    "Test the URL or server function directly as both synthetic users.",
+    "Authorize the requested resource, action, and organization together.",
+    "Keep database policy coverage even after adding a server ownership check."
+  ]
+}

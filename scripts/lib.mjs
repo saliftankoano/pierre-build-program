@@ -7,7 +7,42 @@ export const root = path.resolve(new URL("..", import.meta.url).pathname);
 export async function packets() {
   const directory = path.join(root, "agency", "packets");
   const names = (await readdir(directory)).filter((name) => name.endsWith(".json")).sort();
-  return Promise.all(names.map(async (name) => JSON.parse(await readFile(path.join(directory, name), "utf8"))));
+  const values = await Promise.all(names.map(async (name) => JSON.parse(await readFile(path.join(directory, name), "utf8"))));
+  const labs = JSON.parse(await readFile(path.join(root, "labs", "catalog.json"), "utf8"));
+  for (const packet of values) {
+    const lab = labs.find((candidate) => candidate.milestone === packet.milestone && candidate.core);
+    if (lab) packet.stories.push(labStory(lab, packet));
+  }
+  return values;
+}
+
+function labStory(lab, packet) {
+  return {
+    id: lab.storyId,
+    type: "lab",
+    priority: "P0",
+    epic: "Interactive operations lab",
+    title: lab.title,
+    persona: "Developer on operational duty",
+    outcome: `The milestone ${packet.milestone} capability is built, verified, diagnosed under failure, and explained with evidence.`,
+    context: `${lab.buildBrief} After the normal behavior works, run the synthetic game day and recover without replacing the entire feature.`,
+    acceptanceCriteria: lab.acceptanceTests,
+    designRefs: [lab.sandboxUrl, lab.fallbackUrl],
+    dataContract: "Synthetic fixtures only. The lab contract and evidence template define the observable inputs and outputs.",
+    expectations: {
+      security: "Use only supplied synthetic values; redact tokens, session data, and private logs.",
+      privacy: "Do not use employer, client, forensic, or personally identifying data.",
+      accessibility: "Keep the learner-facing status, failure, and recovery states keyboard accessible and understandable without color.",
+      analytics: "Record only safe lab phase and check outcome; never record payload or credential values."
+    },
+    dependencies: packet.milestone === 0 ? [] : [`Milestone ${packet.milestone - 1} accepted`],
+    nonGoals: ["Replacing the whole feature with regenerated code", "Using real credentials or production data", "Expanding beyond the stated incident"],
+    definitionOfDone: ["Build behavior passes deterministic checks", "Seeded incident is reproduced and repaired", "Codex defense and postmortem are complete"],
+    evidence: lab.evidence,
+    concepts: [lab.bridge.knownConcept, lab.bridge.applicationConcept, "hypothesis", "blast radius", "rollback", "postmortem"],
+    seededBug: lab.incidentBrief,
+    labContract: lab
+  };
 }
 
 export function repoFromArgs(args) {
@@ -28,8 +63,10 @@ export function run(command, args, options = {}) {
   return result.stdout?.trim();
 }
 
-export function issueBody(story, packet) {
+export function issueBody(story, packet, repo) {
   const list = (items) => items.map((item) => `- ${item}`).join("\n");
+  const owner = repo?.split("/")[0];
+  const learnerLink = (value) => owner ? value.replaceAll("OWNER", owner) : value;
   const bugContract = story.type === "bug" ? `
 ## Bug report contract
 
@@ -49,6 +86,50 @@ export function issueBody(story, packet) {
 - Alternatives: compare at least two viable options plus the simplest baseline, unless the acceptance criteria require more.
 - Required record: capture the recommendation, evidence, rejected alternatives, consequences, and reversal trigger in an ADR or linked decision record.
 ` : "";
+  const labContract = story.type === "lab" ? `
+## Interactive lab contract
+
+**Lab / delivery / timebox:** ${story.labContract.id} / ${story.labContract.delivery} / ${story.labContract.timeboxMinutes} minutes
+**Starter:** \`${story.labContract.starterPath}\`
+**Primary sandbox:** ${learnerLink(story.labContract.sandboxUrl)}
+**Fallback:** ${learnerLink(story.labContract.fallbackUrl)}
+
+### Concept bridge
+
+- Known model: ${story.labContract.bridge.knownConcept}
+- Application model: ${story.labContract.bridge.applicationConcept}
+- Where the analogy breaks: ${story.labContract.bridge.analogyLimit}
+
+### Build assignment
+
+${story.labContract.buildBrief}
+
+### Seeded game day
+
+${story.labContract.incidentBrief}
+
+- Activate: \`${story.labContract.scenario.activation}\`
+- Observable symptoms: ${story.labContract.scenario.symptoms}
+- Reset: \`${story.labContract.scenario.reset}\`
+
+### Prediction questions
+
+${list(story.labContract.predictionQuestions)}
+
+### Deterministic checks
+
+${list(story.labContract.acceptanceTests.map((item) => `[ ] ${item}`))}
+
+### Codex defense
+
+${list(story.labContract.defenseQuestions)}
+
+### Progressive hints
+
+1. ${story.labContract.hints[0]}
+2. ${story.labContract.hints[1]}
+3. ${story.labContract.hints[2]}
+` : "";
   return `# ${story.id}: ${story.title}
 
 **Milestone:** ${packet.milestone} — ${packet.title}
@@ -62,7 +143,7 @@ ${story.outcome}
 ## Context
 
 ${story.context}
-${bugContract}${spikeContract}
+${bugContract}${spikeContract}${labContract}
 
 ## Acceptance criteria
 
@@ -101,7 +182,7 @@ ${list(story.concepts)}
 ${story.seededBug ? `\n## Seeded bug\n\n${story.seededBug}\n` : ""}
 ## References
 
-${story.designRefs?.length ? list(story.designRefs) : "- No additional reference supplied."}
+${story.designRefs?.length ? list(story.designRefs.map(learnerLink)) : "- No additional reference supplied."}
 
 ---
 Do not begin by asking Codex to implement everything. Inspect → clarify → define acceptance → plan → implement one story → check → inspect diff → explain → commit.`;

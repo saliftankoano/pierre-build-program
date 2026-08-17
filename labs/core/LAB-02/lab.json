@@ -1,0 +1,48 @@
+{
+  "id": "LAB-02",
+  "storyId": "SWAI-026",
+  "title": "Select and defend an accessible UI system",
+  "milestone": 2,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 120,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Standards-based component selection",
+    "applicationConcept": "Design tokens, accessible primitives, interaction states, and component ownership",
+    "analogyLimit": "UI libraries can be mixed technically, but mismatched behavior and visual rules still create a poor and inaccessible product."
+  },
+  "buildBrief": "Compare status cards, tables, dialogs, forms, badges, and feedback states from the curated libraries, then implement one coherent AtlasOps status panel using shared tokens.",
+  "incidentBrief": "The supplied panel clips at mobile width and exposes a keyboard-inaccessible details control. Repair both while preserving the selected visual direction.",
+  "starterPath": "labs/core/LAB-02",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-02",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-02/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "The accessibility and responsive checks report an unnamed control and horizontal overflow.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "The component comparison records license, ownership, accessibility, bundle, and maintenance tradeoffs",
+    "The selected panel uses one token system and works at mobile, tablet, and desktop widths",
+    "Keyboard focus and non-color status labels are observable"
+  ],
+  "evidence": [
+    "Three visual comparisons and selected ADR",
+    "Mobile, tablet, desktop, and keyboard captures",
+    "evidence/labs/LAB-02.md"
+  ],
+  "predictionQuestions": [
+    "Which component behavior comes from a primitive and which comes from local styling?",
+    "What will happen to the table and actions below 375 pixels?"
+  ],
+  "defenseQuestions": [
+    "Name the layout, hierarchy, density, rhythm, and feedback decisions.",
+    "Explain why the chosen libraries can coexist coherently.",
+    "Modify one component state without regenerating the panel."
+  ],
+  "hints": [
+    "Inspect semantics and keyboard behavior before visual polish.",
+    "Use shared tokens for spacing, radius, color, and focus instead of per-component guesses.",
+    "Test the narrowest viewport and zoom before declaring the layout responsive."
+  ]
+}

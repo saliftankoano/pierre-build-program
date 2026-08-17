@@ -10,6 +10,29 @@ ClearPath is a fictional home-maintenance company expanding into a second city. 
 
 Read the ClearPath brief, discovery notes, design handoff, and the released stories before asking AI to code.
 
+## Visual map
+
+```mermaid
+flowchart LR
+    B["Client brief<br/>user + conversion goal"] --> P["Approved plan<br/>tokens + components"]
+    P --> N["Next.js page<br/>semantic structure"]
+    N --> R["Responsive UI<br/>mobile → desktop"]
+    R --> V["Vercel preview<br/>visual review"]
+    V --> Q["QA bug<br/>320px + 200% zoom"]
+    Q --> E["PR evidence<br/>explain + modify"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef deliver fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
+    class B context;
+    class P plan;
+    class N,R,Q build;
+    class V,E deliver;
+```
+
+The slice is vertical because it connects real client intent to implemented UI, responsive behavior, deployment, QA, and review—not because it contains many sections.
+
 ## Just-in-time field notes
 
 - **HTML** gives content meaning: headings, navigation, buttons, forms, and sections.
@@ -34,6 +57,10 @@ Read the ClearPath brief, discovery notes, design handoff, and the released stor
 - Trace a CTA click from the rendered button to the resulting browser behavior.
 - Change the trust-proof data model and UI without regenerating the section.
 - Fix the supplied small-screen overflow bug and show before/after evidence.
+
+## Interactive lab — LAB-03
+
+Complete [the responsive vertical-slice game day](../labs/core/LAB-03/README.md). Predict the layout owner, reproduce the narrow-screen overflow, repair the exact rule, and preserve the approved design direction.
 
 ## Done when
 
