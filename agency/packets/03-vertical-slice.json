@@ -25,7 +25,7 @@
       "acceptanceCriteria": ["The issue reproduces before the change and no longer reproduces after it", "Actions stack or wrap without losing meaning", "The fix does not regress the desktop layout"],
       "designRefs": ["agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "None.",
       "expectations": {"security": "None.", "privacy": "None.", "accessibility": "Test 200% zoom and keyboard focus.", "analytics": "None."},
-      "dependencies": ["SWAI-102"], "nonGoals": ["Redesigning the full hero"], "definitionOfDone": ["Regression evidence is attached"], "evidence": ["Before/after capture", "Explanation of CSS cause"], "concepts": ["responsive layout", "flex wrapping", "overflow", "regression"], "seededBug": "Apply a non-wrapping CTA row with a fixed minimum width in the learner project, then diagnose it with browser tools."
+      "dependencies": ["SWAI-102"], "nonGoals": ["Redesigning the full hero"], "definitionOfDone": ["Regression evidence is attached"], "evidence": ["Before/after capture", "Explanation of CSS cause"], "concepts": ["responsive layout", "flex wrapping", "overflow", "regression"], "seededBug": "Apply a non-wrapping CTA row with a fixed minimum width in your project, then diagnose it with browser tools."
     }
   ]
 }

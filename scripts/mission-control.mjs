@@ -10,7 +10,7 @@ const title = "[MISSION CONTROL] Pierre Build Program";
 
 const issues = JSON.parse(run("gh", ["issue", "list", "--repo", repo, "--state", "all", "--limit", "500", "--json", "number,title,state,labels,url"], { capture: true }));
 const pullRequests = JSON.parse(run("gh", ["pr", "list", "--repo", repo, "--state", "all", "--limit", "200", "--json", "number,title,state,mergedAt,labels,url"], { capture: true }));
-const body = missionControlBody(await packets(), issues, pullRequests);
+const body = missionControlBody(await packets(), issues, pullRequests, repo);
 
 const existing = issues.find((issue) => issue.title === title);
 if (!apply) {

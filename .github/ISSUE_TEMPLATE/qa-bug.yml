@@ -10,14 +10,8 @@ body:
   - type: textarea
     id: environment
     attributes:
-      {
-        label: Environment,
-        description: URL,
-        commit,
-        browser/device,
-        account role,
-        and relevant safe test data.,
-      }
+      label: Environment
+      description: Include the URL, commit, browser or device, account role, and relevant safe test data.
     validations: { required: true }
   - type: textarea
     id: steps
@@ -33,8 +27,6 @@ body:
   - type: textarea
     id: regression
     attributes:
-      {
-        label: Regression expectation,
-        description: What test should fail before the fix and pass after?,
-      }
+      label: Regression expectation
+      description: What test should fail before the fix and pass after?
     validations: { required: true }

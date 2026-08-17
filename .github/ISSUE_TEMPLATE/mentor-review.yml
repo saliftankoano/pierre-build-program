@@ -22,16 +22,13 @@ body:
   - type: textarea
     id: evidence
     attributes:
-      {
-        label: Evidence index,
-        description: Link demo,
-        tests,
-        accessibility/security checks,
-        operational game-day evidence,
-        comprehension gate,
-        and retrospective.,
-      }
+      label: Evidence index
+      description: Link the demo, tests, accessibility and security checks, operational game-day evidence, comprehension gate, and retrospective.
     validations: { required: true }
+  - type: markdown
+    attributes:
+      value: |
+        Your mentor reviews the linked evidence, copies `templates/mentor-review.md` into a comment, records all nine scores, and states either **Approved** or **Changes requested**. Do not add `milestone-accepted` until an **Approved** decision is recorded and every required change is closed.
   - type: checkboxes
     id: ready
     attributes:

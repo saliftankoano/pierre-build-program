@@ -12,17 +12,23 @@
       "applicationConcept": "Branch, commit, pull request, preview, merge, and revert",
       "analogyLimit": "A pull request also validates user value, accessibility, and maintainability; it is not only an infrastructure change record."
     },
-    "buildBrief": "Fork the program, open the onboarding Next.js lab, change the operator handoff message, create a focused branch, and submit the change through a pull request.",
-    "incidentBrief": "A conflicting handoff edit and a bad merged message simulate an unsafe change. Resolve the conflict, show the resulting diff, and perform a Git revert without deleting history.",
+    "buildBrief": "Fork the program, open the onboarding Next.js lab in StackBlitz, change the operator handoff message through GitHub's web editor, create a focused branch, and submit the change through a pull request.",
+    "incidentBrief": "A conflicting handoff edit and a harmless bad merged message simulate an unsafe change. Resolve the conflict, show the resulting diff, and use GitHub's Revert action without deleting history.",
+    "instructions": [
+      "Create `lab-00-approved` and `lab-00-conflict` from the same unchanged `main` branch; edit the same handoff line differently on each branch through GitHub's web editor.",
+      "Preview a branch by replacing `/tree/main` in the StackBlitz URL with `/tree/BRANCH_NAME`; use its terminal for the baseline and incident commands.",
+      "Merge the approved PR first, open the conflict PR second, use GitHub's conflict editor to preserve the approved message, and explain each marker before committing the resolution.",
+      "Create and merge one separate harmless bad-message PR, then use its GitHub Revert action and merge the generated revert PR to restore the accepted message."
+    ],
     "starterPath": "labs/core/LAB-00",
     "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-00",
     "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-00/app/page.tsx",
-    "scenario": { "activation": "npm run incident", "symptoms": "The incident check reports a conflicting and unsafe handoff message.", "reset": "git revert <bad-commit>" },
+    "scenario": { "activation": "npm run incident", "symptoms": "The incident check reports a conflicting and unsafe handoff message.", "reset": "Use the merged pull request's Revert action and merge the generated revert pull request" },
     "acceptanceTests": ["The Next.js page renders the approved handoff message", "The pull request shows coherent commits and a resolved conflict", "A revert restores the last accepted behavior without rewriting history"],
     "evidence": ["Fork and pull-request URLs", "Before, conflict, resolution, and revert screenshots", "evidence/labs/LAB-00.md"],
     "predictionQuestions": ["Which repository and branch will change after each action?", "What history will remain after revert compared with deleting the commit?"],
     "defenseQuestions": ["Trace the change from browser edit to merged repository state.", "Explain fork, clone, branch, commit, pull request, merge, and revert in your own words.", "Show one controlled text change without asking Codex to regenerate the page."],
-    "hints": ["Draw local, fork, and upstream as three separate boxes before clicking.", "Compare both sides of the conflict marker and restate the desired final sentence.", "Use a new commit that reverses the bad commit; do not erase shared history."]
+    "hints": ["Draw the canonical repository, your fork, and the two browser branches as separate boxes before editing.", "Compare both sides of the conflict marker and restate the desired final sentence.", "Use a new commit that reverses the bad commit; do not erase shared history."]
   },
   {
     "id": "LAB-01",
@@ -62,16 +68,17 @@
       "applicationConcept": "Design tokens, accessible primitives, interaction states, and component ownership",
       "analogyLimit": "UI libraries can be mixed technically, but mismatched behavior and visual rules still create a poor and inaccessible product."
     },
-    "buildBrief": "Compare status cards, tables, dialogs, forms, badges, and feedback states from the curated libraries, then implement one coherent AtlasOps status panel using shared tokens.",
+    "buildBrief": "First express the AtlasOps status-panel outcome as a compact visual Markdown story. Then compare status cards, tables, dialogs, forms, badges, and feedback states from the curated libraries and implement one coherent panel using shared tokens.",
     "incidentBrief": "The supplied panel clips at mobile width and exposes a keyboard-inaccessible details control. Repair both while preserving the selected visual direction.",
+    "instructions": ["Before implementation, use the visual story-writing guide and agency story template to define the panel outcome, acceptance examples, UI states, failure path, and smallest useful Mermaid flow. Render and critique the packet with Codex."],
     "starterPath": "labs/core/LAB-02",
     "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-02",
     "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-02/app/page.tsx",
     "scenario": { "activation": "npm run incident", "symptoms": "The accessibility and responsive checks report an unnamed control and horizontal overflow.", "reset": "npm run lab:reset" },
-    "acceptanceTests": ["The component comparison records license, ownership, accessibility, bundle, and maintenance tradeoffs", "The selected panel uses one token system and works at mobile, tablet, and desktop widths", "Keyboard focus and non-color status labels are observable"],
-    "evidence": ["Three visual comparisons and selected ADR", "Mobile, tablet, desktop, and keyboard captures", "evidence/labs/LAB-02.md"],
-    "predictionQuestions": ["Which component behavior comes from a primitive and which comes from local styling?", "What will happen to the table and actions below 375 pixels?"],
-    "defenseQuestions": ["Name the layout, hierarchy, density, rhythm, and feedback decisions.", "Explain why the chosen libraries can coexist coherently.", "Modify one component state without regenerating the panel."],
+    "acceptanceTests": ["A rendered Markdown story defines the user outcome, Given/When/Then behavior, boundaries, non-goals, evidence, and a labeled flow with a text route", "The component comparison records license, ownership, accessibility, bundle, and maintenance tradeoffs", "The selected panel uses one token system and works at mobile, tablet, and desktop widths", "Keyboard focus and non-color status labels are observable"],
+    "evidence": ["Rendered visual story, three component comparisons, and selected ADR", "Mobile, tablet, desktop, and keyboard captures", "evidence/labs/LAB-02.md"],
+    "predictionQuestions": ["Which user outcome does this panel deliver, and which implementation work does not belong in the story headline?", "Which component behavior comes from a primitive and which comes from local styling?", "What will happen to the table and actions below 375 pixels?"],
+    "defenseQuestions": ["Defend the story slice, observable acceptance examples, and selected diagram.", "Name the layout, hierarchy, density, rhythm, and feedback decisions.", "Explain why the chosen libraries can coexist coherently.", "Modify one component state without regenerating the panel."],
     "hints": ["Inspect semantics and keyboard behavior before visual polish.", "Use shared tokens for spacing, radius, color, and focus instead of per-component guesses.", "Test the narrowest viewport and zoom before declaring the layout responsive."]
   },
   {
@@ -93,7 +100,7 @@
     "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-03",
     "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-03/app/page.tsx",
     "scenario": { "activation": "npm run incident", "symptoms": "The 320-pixel viewport test reports horizontal overflow and a clipped secondary action.", "reset": "npm run lab:reset" },
-    "acceptanceTests": ["The vertical slice matches the approved content hierarchy", "No horizontal overflow occurs from 320 pixels through desktop widths", "The learner identifies the exact component and CSS rule responsible"],
+    "acceptanceTests": ["The vertical slice matches the approved content hierarchy", "No horizontal overflow occurs from 320 pixels through desktop widths", "You identify the exact component and CSS rule responsible"],
     "evidence": ["Responsive screenshots and browser measurement", "Before-and-after diff with rule explanation", "evidence/labs/LAB-03.md"],
     "predictionQuestions": ["Which element do you expect to define the minimum page width?", "Will wrapping, shrinking, or clipping best preserve content priority?"],
     "defenseQuestions": ["Trace props into rendered semantic HTML and styles.", "Explain why the failing rule affected the whole page.", "Change one breakpoint behavior without rewriting the component."],

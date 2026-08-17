@@ -4,7 +4,7 @@ function labelsOf(item) {
   return new Set((item.labels ?? []).map((label) => typeof label === "string" ? label : label.name));
 }
 
-export function missionControlBody(packets, issues, pullRequests) {
+export function missionControlBody(packets, issues, pullRequests, repo = "OWNER/pierre-build-program") {
   const states = packets.map((packet) => {
     const milestoneLabel = `milestone-${packet.milestone}`;
     const work = issues.filter((issue) => labelsOf(issue).has(milestoneLabel) && !labelsOf(issue).has("mission-control"));
@@ -43,6 +43,8 @@ export function missionControlBody(packets, issues, pullRequests) {
     return `| ${packet.milestone} | ${packet.title} | ${packet.hours}h | ${status} | ${closed}/${work.length} | ${blocked} | ${evidenceReady} | ${gate} |`;
   }).join("\n");
 
+  const repositoryFiles = `https://github.com/${repo}/blob/main`;
+
   return `# Pierre Build Program Mission Control
 
 > This issue is generated from released curriculum issues and accepted milestone pull requests. Do not store credentials, employer details, client data, or forensic evidence here.
@@ -51,7 +53,8 @@ export function missionControlBody(packets, issues, pullRequests) {
 
 - **Accepted core time:** ${completedHours}/178 hours
 - **Next action:** ${nextAction}
-- **Evidence rule:** CI proves behavior; Pierre’s trace, controlled modification, and Codex defense prove comprehension.
+- **Evidence rule:** CI proves behavior; your trace, controlled modification, and Codex defense prove comprehension.
+- **Help route:** Give the recommended issue URL to Codex and use the prompt in [the learning-partner playbook](${repositoryFiles}/playbooks/codex-learning-partner.md). Begin from [START_HERE](${repositoryFiles}/START_HERE.md) if onboarding is incomplete.
 
 \`\`\`mermaid
 flowchart LR

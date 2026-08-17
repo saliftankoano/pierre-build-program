@@ -1,6 +1,6 @@
 # Mentor review
 
-- Learner/milestone/PR:
+- Developer/milestone/PR:
 - Reviewer/date:
 - Decision: Approved / Changes requested
 
@@ -18,7 +18,7 @@ Score 0–4. Graduation requires at least 3 in every category and no critical au
 | Operational diagnosis and incident response | | |
 | Client communication | | |
 
-## Comprehension questions and learner answers
+## Comprehension questions and your answers
 
 ## Required changes
 

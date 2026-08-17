@@ -7,13 +7,13 @@
 > [!CAUTION]
 > Use only the supplied synthetic data and safe sample files. This project is educational software—not court-grade chain-of-custody, evidence integrity certification, legal advice, or a compliance-certified forensic system.
 
-## Client
+## Agency assignment
 
 Northstar Digital Forensics is a fictional three-investigator consultancy. Intake currently arrives through email and shared folders. Clients cannot see case status, investigators repeatedly request missing metadata, and the owner lacks a reliable activity history.
 
 The initial release must support client, investigator, and administrator roles; case intake/status; evidence metadata; small safe sample uploads in private storage; signed access; timestamped audit events; notifications; role-specific dashboards; search/filtering; accessible responsive states; and proof that one client cannot access another client's cases.
 
-## Visual system map
+## Visual map
 
 ```mermaid
 flowchart LR
@@ -80,6 +80,14 @@ Without relying on generated prose, explain the architecture and trace client in
 
 Run the capstone launch-defense lab against the Northstar preview using the `LAB-11` contract released in the milestone packet. Attempt cross-client access, expired signed access, audit-event mutation, provider failure, and rollback using synthetic data only. Record the defense in `evidence/labs/LAB-11.md`.
 
+## Mentor review
+
+Your mentor reviews the production deployment, authorization and storage attack evidence, operating documentation, client demo, incident recovery, maintenance proposal, and live comprehension defense. Record all nine rubric scores and the final decision in the mentor-review issue before applying `milestone-accepted`.
+
 ## Graduation rubric
 
 Score at least 3 of 4 in product usefulness, UI/UX, code comprehension, maintainability, security, testing/reliability, deployment/operations, operational diagnosis and incident response, and client communication. Any unresolved critical authorization or credential failure blocks graduation.
+
+## Done when
+
+Every required deliverable and milestone issue is complete; the production portal passes cross-client authorization, private-storage, audit, notification, accessibility, and recovery checks with synthetic data; the client and admin handoffs are usable; all nine rubric categories score at least 3/4; no critical authorization or secret-management failure remains; and your mentor records final approval.

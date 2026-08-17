@@ -1,6 +1,6 @@
 # AtlasOps — fictional operations portal brief
 
-AtlasOps is an educational Next.js product for service health, maintenance windows, incidents, and shift handoffs. It lets Pierre turn existing operations judgment into a client-ready software portfolio without connecting to real infrastructure.
+AtlasOps is your educational Next.js product for service health, maintenance windows, incidents, and shift handoffs. It turns your existing operations judgment into a client-ready software portfolio without connecting to real infrastructure.
 
 > [!IMPORTANT]
 > Use synthetic organizations, sites, services, people, incidents, addresses, timestamps, and credentials. AtlasOps is not a CMDB, production monitoring system, network controller, or compliance-certified operations platform.

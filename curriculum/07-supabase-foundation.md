@@ -39,11 +39,13 @@ The database is reproducible because schema, policies, and seed state live in ve
 - A migration is a versioned database change. Seed data creates a safe, repeatable development state.
 - Supabase's anon key is designed to be used by clients; Row Level Security is what restricts accessible rows. The service-role key bypasses RLS and must remain server-only.
 
+If policy evaluation needs a visual walkthrough, use the Supabase RLS entry in the [video learning path](../resources/video-learning-path.md), then compare it with current Supabase documentation and prove AtlasOps tenant isolation using the milestone's own synthetic access tests.
+
 ## Work
 
 Write the user journey, ER diagram, data dictionary, threat model, and minimum schema. Install Supabase CLI as a pinned dev dependency in the Next.js project, initialize it through `npx supabase`, and add its commands to `docs/TOOLS.md` so Codex can inspect local/linked state safely. Store schema, RLS policies, and seed data as migrations; prove a local reset reproduces the environment.
 
-The browser lab never requires Docker. The real AtlasOps project follows the official Supabase local-development workflow. If Docker cannot run on Pierre’s computer, document the constraint in an ADR and use a separate hosted development project through the CLI; migrations, synthetic seeds, reset/reproduction instructions, and environment separation remain mandatory.
+The browser lab never requires Docker. Your real AtlasOps project follows the official Supabase local-development workflow. If Docker cannot run on your computer, document the constraint in an ADR and use a separate hosted development project through the CLI; migrations, synthetic seeds, reset/reproduction instructions, and environment separation remain mandatory.
 
 Implement one vertical workflow with runtime validation and clear UI states. Write tests for anonymous, owner, and different-user behavior before calling the milestone complete.
 

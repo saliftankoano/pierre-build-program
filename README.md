@@ -2,14 +2,16 @@
 
 **A visual, agency-style path from “I understand what a loop is” to shipping professional Next.js products with Codex.**
 
-Pierre does not need to wait until he can write an application from memory. He begins with complete projects, learns each concept when the work requires it, and remains responsible for understanding, testing, securing, and communicating what Codex helps create.
+Pierre, this program is yours. You do not need to wait until you can write an application from memory. You begin with complete projects, learn each concept when the work requires it, and remain responsible for understanding, testing, securing, and communicating what Codex helps you create.
 
 > [!IMPORTANT]
+> **Begin at [START_HERE.md](START_HERE.md).** It provides your exact first Codex prompt, account and MFA boundaries, click-by-click fork and Actions setup, success checks, and recovery paths. Take routine questions to Codex using your [learning-partner playbook](playbooks/codex-learning-partner.md); reserve mentor time for the four formal gates and decisions requiring human authority.
+>
 > AI writes quickly; the product builder owns the result. Never paste real secrets, private client data, forensic evidence, or unapproved employer code into an AI tool. Never run a command you cannot explain well enough to predict what it will affect.
 
-## Built around Pierre’s existing strengths
+## Built around your existing strengths
 
-Pierre is an application-construction beginner with substantial technical experience: nine years in hyperscale data-center operations, CCNA/CCNP knowledge, graduate cybersecurity and digital-forensics education, Scrum practice, and mature troubleshooting instincts. The public profile is deliberately employer-neutral and forbids confidential operational detail.
+You are new to constructing applications, but you already bring nine years of hyperscale data-center operations, CCNA/CCNP knowledge, graduate cybersecurity and digital-forensics education, Scrum practice, and mature troubleshooting instincts. Your public profile is deliberately employer-neutral and must never contain confidential operational detail.
 
 ```mermaid
 flowchart LR
@@ -28,7 +30,7 @@ flowchart LR
     class E outcome;
 ```
 
-Read the sanitized [learner profile](learner-profile.yml) and [network-to-web bridge guide](resources/network-to-web-bridges.md). Every analogy states where it breaks; networking vocabulary is a starting hypothesis, not a substitute for application evidence.
+Read your sanitized [technical profile](learner-profile.yml) and [network-to-web bridge guide](resources/network-to-web-bridges.md). Every analogy states where it breaks; networking vocabulary is a starting hypothesis, not a substitute for application evidence.
 
 ## The transformation
 
@@ -85,7 +87,7 @@ flowchart TD
     class H local;
 ```
 
-Start with [Getting Started](GETTING_STARTED.md). It explains why each object exists before asking Pierre to use it. The canonical repository is the course; a **fork** is Pierre’s GitHub-owned workbook; a **clone** is the copy on his computer; a **branch** isolates one assignment; a **pull request** is the review packet.
+Start with the zero-assumption [first-session runbook](START_HERE.md), then use [Getting Started](GETTING_STARTED.md) as your continuing reference. The canonical repository is the course; a **fork** is your GitHub-owned workbook; a **clone** is the copy on your computer; a **branch** isolates one assignment; a **pull request** is your review packet.
 
 After forking, open **Actions → Start Pierre Build Program → Run workflow**. The idempotent workflow creates milestone 0 and a living Mission Control issue before any local CLI is installed. Review the workflow permissions before enabling it.
 
@@ -100,15 +102,15 @@ npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program
 npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program --apply
 ```
 
-The first bootstrap command is a safe preview. `--apply` creates the milestone 0 issues after Pierre reviews what will happen.
+The first bootstrap command is a safe preview. Use `--apply` only after you review what will happen.
 
 ## The simulated agency
 
-Pierre works as the developer/product builder at **Pierre Build Studio**. The fictional team supplies the information and pressure a real agency would provide.
+You work as the developer/product builder at **Pierre Build Studio**. Your fictional team supplies the information and pressure a real agency would provide.
 
 ```mermaid
 flowchart TB
-    P["PIERRE<br/>Developer + product builder<br/>Owns decisions and evidence"]
+    P["YOU<br/>Developer + product builder<br/>Own decisions and evidence"]
     M["Maya · Account manager<br/>Goals · timeline · scope · approvals"]
     J["Jon · Product designer<br/>Journeys · wireframes · UI critique"]
     R["Priya · Senior engineer<br/>Architecture · code review · tradeoffs"]
@@ -124,13 +126,13 @@ flowchart TB
     Q -->|"bugs + release evidence"| P
     P -->|"questions + demos + tradeoffs"| C
 
-    classDef learner fill:#ede9fe,stroke:#7c3aed,color:#2e1065,stroke-width:3px;
+    classDef owner fill:#ede9fe,stroke:#7c3aed,color:#2e1065,stroke-width:3px;
     classDef product fill:#dbeafe,stroke:#2563eb,color:#172554;
     classDef design fill:#fae8ff,stroke:#c026d3,color:#4a044e;
     classDef engineering fill:#dcfce7,stroke:#16a34a,color:#052e16;
     classDef security fill:#fee2e2,stroke:#dc2626,color:#450a0a;
     classDef qa fill:#fef3c7,stroke:#d97706,color:#451a03;
-    class P learner;
+    class P owner;
     class M,C product;
     class J design;
     class R engineering;
@@ -138,7 +140,7 @@ flowchart TB
     class Q qa;
 ```
 
-Later tickets intentionally contain ambiguity, missing assets, conflicting feedback, security findings, and scope changes. Pierre must ask useful questions, label assumptions, identify non-goals, and present tradeoffs instead of letting Codex guess.
+Later tickets intentionally contain ambiguity, missing assets, conflicting feedback, security findings, and scope changes. You must ask useful questions, label assumptions, identify non-goals, and present tradeoffs instead of letting Codex guess.
 
 ## The 178-hour project path
 
@@ -186,11 +188,11 @@ flowchart LR
     class M9,M10,M11 ship;
 ```
 
-| Milestone | What Pierre visibly delivers |
+| Milestone | What you visibly deliver |
 | --- | --- |
 | [0 · GitHub and agency foundations](curriculum/00-agency-onboarding.md) | Secured account, fork/clone/branch/PR practice, recovery exercise, ranked idea inventory |
 | [1 · Codex developer cockpit](curriculum/01-codex-developer-cockpit.md) | Codex instructions, tool inventory, GitHub/Vercel diagnostics, safe permissions |
-| [2 · Agent planning and UI discovery](curriculum/02-agent-planning-and-ui-discovery.md) | Decision-complete plan, frontend glossary, three visual directions, component audit |
+| [2 · Agent planning and UI discovery](curriculum/02-agent-planning-and-ui-discovery.md) | Decision-complete plan, visual Markdown user stories, frontend glossary, design directions, component audit |
 | [3 · First Next.js vertical slice](curriculum/03-first-vertical-slice.md) | Responsive client section deployed to a Vercel preview |
 | [4 · Client marketing launch](curriculum/04-client-marketing-launch.md) | Complete ClearPath website, production launch, client handoff |
 | [5 · AtlasOps API research spike](curriculum/05-api-research-spike.md) | Tested comparison of service-health providers and an architecture decision |
@@ -258,11 +260,13 @@ flowchart LR
 
 Every released issue contains the user, business outcome, context, observable acceptance criteria, data/API contract, security/privacy/accessibility/analytics expectations, dependencies, explicit non-goals, Definition of Done, evidence, and just-in-time concepts. Bugs add reproduction and regression contracts; spikes add a question, timebox, alternatives, and decision record.
 
+Milestone 2 teaches you to create that contract yourself. Use [Build user stories with Codex and visual Markdown](resources/visual-story-writing.md) to interview an ambiguous request, slice one end-to-end outcome, write Given/When/Then examples, choose the right Mermaid visual, add an equivalent text route, and red-team the story before any coding task begins.
+
 ## Codex is the first and only required AI environment
 
 ```mermaid
 flowchart TD
-    U["PIERRE'S INTENT<br/>user · outcome · taste · constraints"]
+    U["YOUR INTENT<br/>user · outcome · taste · constraints"]
     X["PROJECT CONTEXT<br/>AGENTS.md · product docs<br/>architecture · current story"]
     T["TOOLS + EVIDENCE<br/>GitHub CLI · Vercel CLI<br/>browser · logs · web/docs"]
     A["CODEX<br/>planning partner<br/>teacher · builder · debugger"]
@@ -287,15 +291,15 @@ flowchart TD
     class O output;
 ```
 
-Claude, Cursor, Copilot, v0, and other environments are acknowledged, but the core path does not switch between them. Pierre first learns durable habits—context, constraints, permissions, primary-document research, testing, diff review, and explanation—in Codex. Those habits transfer later.
+Claude, Cursor, Copilot, v0, and other environments are acknowledged, but the core path does not switch between them. First build durable habits—context, constraints, permissions, primary-document research, testing, diff review, and explanation—in Codex. Those habits transfer later.
 
-When Pierre does not understand something, he should not ask only “fix it.” He asks Codex to:
+When you do not understand something, do not ask only “fix it.” Ask Codex to:
 
 1. Explain the concept through the current Next.js story and exact files.
 2. Label what runs in the browser, Next.js server, database, build, or external service.
 3. Find the current primary documentation and match it to the installed version.
-4. Ask Pierre to predict what will happen before running the code.
-5. Let Pierre explain it back and identify the specific gap.
+4. Ask you to predict what will happen before running the code.
+5. Let you explain it back and identify the specific gap.
 6. Create the smallest test or experiment that proves the behavior.
 
 ## Planning comes before production code
@@ -304,7 +308,7 @@ Milestone 2 is deliberately **planning only**.
 
 ```mermaid
 flowchart LR
-    IDEA["RAW IDEA<br/>what Pierre imagines"]
+    IDEA["RAW IDEA<br/>what you imagine"]
     INTERVIEW["CODEX INTERVIEW<br/>one material question<br/>at a time"]
     MAP["UNDERSTANDING MAP<br/>facts · preferences<br/>assumptions · unknowns"]
     RESEARCH["CURRENT RESEARCH<br/>primary docs · cost<br/>security · failure"]
@@ -326,7 +330,7 @@ flowchart LR
     class STORIES,APPROVAL ready;
 ```
 
-Codex may know useful tools Pierre has never encountered and can research unfamiliar ones through web search. Pierre saves time by treating the agent as an informed partner, but he verifies recommendations through primary documentation, safe experiments, actual cost/limits, license, privacy, maintenance, and failure behavior.
+Codex may know useful tools you have never encountered and can research unfamiliar ones through web search. You save time by treating the agent as an informed partner, but you verify recommendations through primary documentation, safe experiments, actual cost and limits, license, privacy, maintenance, and failure behavior.
 
 ## Learn the visual language before directing the frontend
 
@@ -418,7 +422,7 @@ flowchart TD
     class SERVER,PUBLIC safe;
 ```
 
-`.env.example` contains names and explanations only. A `NEXT_PUBLIC_` value is sent to the browser and therefore cannot be treated as secret. The leak drill uses fictional credentials but practices the real response: revocation, rotation, history/log review, redeployment, invalidation testing, and incident documentation.
+`.env.example` contains names and explanations only. A `NEXT_PUBLIC_` value is sent to the browser and therefore cannot be treated as secret. The [fictional credential leak drill](resources/secret-leak-drill.md) uses a machine-recognizable synthetic value but practices the real response: revocation, rotation, history/log review, redeployment, invalidation testing, and incident documentation.
 
 ## Progressive release and evidence gates
 
@@ -436,6 +440,8 @@ stateDiagram-v2
 ```
 
 Every milestone PR includes linked stories, acceptance evidence, working deployment URL, screenshots or recordings, automated checks, security and accessibility review, code explanation, a controlled modification, seeded-bug diagnosis, limitations, and retrospective.
+
+Use [Close a milestone and release the next packet](playbooks/milestone-release.md) for the exact handoff. Milestones 0–3, 5–7, and 9 require passing CI, complete evidence, and a Codex defense before you apply `milestone-accepted`. Milestones 4, 8, 10, and 11 additionally require a recorded human mentor approval; Codex helps you prepare but cannot grant that approval. Merging an accepted PR releases the next packet automatically.
 
 ## Graduation
 
@@ -469,7 +475,7 @@ flowchart TB
     class GRAD graduate;
 ```
 
-Pierre must independently plan for Codex, clarify requirements, explain and modify generated code, debug from evidence, evaluate unfamiliar tools, model Supabase data and RLS, protect and rotate credentials, handle feedback, and deploy, roll back, document, and hand off a client application.
+To graduate, you must independently plan with Codex, clarify requirements, explain and modify generated code, debug from evidence, evaluate unfamiliar tools, model Supabase data and RLS, protect and rotate credentials, handle feedback, and deploy, roll back, document, and hand off a client application.
 
 ## Learn by taking a gander at real open-source products
 
@@ -508,7 +514,7 @@ The [open-source project learning lab](case-studies/open-source-projects.md) inc
 - Trigger.dev for queues, retries, idempotency, long-running work, and observability.
 - Cal.diy for scheduling, time zones, integration complexity, and scope discovery.
 
-Each study starts with Pierre's own architecture guess, then uses Codex to correct it with exact file evidence. He traces one user action, challenges security and operational tradeoffs, and adapts one small pattern only when the current story needs it.
+Each study starts with your own architecture guess, then uses Codex to correct it with exact file evidence. You trace one user action, challenge security and operational tradeoffs, and adapt one small pattern only when the current story needs it.
 
 ## Repository map
 
@@ -522,7 +528,7 @@ flowchart TD
     ROOT --> RES["resources/<br/>UI field guide + dated watchlist"]
     ROOT --> PLAY["playbooks/<br/>repeatable Codex workflows"]
     ROOT --> LABS["labs/<br/>12 contracts + browser game days"]
-    ROOT --> EVIDENCE["evidence/<br/>learner lab defenses"]
+    ROOT --> EVIDENCE["evidence/<br/>your lab defenses"]
     ROOT --> AUTO["schemas/ + scripts/ + .github/<br/>validation + issue automation"]
 
     classDef root fill:#ede9fe,stroke:#7c3aed,color:#2e1065,stroke-width:3px;

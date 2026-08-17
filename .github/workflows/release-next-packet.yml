@@ -27,11 +27,11 @@ jobs:
         env:
           TITLE: ${{ github.event.pull_request.title }}
         run: |
-          milestone="$(printf '%s' "$TITLE" | sed -E 's/^Milestone ([0-9]+).*/\1/')"
-          if ! printf '%s' "$milestone" | grep -Eq '^(0|1|2|3|4|5|6|7|8|9|10|11)$'; then
-            echo "Could not safely parse milestone from PR title: $TITLE"
+          if ! printf '%s' "$TITLE" | grep -Eq '^Milestone (0|1|2|3|4|5|6|7|8|9|10|11): .+'; then
+            echo "Use the exact PR title format 'Milestone N: short outcome'. Received: $TITLE"
             exit 1
           fi
+          milestone="$(printf '%s' "$TITLE" | sed -E 's/^Milestone ([0-9]+):.*/\1/')"
           echo "number=$milestone" >> "$GITHUB_OUTPUT"
       - name: Release packet idempotently
         env:

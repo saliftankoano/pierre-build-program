@@ -1,6 +1,6 @@
 # Optional CCNP operations track — 12 hours
 
-These four three-hour labs deepen Pierre’s infrastructure advantage. They are outside the required 178-hour core and do not block graduation.
+These four three-hour labs deepen your infrastructure advantage. They are outside your required 178-hour core and do not block graduation.
 
 ```mermaid
 flowchart LR

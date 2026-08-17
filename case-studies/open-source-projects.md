@@ -68,11 +68,11 @@ Blue projects are focused entry points. Green projects show complete product jou
 ### 1. Sim — visual AI workflows and agent infrastructure
 
 - **Pinned project:** [simstudioai/sim at `417ae20`](https://github.com/simstudioai/sim/tree/417ae2075d52bc777d3317d9540525cfe26bb49d)
-- **License:** [Apache-2.0](https://github.com/simstudioai/sim/blob/417ae2075d52bc777d3317d9540525cfe26bb49d/LICENSE)
+- **License:** [Apache-2.0](https://raw.githubusercontent.com/simstudioai/sim/417ae2075d52bc777d3317d9540525cfe26bb49d/LICENSE)
 - **Best during:** milestones 2 and 9
-- **Start at:** [`apps/sim`](https://github.com/simstudioai/sim/tree/417ae2075d52bc777d3317d9540525cfe26bb49d/apps/sim), [environment contract](https://github.com/simstudioai/sim/blob/417ae2075d52bc777d3317d9540525cfe26bb49d/apps/sim/lib/core/config/env.ts), and [contributor workflow](https://github.com/simstudioai/sim/blob/417ae2075d52bc777d3317d9540525cfe26bb49d/.github/CONTRIBUTING.md).
+- **Start at:** [`apps/sim`](https://github.com/simstudioai/sim/tree/417ae2075d52bc777d3317d9540525cfe26bb49d/apps/sim), [environment contract](https://raw.githubusercontent.com/simstudioai/sim/417ae2075d52bc777d3317d9540525cfe26bb49d/apps/sim/lib/core/config/env.ts), and [contributor workflow](https://raw.githubusercontent.com/simstudioai/sim/417ae2075d52bc777d3317d9540525cfe26bb49d/.github/CONTRIBUTING.md).
 
-Sim is the example Pierre requested. Its current stack combines Next.js App Router, TypeScript, Tailwind/shadcn, PostgreSQL/Drizzle, Zod, React Flow, state/query tools, realtime communication, background jobs, and AI-provider integrations.
+You specifically asked to study Sim. Its reviewed stack combines Next.js App Router, TypeScript, Tailwind/shadcn, PostgreSQL/Drizzle, Zod, React Flow, state/query tools, realtime communication, background jobs, and AI-provider integrations.
 
 Study questions:
 
@@ -80,12 +80,12 @@ Study questions:
 - Which code belongs to the browser editor, Next.js server, realtime service, database package, background worker, and outside providers?
 - How does the environment schema distinguish server credentials from public browser configuration?
 - Which failures require retry, idempotency, timeout, cost limits, or human approval?
-- Why would reproducing the whole architecture be a poor first project, and what one interaction could Pierre isolate as a learning spike?
+- Why would reproducing the whole architecture be a poor first project, and what one interaction could you isolate as a learning spike?
 
 ### 2. Next.js SaaS Starter — smallest full-stack business skeleton
 
 - **Pinned project:** [nextjs/saas-starter at `6e33e58`](https://github.com/nextjs/saas-starter/tree/6e33e58b1e553a41fe22e6b941a7229a002de361)
-- **License:** [MIT](https://github.com/nextjs/saas-starter/blob/6e33e58b1e553a41fe22e6b941a7229a002de361/LICENSE)
+- **License:** [MIT](https://raw.githubusercontent.com/nextjs/saas-starter/6e33e58b1e553a41fe22e6b941a7229a002de361/LICENSE)
 - **Best during:** milestones 1, 3, and 8
 
 This is a smaller place to inspect a recognizable Next.js application structure, authentication, database access, Stripe integration, shadcn/ui, environment configuration, and deployment assumptions.
@@ -100,7 +100,7 @@ Study questions:
 ### 3. shadcn/ui — component source, registries, and visual systems
 
 - **Pinned project:** [shadcn-ui/ui at `d4fc45b`](https://github.com/shadcn-ui/ui/tree/d4fc45b1fbabfccb7a6a4333d8004cf19481caa9)
-- **License:** [MIT](https://github.com/shadcn-ui/ui/blob/d4fc45b1fbabfccb7a6a4333d8004cf19481caa9/LICENSE.md)
+- **License:** [MIT](https://raw.githubusercontent.com/shadcn-ui/ui/d4fc45b1fbabfccb7a6a4333d8004cf19481caa9/LICENSE.md)
 - **Best during:** milestones 2 through 4
 - **Start at:** the [v4 application](https://github.com/shadcn-ui/ui/tree/d4fc45b1fbabfccb7a6a4333d8004cf19481caa9/apps/v4) and the live [component documentation](https://ui.shadcn.com/docs/components).
 
@@ -109,12 +109,12 @@ Study questions:
 - What is copied into the consumer project versus retained as a package dependency?
 - Which behavior comes from an accessible primitive and which comes from local styling?
 - How are variants, tokens, focus, disabled state, and responsive behavior expressed?
-- How would Pierre adapt a component to ClearPath without retaining demo-only complexity?
+- How would you adapt a component to ClearPath without retaining demo-only complexity?
 
 ### 4. Supabase Next.js user-management example — authentication boundaries
 
 - **Pinned example:** [Supabase Next.js user management at `9be60ca`](https://github.com/supabase/supabase/tree/9be60cab63161100500bdae6dfd45501c5fd8b07/examples/user-management/nextjs-user-management)
-- **License:** [Apache-2.0](https://github.com/supabase/supabase/blob/9be60cab63161100500bdae6dfd45501c5fd8b07/LICENSE)
+- **License:** [Apache-2.0](https://raw.githubusercontent.com/supabase/supabase/9be60cab63161100500bdae6dfd45501c5fd8b07/LICENSE)
 - **Best during:** milestones 7 and 8
 - **Pair with:** the current [official Next.js tutorial](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs).
 
@@ -129,7 +129,7 @@ Study questions:
 ### 5. Vercel Commerce — data fetching, caching, and storefront states
 
 - **Pinned project:** [vercel/commerce at `3761e52`](https://github.com/vercel/commerce/tree/3761e52e60df9c6a316e067dbfd7032e494d3634)
-- **License:** [MIT](https://github.com/vercel/commerce/blob/3761e52e60df9c6a316e067dbfd7032e494d3634/license.md)
+- **License:** [MIT](https://raw.githubusercontent.com/vercel/commerce/3761e52e60df9c6a316e067dbfd7032e494d3634/license.md)
 - **Best during:** milestones 3, 4, and 6
 
 Study questions:
@@ -142,7 +142,7 @@ Study questions:
 ### 6. Documenso — role-aware document workflows
 
 - **Pinned project:** [documenso/documenso at `688ef2f`](https://github.com/documenso/documenso/tree/688ef2fdf303410dce3f519ad40f77ef9f37a7d2)
-- **License:** [AGPL-3.0](https://github.com/documenso/documenso/blob/688ef2fdf303410dce3f519ad40f77ef9f37a7d2/LICENSE)
+- **License:** [AGPL-3.0](https://raw.githubusercontent.com/documenso/documenso/688ef2fdf303410dce3f519ad40f77ef9f37a7d2/LICENSE)
 - **Best during:** milestones 8, 10, and 11
 
 Documenso is useful for thinking about multi-step workflows, document metadata, recipients, permissions, email events, background work, and deployment. It is not proof that a new product is legally sufficient for signatures or forensic evidence.
@@ -157,7 +157,7 @@ Study questions:
 ### 7. OpenStatus — observability as a product
 
 - **Pinned project:** [openstatusHQ/openstatus at `86f370c`](https://github.com/openstatusHQ/openstatus/tree/86f370c9c20074c3c3fdec53a359874b8e670fd4)
-- **License:** [AGPL-3.0](https://github.com/openstatusHQ/openstatus/blob/86f370c9c20074c3c3fdec53a359874b8e670fd4/LICENSE)
+- **License:** [AGPL-3.0](https://raw.githubusercontent.com/openstatusHQ/openstatus/86f370c9c20074c3c3fdec53a359874b8e670fd4/LICENSE)
 - **Best during:** milestones 5, 6, and 10
 - **Start at:** the [Next.js dashboard](https://github.com/openstatusHQ/openstatus/tree/86f370c9c20074c3c3fdec53a359874b8e670fd4/apps/dashboard).
 
@@ -173,7 +173,7 @@ Study questions:
 ### 8. Uptime Kuma — monitoring product and incident UX
 
 - **Pinned project:** [louislam/uptime-kuma at `b980621`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b)
-- **License:** [MIT](https://github.com/louislam/uptime-kuma/blob/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/LICENSE)
+- **License:** [MIT](https://raw.githubusercontent.com/louislam/uptime-kuma/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/LICENSE)
 - **Best during:** milestones 5, 6, and 10
 - **Start at:** [`server`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/server), [`src`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/src), and [`test`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/test).
 
@@ -188,7 +188,7 @@ Study questions:
 ### 9. NetBox — operations data modeling and ownership
 
 - **Pinned project:** [netbox-community/netbox at `93f16a5`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172)
-- **License:** [Apache-2.0](https://github.com/netbox-community/netbox/blob/93f16a536d00227a404bb1d785fe355639bb5172/LICENSE.txt)
+- **License:** [Apache-2.0](https://raw.githubusercontent.com/netbox-community/netbox/93f16a536d00227a404bb1d785fe355639bb5172/LICENSE.txt)
 - **Best during:** milestones 7, 8, and the optional failure-domain lab
 - **Start at:** [`netbox/dcim`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172/netbox/dcim), [`netbox/tenancy`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172/netbox/tenancy), and [`netbox/extras`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172/netbox/extras).
 
@@ -203,7 +203,7 @@ Study questions:
 ### 10. Trigger.dev — durable background work
 
 - **Pinned project:** [triggerdotdev/trigger.dev at `c0b8459`](https://github.com/triggerdotdev/trigger.dev/tree/c0b84595a3522dbbd102af1a082d492dabfdba6f)
-- **License:** [Apache-2.0](https://github.com/triggerdotdev/trigger.dev/blob/c0b84595a3522dbbd102af1a082d492dabfdba6f/LICENSE)
+- **License:** [Apache-2.0](https://raw.githubusercontent.com/triggerdotdev/trigger.dev/c0b84595a3522dbbd102af1a082d492dabfdba6f/LICENSE)
 - **Best during:** milestones 9 and 10
 
 Study questions:
@@ -216,7 +216,7 @@ Study questions:
 ### 11. Cal.diy — scheduling and integration complexity
 
 - **Pinned project:** [calcom/cal.diy at `176037d`](https://github.com/calcom/cal.diy/tree/176037d0afbe572f870a3c702985e7cd83fe6c0c)
-- **License:** [MIT](https://github.com/calcom/cal.diy/blob/176037d0afbe572f870a3c702985e7cd83fe6c0c/LICENSE)
+- **License:** [MIT](https://raw.githubusercontent.com/calcom/cal.diy/176037d0afbe572f870a3c702985e7cd83fe6c0c/LICENSE)
 - **Best during:** milestones 8 through 11
 - **Start at:** the [web application](https://github.com/calcom/cal.diy/tree/176037d0afbe572f870a3c702985e7cd83fe6c0c/apps/web).
 

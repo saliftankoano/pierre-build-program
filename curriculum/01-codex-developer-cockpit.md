@@ -11,11 +11,11 @@ Priya wants one supported AI environment before client work. Codex is the core e
 
 ```mermaid
 flowchart TB
-    P["Pierre's intent<br/>story + constraints"] --> C["Codex session<br/>inside correct repository"]
+    P["Your intent<br/>story + constraints"] --> C["Codex session<br/>inside correct repository"]
     I["AGENTS.md + project docs<br/>durable context"] --> C
     T["Tools<br/>GitHub · Vercel · browser · web"] --> C
     C --> D["Evidence-backed diagnosis<br/>or focused change"]
-    D --> R["Pierre reviews commands<br/>diff + checks + explanation"]
+    D --> R["You review commands<br/>diff + checks + explanation"]
 
     classDef human fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
     classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
@@ -27,9 +27,11 @@ flowchart TB
     class D verified;
 ```
 
-The agent becomes more useful when it receives accurate context and inspectable evidence; Pierre remains the approval and verification boundary.
+The agent becomes more useful when it receives accurate context and inspectable evidence; you remain the approval and verification boundary.
 
 Use the [official Codex CLI quickstart](https://learn.chatgpt.com/docs/codex/cli) to install Codex, sign in, start it inside your curriculum clone, inspect session status, understand permissions, and ask it to explain the repository before making changes.
+
+Use [Codex as your learning partner](../playbooks/codex-learning-partner.md) for the standard assignment, screen mismatch, command safety, debugging, tool research, and end-of-session prompts. Milestone 1 moves the same guided behavior used during browser onboarding into the local repository where Codex can inspect files, run checks, and read CLI evidence.
 
 ## Why the tool belt matters
 
@@ -39,12 +41,13 @@ Tools do not make Codex automatically correct. They provide better evidence. You
 
 ## Required setup
 
-1. Install Node.js 24 LTS and confirm `node --version`, `npm --version`, and `npx --version`.
-2. Install GitHub CLI, run `gh auth login`, and confirm `gh auth status` without publishing the token output.
-3. Install Codex, sign in, start it from the curriculum repository, and use `/status`, `/permissions`, and `/review`.
-4. Install Vercel CLI, authenticate, and practice `vercel help`, `vercel link`, `vercel list`, `vercel inspect DEPLOYMENT --logs`, and `vercel logs DEPLOYMENT` against a harmless practice deployment. Follow the [Vercel CLI documentation](https://vercel.com/docs/cli).
-5. Confirm Codex can use browser or screenshot context in the chosen client and can perform current web/documentation search when the task requires current information.
-6. Learn what MCP is without installing random servers. MCP can connect Codex to third-party tools and context; every server expands capability and trust surface. Add one only after reviewing its publisher, permissions, data exposure, and removal path. See the [official MCP guide](https://learn.chatgpt.com/docs/extend/mcp?surface=cli).
+1. Install Git, clone your fork, add the canonical repository as `upstream`, and verify `git remote -v`, `git status`, and your current branch without exposing credentials.
+2. Install Node.js 24 LTS and confirm `node --version`, `npm --version`, and `npx --version`.
+3. Install GitHub CLI, run `gh auth login`, and confirm `gh auth status` without publishing the token output.
+4. Install Codex, sign in, start it from the curriculum repository, and use `/status`, `/permissions`, and `/review`.
+5. From `labs/core/LAB-01`, install Vercel CLI, authenticate, deploy that harmless practice app, and then practice `vercel help`, `vercel link`, `vercel list`, `vercel inspect DEPLOYMENT --logs`, and `vercel logs DEPLOYMENT`. Do not point these exercises at a client or production project. Follow the [Vercel CLI documentation](https://vercel.com/docs/cli).
+6. Confirm Codex can use browser or screenshot context in the chosen client and can perform current web/documentation search when the task requires current information.
+7. Learn what MCP is without installing random servers. MCP can connect Codex to third-party tools and context; every server expands capability and trust surface. Add one only after reviewing its publisher, permissions, data exposure, and removal path. See the [official MCP guide](https://learn.chatgpt.com/docs/extend/mcp?surface=cli).
 
 Supabase CLI is deliberately installed later as a project dependency so its version is pinned with the Next.js application.
 

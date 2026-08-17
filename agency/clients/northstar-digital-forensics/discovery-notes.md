@@ -17,7 +17,7 @@
 - Email notifications must contain only case reference and action summary, never uploaded contents or sensitive descriptions.
 - The owner initially requested “tamper-proof chain of custody.” The approved training wording is “timestamped activity history.” Legal sufficiency and immutability are out of scope.
 
-## Questions the learner must resolve
+## Questions you must resolve
 
 - Which status transitions may each role perform?
 - What metadata is required before a case becomes ready for review?

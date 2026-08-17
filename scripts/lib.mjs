@@ -32,7 +32,7 @@ function labStory(lab, packet) {
     expectations: {
       security: "Use only supplied synthetic values; redact tokens, session data, and private logs.",
       privacy: "Do not use employer, client, forensic, or personally identifying data.",
-      accessibility: "Keep the learner-facing status, failure, and recovery states keyboard accessible and understandable without color.",
+      accessibility: "Keep your status, failure, and recovery states keyboard accessible and understandable without color.",
       analytics: "Record only safe lab phase and check outcome; never record payload or credential values."
     },
     dependencies: packet.milestone === 0 ? [] : [`Milestone ${packet.milestone - 1} accepted`],
@@ -54,6 +54,17 @@ export function repoFromArgs(args) {
   return value;
 }
 
+export function githubRepoFromRemote(remote) {
+  if (typeof remote !== "string") return undefined;
+  const match = remote.trim().match(/github\.com(?::|\/)([A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+?)(?:\.git)?$/);
+  return match?.[1];
+}
+
+export function learnerLink(value, repo) {
+  const owner = repo?.split("/")[0] || "YOUR_USERNAME";
+  return value.replaceAll("OWNER", owner);
+}
+
 export function run(command, args, options = {}) {
   const result = spawnSync(command, args, { cwd: options.cwd ?? root, encoding: "utf8", stdio: options.capture ? "pipe" : "inherit" });
   if (result.status !== 0) {
@@ -65,8 +76,7 @@ export function run(command, args, options = {}) {
 
 export function issueBody(story, packet, repo) {
   const list = (items) => items.map((item) => `- ${item}`).join("\n");
-  const owner = repo?.split("/")[0];
-  const learnerLink = (value) => owner ? value.replaceAll("OWNER", owner) : value;
+  const resolveLearnerLink = (value) => learnerLink(value, repo);
   const bugContract = story.type === "bug" ? `
 ## Bug report contract
 
@@ -91,8 +101,8 @@ export function issueBody(story, packet, repo) {
 
 **Lab / delivery / timebox:** ${story.labContract.id} / ${story.labContract.delivery} / ${story.labContract.timeboxMinutes} minutes
 **Starter:** \`${story.labContract.starterPath}\`
-**Primary sandbox:** ${learnerLink(story.labContract.sandboxUrl)}
-**Fallback:** ${learnerLink(story.labContract.fallbackUrl)}
+**Primary sandbox:** ${resolveLearnerLink(story.labContract.sandboxUrl)}
+**Fallback:** ${resolveLearnerLink(story.labContract.fallbackUrl)}
 
 ### Concept bridge
 
@@ -103,6 +113,11 @@ export function issueBody(story, packet, repo) {
 ### Build assignment
 
 ${story.labContract.buildBrief}
+${story.labContract.instructions?.length ? `
+### Delivery steps
+
+${story.labContract.instructions.map((item, index) => `${index + 1}. ${item}`).join("\n")}
+` : ""}
 
 ### Seeded game day
 
@@ -145,6 +160,10 @@ ${story.outcome}
 ${story.context}
 ${bugContract}${spikeContract}${labContract}
 
+## Start with Codex
+
+Open a Codex task in your fork and provide this issue URL. Ask Codex to read \`AGENTS.md\`, \`START_HERE.md\`, \`playbooks/codex-learning-partner.md\`, and the milestone guide before acting. Codex must inspect first, explain one checkpoint at a time, name the success signal, use current official documentation, and help diagnose redacted evidence. Never paste passwords, MFA or recovery codes, tokens, cookies, employer information, client data, or real incident/forensic material.
+
 ## Acceptance criteria
 
 ${list(story.acceptanceCriteria.map((item) => `[ ] ${item}`))}
@@ -182,7 +201,7 @@ ${list(story.concepts)}
 ${story.seededBug ? `\n## Seeded bug\n\n${story.seededBug}\n` : ""}
 ## References
 
-${story.designRefs?.length ? list(story.designRefs.map(learnerLink)) : "- No additional reference supplied."}
+${story.designRefs?.length ? list(story.designRefs.map(resolveLearnerLink)) : "- No additional reference supplied."}
 
 ---
 Do not begin by asking Codex to implement everything. Inspect → clarify → define acceptance → plan → implement one story → check → inspect diff → explain → commit.`;

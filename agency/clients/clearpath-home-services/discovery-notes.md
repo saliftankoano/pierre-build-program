@@ -1,6 +1,6 @@
 # ClearPath Discovery Notes
 
-**Attendees:** Dana Brooks (owner), Maya Chen (account manager), learner (developer)
+**Attendees:** Dana Brooks (owner), Maya Chen (account manager), you (developer/product builder)
 **Date:** fictional
 
 ## What Dana said
@@ -22,4 +22,4 @@
 
 ## Later change event
 
-Dana will ask to add online appointment scheduling during milestone 4. This is not automatically in scope. The learner must assess third-party cost, calendar ownership, cancellation rules, time-zone behavior, privacy, design, testing, and support before recommending defer, discovery spike, or a scoped change.
+Dana will ask you to add online appointment scheduling during milestone 4. This is not automatically in scope. You must assess third-party cost, calendar ownership, cancellation rules, time-zone behavior, privacy, design, testing, and support before recommending defer, a discovery spike, or a scoped change.

@@ -39,6 +39,8 @@ Authentication identifies the actor; authorization evaluates the actor, action, 
 - Multi-tenant systems need an explicit ownership model. Every request must resolve the actor, resource, action, and tenant/owner relationship.
 - Private storage uses policies and short-lived signed access. A hard-to-guess public URL is not access control.
 
+If Next.js session propagation or server/client auth boundaries are unclear, use the Supabase authentication entry in the [video learning path](../resources/video-learning-path.md), then verify the current SSR APIs and trace the real AtlasOps request rather than copying the tutorial architecture.
+
 ## Work
 
 Add sign-in, onboarding, ownership or organization membership, role-specific navigation, protected routes, private storage if the idea needs files, and useful account states. Implement search/filtering only after permissions are correct.

@@ -12,15 +12,14 @@ body:
     validations: { required: true }
   - type: textarea
     id: boundary
-    attributes: { label: Asset, actor, and trust boundary }
+    attributes:
+      label: Asset, actor, and trust boundary
     validations: { required: true }
   - type: textarea
     id: scenario
     attributes:
-      {
-        label: Safe abuse case and impact,
-        description: Use synthetic identifiers and redact secrets.,
-      }
+      label: Safe abuse case and impact
+      description: Use synthetic identifiers and redact secrets.
     validations: { required: true }
   - type: textarea
     id: evidence

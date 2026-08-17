@@ -1,6 +1,6 @@
 # Network-to-web concept bridges
 
-Pierre is new to constructing applications, not new to technical systems. These bridges use familiar operational models to create an initial hypothesis. Each bridge also states where the analogy breaks so it does not become a false rule.
+You are new to constructing applications, not new to technical systems. These bridges use your familiar operational models to create an initial hypothesis. Each bridge also states where the analogy breaks so it does not become a false rule.
 
 ```mermaid
 flowchart LR
@@ -42,4 +42,4 @@ flowchart LR
 4. Correct the model using the observed request, code, and logs.
 5. Write one sentence beginning “This analogy stops being useful when…”
 
-Codex may help inspect and explain evidence, but Pierre must make the first prediction and final teach-back.
+Codex may help inspect and explain evidence, but you must make the first prediction and final teach-back.

@@ -1,2 +1,2 @@
-console.log("Reset guidance: git revert <bad-commit>");
-console.log("Do not discard unrelated learner changes. Review the diff before restoring a file.");
+console.log("Reset guidance: Use the merged pull request's Revert action and merge the generated revert pull request");
+console.log("Do not discard unrelated changes. Review the diff before restoring a file.");

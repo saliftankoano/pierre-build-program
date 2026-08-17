@@ -42,6 +42,14 @@
       "expiresOn": "2026-11-16"
     },
     {
+      "name": "Your task-specific video learning path",
+      "url": "resources/video-learning-path.md",
+      "category": "curated-project-video-path",
+      "whyUseful": "Maps verified videos to the exact milestone confusion they support, followed by official documentation and a project experiment.",
+      "lastReviewed": "2026-08-16",
+      "expiresOn": "2026-11-16"
+    },
+    {
       "name": "Fireship",
       "url": "https://www.youtube.com/@Fireship",
       "category": "creator-tool-radar",
