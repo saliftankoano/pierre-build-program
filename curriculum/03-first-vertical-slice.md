@@ -58,6 +58,10 @@ The slice is vertical because it connects real client intent to implemented UI, 
 - Change the trust-proof data model and UI without regenerating the section.
 - Fix the supplied small-screen overflow bug and show before/after evidence.
 
+## Interactive lab — LAB-03
+
+Complete [the responsive vertical-slice game day](../labs/core/LAB-03/README.md). Predict the layout owner, reproduce the narrow-screen overflow, repair the exact rule, and preserve the approved design direction.
+
 ## Done when
 
 The preview meets every story criterion, uses no placeholder lorem ipsum, works without horizontal scrolling, has a logical heading structure, and the PR includes design evidence and your explanation.

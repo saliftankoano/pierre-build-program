@@ -7,6 +7,29 @@ Pierre does not need to wait until he can write an application from memory. He b
 > [!IMPORTANT]
 > AI writes quickly; the product builder owns the result. Never paste real secrets, private client data, forensic evidence, or unapproved employer code into an AI tool. Never run a command you cannot explain well enough to predict what it will affect.
 
+## Built around Pierre’s existing strengths
+
+Pierre is an application-construction beginner with substantial technical experience: nine years in hyperscale data-center operations, CCNA/CCNP knowledge, graduate cybersecurity and digital-forensics education, Scrum practice, and mature troubleshooting instincts. The public profile is deliberately employer-neutral and forbids confidential operational detail.
+
+```mermaid
+flowchart LR
+    A["EXISTING STRENGTHS<br/>operations · networking<br/>security · Scrum"] --> B["CONCEPT BRIDGES<br/>packets → HTTP<br/>ACLs → RLS<br/>change windows → PRs"]
+    B --> C["NEXT.JS PRODUCT WORK<br/>plan · build · test<br/>deploy · explain"]
+    C --> D["GAME DAYS<br/>observe · diagnose<br/>contain · recover"]
+    D --> E["PORTFOLIO<br/>ClearPath · AtlasOps<br/>Northstar"]
+
+    classDef known fill:#0f766e,stroke:#134e4a,color:#ffffff;
+    classDef learn fill:#2563eb,stroke:#1e3a8a,color:#ffffff;
+    classDef verify fill:#7c3aed,stroke:#4c1d95,color:#ffffff;
+    classDef outcome fill:#ea580c,stroke:#9a3412,color:#ffffff;
+    class A known;
+    class B,C learn;
+    class D verify;
+    class E outcome;
+```
+
+Read the sanitized [learner profile](learner-profile.yml) and [network-to-web bridge guide](resources/network-to-web-bridges.md). Every analogy states where it breaks; networking vocabulary is a starting hypothesis, not a substitute for application evidence.
+
 ## The transformation
 
 ```mermaid
@@ -46,23 +69,27 @@ flowchart TD
     B["2 · Verify email + enable 2FA<br/>protect ownership"]
     C["3 · Complete GitHub Hello World<br/>practice in the browser"]
     D["4 · Fork this repository<br/>your GitHub-owned curriculum copy"]
-    E["5 · Clone your fork<br/>a working copy on your computer"]
-    F["6 · Install Git, Node, Codex,<br/>GitHub CLI, and Vercel CLI"]
-    G["7 · Bootstrap milestone 0 issues<br/>begin agency work"]
+    E["5 · Enable Actions in the fork<br/>review requested permissions"]
+    F["6 · Run Start Pierre Build Program<br/>Mission Control + M0 issues"]
+    G["7 · Open LAB-00<br/>ship a Next.js browser change"]
+    H["8 · Install local Codex tools<br/>begin milestone 1"]
 
-    A --> B --> C --> D --> E --> F --> G
+    A --> B --> C --> D --> E --> F --> G --> H
 
     classDef account fill:#dbeafe,stroke:#2563eb,color:#172554;
     classDef github fill:#fef3c7,stroke:#d97706,color:#451a03;
     classDef local fill:#dcfce7,stroke:#16a34a,color:#052e16;
     class A,B account;
     class C,D github;
-    class E,F,G local;
+    class E,F,G github;
+    class H local;
 ```
 
 Start with [Getting Started](GETTING_STARTED.md). It explains why each object exists before asking Pierre to use it. The canonical repository is the course; a **fork** is Pierre’s GitHub-owned workbook; a **clone** is the copy on his computer; a **branch** isolates one assignment; a **pull request** is the review packet.
 
-After completing the account and fork steps:
+After forking, open **Actions → Start Pierre Build Program → Run workflow**. The idempotent workflow creates milestone 0 and a living Mission Control issue before any local CLI is installed. Review the workflow permissions before enabling it.
+
+After milestone 0, the equivalent local bootstrap remains available:
 
 ```bash
 gh repo fork saliftankoano/pierre-build-program --clone
@@ -131,16 +158,16 @@ flowchart LR
     end
 
     subgraph PRODUCTS["PRODUCT SYSTEMS · 62 hours"]
-      M5["M5 · 12h<br/>API research spike"]
-      M6["M6 · 16h<br/>API data product"]
-      M7["M7 · 16h<br/>Supabase foundation"]
-      M8["M8 · 18h<br/>Authenticated product<br/>MENTOR GATE"]
+      M5["M5 · 12h<br/>AtlasOps API spike"]
+      M6["M6 · 16h<br/>AtlasOps dashboard"]
+      M7["M7 · 16h<br/>AtlasOps data foundation"]
+      M8["M8 · 18h<br/>AtlasOps authentication<br/>MENTOR GATE"]
       M5 --> M6 --> M7 --> M8
     end
 
     subgraph DELIVERY["DELIVERY + CAPSTONE · 62 hours"]
-      M9["M9 · 16h<br/>Integrations + AI"]
-      M10["M10 · 14h<br/>Production hardening<br/>MENTOR GATE"]
+      M9["M9 · 16h<br/>AtlasOps integrations + AI"]
+      M10["M10 · 14h<br/>AtlasOps hardening<br/>MENTOR GATE"]
       M11["M11 · 32h<br/>Forensics capstone<br/>FINAL GATE"]
       M9 --> M10 --> M11
     end
@@ -166,15 +193,42 @@ flowchart LR
 | [2 · Agent planning and UI discovery](curriculum/02-agent-planning-and-ui-discovery.md) | Decision-complete plan, frontend glossary, three visual directions, component audit |
 | [3 · First Next.js vertical slice](curriculum/03-first-vertical-slice.md) | Responsive client section deployed to a Vercel preview |
 | [4 · Client marketing launch](curriculum/04-client-marketing-launch.md) | Complete ClearPath website, production launch, client handoff |
-| [5 · API research spike](curriculum/05-api-research-spike.md) | Tested comparison of three providers and an architecture decision |
-| [6 · Next.js API data product](curriculum/06-api-data-product.md) | Resilient deployed dashboard with loading/error/empty states |
-| [7 · Next.js + Supabase foundation](curriculum/07-supabase-foundation.md) | Database workflow, migrations, synthetic seeds, CRUD, and RLS |
-| [8 · Authenticated Next.js product](curriculum/08-authenticated-product.md) | Roles, ownership, protected storage, cross-user authorization tests |
-| [9 · Integrations and AI](curriculum/09-integrations-and-ai.md) | Justified integration, bounded AI capability, retries and fallbacks |
-| [10 · Production hardening](curriculum/10-production-hardening.md) | Tests, observability, incident drill, rollback, maintenance proposal |
+| [5 · AtlasOps API research spike](curriculum/05-api-research-spike.md) | Tested comparison of service-health providers and an architecture decision |
+| [6 · AtlasOps service-health dashboard](curriculum/06-api-data-product.md) | Resilient deployed dashboard with freshness and degraded states |
+| [7 · AtlasOps Supabase foundation](curriculum/07-supabase-foundation.md) | Operations data model, migrations, synthetic seeds, CRUD, and RLS |
+| [8 · Authenticated AtlasOps product](curriculum/08-authenticated-product.md) | Operator/lead/stakeholder roles and cross-tenant authorization tests |
+| [9 · AtlasOps integrations and AI](curriculum/09-integrations-and-ai.md) | Signed webhook/notification and bounded handoff summary |
+| [10 · AtlasOps hardening](curriculum/10-production-hardening.md) | Tests, observability, game day, rollback, and maintenance proposal |
 | [11 · Forensics capstone](curriculum/11-forensics-capstone.md) | Northstar portal delivered from discovery through support handoff |
 
 Mentor reviews occur after milestones 4, 8, 10, and 11. Codex handles daily teaching, story clarification, planning support, code explanation, research, and debugging practice.
+
+## One professional lab in every milestone
+
+```mermaid
+flowchart LR
+    T["TICKET<br/>brief + topology<br/>acceptance"] --> P["PREDICT<br/>layer + evidence"]
+    P --> B["BUILD<br/>small behavior"]
+    B --> I["INCIDENT<br/>synthetic fault"]
+    I --> D["DIAGNOSE<br/>hypothesis + alternative"]
+    D --> R["RECOVER<br/>focused repair + test"]
+    R --> C["DEFEND<br/>trace + modification<br/>postmortem"]
+
+    classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef action fill:#dcfce7,stroke:#16a34a,color:#052e16;
+    classDef incident fill:#fee2e2,stroke:#dc2626,color:#450a0a;
+    classDef proof fill:#ede9fe,stroke:#7c3aed,color:#2e1065;
+    class T,P context;
+    class B,R action;
+    class I,D incident;
+    class C proof;
+```
+
+The [interactive lab system](labs/README.md) provides one core lab per milestone, StackBlitz-first browser packages for milestones 0–10, a preview-based Northstar defense, three progressive hints, deterministic checks, and structured evidence. Four additional three-hour exercises form the [optional CCNP operations track](labs/optional/README.md) outside the required 178 hours.
+
+## AtlasOps — one evolving operations product
+
+Milestones 5–10 build one portfolio product instead of six disconnected demos. [AtlasOps](agency/clients/atlasops/brief.md) begins as a service-health provider decision, grows into a Next.js dashboard and Supabase operations model, then adds organization roles, safe notifications, a bounded AI handoff summary, and production game-day evidence. It never connects to real employer systems, network devices, monitoring infrastructure, or incident data.
 
 ## How one story moves through the agency
 
@@ -393,7 +447,7 @@ flowchart TB
     G8["MENTOR GATE · M8<br/>authenticated product"]
     G10["MENTOR GATE · M10<br/>production readiness"]
     G11["FINAL GATE · M11<br/>capstone defense"]
-    SCORE["≥ 3 OF 4 IN EVERY CATEGORY<br/>product · UI/UX · comprehension<br/>maintainability · security · testing<br/>deployment · communication"]
+    SCORE["≥ 3 OF 4 IN EVERY CATEGORY<br/>product · UI/UX · comprehension<br/>maintainability · security · testing<br/>deployment · incident diagnosis<br/>client communication"]
     BLOCK["NO CRITICAL AUTHORIZATION<br/>OR SECRET FAILURE"]
     GRAD["GRADUATE<br/>independent AI product builder"]
 
@@ -423,7 +477,7 @@ Pierre must independently plan for Codex, clarify requirements, explain and modi
 flowchart LR
     SMALL["FOCUSED EXAMPLES<br/>SaaS Starter · Supabase<br/>shadcn/ui"]
     PRODUCT["COMPLETE PRODUCTS<br/>Vercel Commerce<br/>Documenso"]
-    SYSTEM["LARGE SYSTEMS<br/>Sim · OpenStatus<br/>Trigger.dev · Cal.diy"]
+    SYSTEM["LARGE SYSTEMS<br/>Sim · OpenStatus · Uptime Kuma<br/>NetBox · Trigger.dev · Cal.diy"]
     METHOD["STUDY METHOD<br/>look → map → trace<br/>challenge → adapt"]
     RESULT["RESULT<br/>one verified pattern<br/>not a copied architecture"]
 
@@ -449,6 +503,8 @@ The [open-source project learning lab](case-studies/open-source-projects.md) inc
 - Vercel Commerce for data providers, caching, storefront states, and responsive product UI.
 - Documenso for role-aware document workflows, storage, email, and security boundaries.
 - OpenStatus for APIs, monitoring, incidents, logs, analytics, and multi-service architecture.
+- Uptime Kuma for monitoring product states, notifications, and incident UX.
+- NetBox for operations data modeling, tenancy, relationships, and deliberate scope reduction.
 - Trigger.dev for queues, retries, idempotency, long-running work, and observability.
 - Cal.diy for scheduling, time zones, integration complexity, and scope discovery.
 
@@ -465,6 +521,8 @@ flowchart TD
     ROOT --> CASES["case-studies/<br/>pinned public-project critiques"]
     ROOT --> RES["resources/<br/>UI field guide + dated watchlist"]
     ROOT --> PLAY["playbooks/<br/>repeatable Codex workflows"]
+    ROOT --> LABS["labs/<br/>12 contracts + browser game days"]
+    ROOT --> EVIDENCE["evidence/<br/>learner lab defenses"]
     ROOT --> AUTO["schemas/ + scripts/ + .github/<br/>validation + issue automation"]
 
     classDef root fill:#ede9fe,stroke:#7c3aed,color:#2e1065,stroke-width:3px;
@@ -473,7 +531,7 @@ flowchart TD
     classDef support fill:#fef3c7,stroke:#d97706,color:#451a03;
     class ROOT root;
     class CURR,PLAY learn;
-    class AGENCY,TEMPLATES work;
+    class AGENCY,TEMPLATES,LABS,EVIDENCE work;
     class CASES,RES,AUTO support;
 ```
 

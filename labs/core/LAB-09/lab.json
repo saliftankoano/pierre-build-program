@@ -1,0 +1,48 @@
+{
+  "id": "LAB-09",
+  "storyId": "SWAI-705",
+  "title": "Contain an AtlasOps replay and prompt-injection incident",
+  "milestone": 9,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 120,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Authenticated control messages and replay protection",
+    "applicationConcept": "Webhook signatures, idempotency, retries, structured AI output, and untrusted prompt boundaries",
+    "analogyLimit": "A valid webhook signature proves origin and integrity, not that repeated business effects are safe or that payload text is trustworthy instructions."
+  },
+  "buildBrief": "Add a signed synthetic webhook, idempotent notification workflow, and bounded AI-generated shift-handoff summary with schema validation, cost limit, and deterministic fallback.",
+  "incidentBrief": "A valid webhook is delivered twice while incident text contains instructions aimed at the summarizer. Prevent duplicate side effects, treat payload content as data, and fall back safely when structured output fails.",
+  "starterPath": "labs/core/LAB-09",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-09",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-09/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "The same signed event sends two notifications and the generated summary attempts to follow payload instructions.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "Signature verification happens before processing and uses the raw synthetic body",
+    "Concurrent duplicate deliveries produce one business effect",
+    "AI output is schema-validated, budget-bounded, and replaced by a deterministic fallback on failure"
+  ],
+  "evidence": [
+    "Replay and concurrency test output",
+    "Prompt-boundary and fallback demonstration",
+    "evidence/labs/LAB-09.md"
+  ],
+  "predictionQuestions": [
+    "Which guarantee comes from the signature and which from idempotency?",
+    "Which webhook fields must remain untrusted even when the signature is valid?"
+  ],
+  "defenseQuestions": [
+    "Trace a webhook from verification through one business effect.",
+    "Explain why signed content can still contain prompt injection.",
+    "Change one retry condition without allowing duplicate effects."
+  ],
+  "hints": [
+    "Verify first, then atomically claim the provider event identifier.",
+    "Place payload text inside a clearly delimited data field and validate output shape.",
+    "Design the non-AI fallback before tuning the prompt."
+  ]
+}

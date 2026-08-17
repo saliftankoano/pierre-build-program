@@ -1,17 +1,17 @@
 {
   "milestone": 5,
-  "title": "API research spike",
+  "title": "AtlasOps API research spike",
   "hours": 12,
-  "project": "Learner-selected API idea",
+  "project": "AtlasOps operations portal",
   "mentorGate": false,
-  "context": "A timeboxed discovery sprint must prove that an external API can support one valuable user workflow on acceptable technical and business terms.",
+  "context": "A timeboxed discovery sprint must prove that a service-health or incident-data provider can support AtlasOps on acceptable technical and business terms while preserving a provider-independent fallback.",
   "stories": [
     {
-      "id": "SWAI-301", "type": "spike", "priority": "P0", "epic": "API product discovery", "title": "Define the minimum API capability", "persona": "Target user", "outcome": "Research is constrained by a concrete user decision or task.", "context": "Start from the selected milestone 0 idea. Write the smallest useful workflow and the exact data/capability it requires.",
+      "id": "SWAI-301", "type": "spike", "priority": "P0", "epic": "AtlasOps provider discovery", "title": "Define the minimum AtlasOps provider capability", "persona": "Operations stakeholder", "outcome": "Research is constrained by one useful service-health decision or handoff task.", "context": "Use the AtlasOps brief. Define the smallest service-health workflow and the exact status, incident, freshness, and attribution data it requires.",
       "acceptanceCriteria": ["One user, problem, trigger, decision, and success measure are stated", "Required and optional data fields are separated", "Freshness, geography, volume, latency, and cost constraints are explicit"],
       "designRefs": [], "dataContract": "PRD and API evaluation template.",
       "expectations": {"security": "Classify requested data and authentication risk.", "privacy": "Avoid personal data unless necessary and justified.", "accessibility": "Describe outcome in plain language.", "analytics": "Define one product success event."},
-      "dependencies": ["Milestone 4 accepted", "API idea selected"], "nonGoals": ["Building production UI"], "definitionOfDone": ["Research question is answerable in the timebox"], "evidence": ["Problem statement", "Required data contract"], "concepts": ["API", "constraint", "data contract", "success metric"]
+      "dependencies": ["Milestone 4 accepted", "AtlasOps brief reviewed"], "nonGoals": ["Building production UI", "Connecting to employer monitoring systems"], "definitionOfDone": ["Research question is answerable in the timebox"], "evidence": ["Problem statement", "Required data contract"], "concepts": ["API", "constraint", "data contract", "success metric"]
     },
     {
       "id": "SWAI-302", "type": "spike", "priority": "P0", "epic": "API product discovery", "title": "Compare three API candidates", "persona": "Technical lead", "outcome": "The provider decision accounts for reliability, rights, cost, and failure rather than documentation aesthetics.", "context": "Use official docs and live sandbox requests. Record auth, pricing, rate limits, pagination, freshness, terms, SDK health, Vercel compatibility, and support.",

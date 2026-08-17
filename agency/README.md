@@ -5,7 +5,7 @@ This folder contains the fictional agency context used by the curriculum. The cl
 ```mermaid
 flowchart LR
     BRIEF["Client brief"] --> PACKET["Sprint packet JSON"]
-    PACKET --> ISSUE["Released GitHub issues"]
+    PACKET --> ISSUE["Released stories + lab"]
     ISSUE --> PR["Milestone evidence PR"]
     PR --> REVIEW{"Accepted?"}
     REVIEW -->|"changes"| ISSUE
@@ -37,4 +37,4 @@ Client context becomes structured work, work becomes evidence, and accepted evid
 
 Sprint packet JSON files are the source of truth for issue automation. The stories are intentionally visible because this is an open curriculum, but learners should work only from issues currently released in their fork.
 
-A milestone packet can include kickoff, feature, spike, bug, chore, change request, and review work. Application code belongs in separate project repositories; curriculum evidence belongs in milestone PRs on the learner's fork.
+A milestone packet can include kickoff, feature, spike, bug, chore, change request, review, and one interactive lab. The lab contract is loaded from `labs/catalog.json`, rendered into the released issue, and validated as part of the packet. Application code belongs in separate project repositories; browser lab code and curriculum evidence belong in milestone PRs on the learner's fork.

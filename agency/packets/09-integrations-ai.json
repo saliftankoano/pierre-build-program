@@ -1,10 +1,10 @@
 {
   "milestone": 9,
-  "title": "Integrations and AI",
+  "title": "AtlasOps integrations and AI",
   "hours": 16,
-  "project": "Learner-selected database idea",
+  "project": "AtlasOps operations portal",
   "mentorGate": false,
-  "context": "Choose one external integration and one bounded AI capability only when they improve the core workflow, then make failure safe and observable.",
+  "context": "Add a signed AtlasOps webhook or notification workflow and a bounded AI shift-handoff summary only where each improves operations and can fail safely.",
   "stories": [
     {
       "id": "SWAI-701", "type": "spike", "priority": "P0", "epic": "External capabilities", "title": "Choose integrations by user value and risk", "persona": "Technical lead", "outcome": "The release contains only justified external dependencies.", "context": "Compare proposed email, webhook, payment, automation, and AI capabilities against the primary workflow, baseline alternative, cost, failure, security, and lock-in.",

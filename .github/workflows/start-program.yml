@@ -1,0 +1,24 @@
+name: Start Pierre Build Program
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Create milestone 0 and Mission Control idempotently
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run agency:bootstrap -- --repo "$GITHUB_REPOSITORY" --apply

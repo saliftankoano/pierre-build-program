@@ -2,11 +2,11 @@
 
 **Timebox:** 18 hours
 **Mentor gate:** required
-**Outcome:** a multi-user product with ownership, roles, protected storage, and tested authorization.
+**Outcome:** AtlasOps supports operator, lead, and stakeholder roles with organization ownership, protected resources, and tested authorization.
 
 ## Agency assignment
 
-The product now needs real user boundaries. The client also requested a design revision and an apparently urgent sharing feature midway through the sprint. You must protect the release while responding professionally.
+AtlasOps now needs real organization and role boundaries. The client also requested a design revision and an apparently urgent cross-site sharing feature midway through the sprint. You must protect the release while responding professionally.
 
 ## Visual map
 
@@ -57,6 +57,10 @@ Test an access matrix covering anonymous, user A, user B, privileged role, missi
 ## Mentor review
 
 The mentor reviews the authorization model, access matrix, migration quality, product UX, change-control response, and your live code explanation.
+
+## Interactive lab — LAB-08
+
+Complete [the AtlasOps cross-tenant access lab](../labs/core/LAB-08/README.md). Reproduce the direct-object path as two synthetic organizations, repair both server and data boundaries, and add regression coverage.
 
 ## Done when
 

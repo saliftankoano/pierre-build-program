@@ -1,0 +1,48 @@
+{
+  "id": "LAB-06",
+  "storyId": "SWAI-405",
+  "title": "Recover the AtlasOps service-health dashboard",
+  "milestone": 6,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 90,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Redundancy, stale state, and service degradation",
+    "applicationConcept": "Provider adapters, caches, revalidation, loading states, and graceful degradation",
+    "analogyLimit": "Cached application data can remain intentionally usable while stale; it is not equivalent to an active redundant network path."
+  },
+  "buildBrief": "Build a typed AtlasOps dashboard showing service status, last verified time, provider source, loading, empty, error, and stale states through one adapter boundary.",
+  "incidentBrief": "The upstream provider becomes unavailable while an expired cache exists. Prevent false green status, show data age, serve the safe fallback, and bound retries.",
+  "starterPath": "labs/core/LAB-06",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-06",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-06/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "The dashboard initially labels expired cached data as current after the provider fails.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "The UI distinguishes current, stale, unavailable, empty, and loading states without relying on color",
+    "Provider-specific payloads do not reach presentation components",
+    "Retry and cache tests prove bounded behavior and visible freshness"
+  ],
+  "evidence": [
+    "State matrix and responsive captures",
+    "Cache/provider trace and regression tests",
+    "evidence/labs/LAB-06.md"
+  ],
+  "predictionQuestions": [
+    "What should the user see when stale data is safer than no data?",
+    "Where should provider-specific fields stop propagating?"
+  ],
+  "defenseQuestions": [
+    "Trace a refresh through route, adapter, cache, and UI.",
+    "Explain why stale must not be displayed as healthy current data.",
+    "Change the freshness threshold and update its test."
+  ],
+  "hints": [
+    "Treat data value and data freshness as different fields.",
+    "Put provider translation and retry policy behind one server adapter.",
+    "Use a finite retry budget and an explicit last-verified timestamp."
+  ]
+}

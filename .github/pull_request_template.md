@@ -3,6 +3,7 @@
 Closes #
 
 - Story ID:
+- Lab ID:
 - User/business outcome:
 - Explicit non-goals:
 
@@ -20,6 +21,7 @@ Closes #
 - [ ] `npm test`
 - [ ] `npm run test:e2e`
 - [ ] `npm run build`
+- [ ] `npm run lab:test -- LAB-XX` when this milestone includes a browser lab
 - [ ] Security/privacy checklist
 - [ ] Keyboard/accessibility/responsive review
 
@@ -29,6 +31,8 @@ Closes #
 - UI → server → database/service → response trace:
 - Controlled modification and diff:
 - Seeded bug, diagnostic evidence, fix, and regression test:
+- Pre-change prediction and alternative hypothesis disproved:
+- Incident blast radius, rollback/reset, and postmortem:
 - Alternative rejected and why:
 
 ## Limitations and retrospective

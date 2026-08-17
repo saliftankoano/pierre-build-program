@@ -4,6 +4,24 @@ The goal is not to copy a famous repository or understand every file. The goal i
 
 Every link below is pinned to a reviewed commit so the lesson does not change unexpectedly. The live repository may have moved ahead. Check its current documentation, security notices, and license again before reusing code.
 
+## Review register
+
+| Project | Pinned commit | Last reviewed | Re-review by |
+| --- | --- | --- | --- |
+| Sim | `417ae20` | 2026-08-16 | 2026-11-16 |
+| Next.js SaaS Starter | `6e33e58` | 2026-08-16 | 2026-11-16 |
+| shadcn/ui | `d4fc45b` | 2026-08-16 | 2026-11-16 |
+| Supabase Next.js example | `9be60ca` | 2026-08-16 | 2026-11-16 |
+| Vercel Commerce | `3761e52` | 2026-08-16 | 2026-11-16 |
+| Documenso | `688ef2f` | 2026-08-16 | 2026-11-16 |
+| OpenStatus | `86f370c` | 2026-08-16 | 2026-11-16 |
+| Uptime Kuma | `b980621` | 2026-08-16 | 2026-11-16 |
+| NetBox | `93f16a5` | 2026-08-16 | 2026-11-16 |
+| Trigger.dev | `c0b8459` | 2026-08-16 | 2026-11-16 |
+| Cal.diy | `176037d` | 2026-08-16 | 2026-11-16 |
+
+An expired entry remains readable but cannot be used for an architecture or code-reuse decision until its maintenance, documentation, security notices, and exact-commit license are reviewed again.
+
 ## Learning landscape
 
 ```mermaid
@@ -22,12 +40,15 @@ flowchart LR
     subgraph SYSTEM["STUDY SYSTEMS · map boundaries"]
       SIM["Sim<br/>AI workflow builder"]
       OPEN["OpenStatus<br/>monitoring + incidents"]
+      KUMA["Uptime Kuma<br/>monitoring product UX"]
+      NETBOX["NetBox<br/>operations data model"]
       TRIG["Trigger.dev<br/>durable background work"]
       CAL["Cal.diy<br/>scheduling + integrations"]
     end
 
     SAAS --> COM --> SIM
     SB --> DOC --> OPEN
+    OPEN --> KUMA --> NETBOX
     UI --> COM
     DOC --> TRIG
     COM --> CAL
@@ -37,7 +58,7 @@ flowchart LR
     classDef system fill:#fef3c7,stroke:#d97706,color:#451a03;
     class SAAS,SB,UI start;
     class COM,DOC product;
-    class SIM,OPEN,TRIG,CAL system;
+    class SIM,OPEN,KUMA,NETBOX,TRIG,CAL system;
 ```
 
 Blue projects are focused entry points. Green projects show complete product journeys. Amber projects are large systems to map selectively—not beginner starter kits.
@@ -149,7 +170,37 @@ Study questions:
 - How do API, CLI, infrastructure-as-code, and MCP interfaces expose the same capability differently?
 - What must logs include to diagnose failure without leaking headers, tokens, or customer content?
 
-### 8. Trigger.dev — durable background work
+### 8. Uptime Kuma — monitoring product and incident UX
+
+- **Pinned project:** [louislam/uptime-kuma at `b980621`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b)
+- **License:** [MIT](https://github.com/louislam/uptime-kuma/blob/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/LICENSE)
+- **Best during:** milestones 5, 6, and 10
+- **Start at:** [`server`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/server), [`src`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/src), and [`test`](https://github.com/louislam/uptime-kuma/tree/b980621689b2e3b978dcdd3a99a3ad8cf81c9b9b/test).
+
+Study questions:
+
+- How does a monitor configuration become checks, state, history, notification, and status-page output?
+- Which states communicate unknown, pending, degraded, down, paused, and recovered behavior?
+- Which product patterns transfer to AtlasOps even though its implementation stack differs?
+- Where could retries, notification fan-out, or stale state create operational confusion?
+- Which patterns are safe to describe but unnecessary to copy into a small Next.js product?
+
+### 9. NetBox — operations data modeling and ownership
+
+- **Pinned project:** [netbox-community/netbox at `93f16a5`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172)
+- **License:** [Apache-2.0](https://github.com/netbox-community/netbox/blob/93f16a536d00227a404bb1d785fe355639bb5172/LICENSE.txt)
+- **Best during:** milestones 7, 8, and the optional failure-domain lab
+- **Start at:** [`netbox/dcim`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172/netbox/dcim), [`netbox/tenancy`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172/netbox/tenancy), and [`netbox/extras`](https://github.com/netbox-community/netbox/tree/93f16a536d00227a404bb1d785fe355639bb5172/netbox/extras).
+
+Study questions:
+
+- How are sites, devices, tenants, roles, status, and relationships modeled without placing every fact in one table?
+- Which constraints protect data quality, and which rules live above the database model?
+- How do permissions and tenancy differ from a simple owner column?
+- Why should AtlasOps borrow modeling questions rather than NetBox’s full scope or architecture?
+- Which real infrastructure details must never be copied into the public curriculum or synthetic AtlasOps data?
+
+### 10. Trigger.dev — durable background work
 
 - **Pinned project:** [triggerdotdev/trigger.dev at `c0b8459`](https://github.com/triggerdotdev/trigger.dev/tree/c0b84595a3522dbbd102af1a082d492dabfdba6f)
 - **License:** [Apache-2.0](https://github.com/triggerdotdev/trigger.dev/blob/c0b84595a3522dbbd102af1a082d492dabfdba6f/LICENSE)
@@ -162,7 +213,7 @@ Study questions:
 - How do queueing, concurrency, cancellation, logs, and run status affect the UI?
 - How should a Next.js page communicate queued, running, failed, canceled, and completed states?
 
-### 9. Cal.diy — scheduling and integration complexity
+### 11. Cal.diy — scheduling and integration complexity
 
 - **Pinned project:** [calcom/cal.diy at `176037d`](https://github.com/calcom/cal.diy/tree/176037d0afbe572f870a3c702985e7cd83fe6c0c)
 - **License:** [MIT](https://github.com/calcom/cal.diy/blob/176037d0afbe572f870a3c702985e7cd83fe6c0c/LICENSE)

@@ -1,11 +1,11 @@
 # Milestone 7 — Next.js + Supabase Product Foundation
 
 **Timebox:** 16 hours
-**Outcome:** one database-centered idea has a reproducible, secure end-to-end workflow.
+**Outcome:** AtlasOps has a reproducible, secure database foundation and its first persisted operational workflow.
 
 ## Agency assignment
 
-Choose the database-oriented idea from milestone 0. The first release must solve one complete user problem; it is not permission to build every table imagined in the backlog.
+Continue the AtlasOps repository from milestone 6. Model only the approved organizations, memberships, sites, services, maintenance windows, incidents, incident updates, shift handoffs, notification subscriptions, and audit events needed by the first persisted workflow.
 
 ## Visual map
 
@@ -43,6 +43,8 @@ The database is reproducible because schema, policies, and seed state live in ve
 
 Write the user journey, ER diagram, data dictionary, threat model, and minimum schema. Install Supabase CLI as a pinned dev dependency in the Next.js project, initialize it through `npx supabase`, and add its commands to `docs/TOOLS.md` so Codex can inspect local/linked state safely. Store schema, RLS policies, and seed data as migrations; prove a local reset reproduces the environment.
 
+The browser lab never requires Docker. The real AtlasOps project follows the official Supabase local-development workflow. If Docker cannot run on Pierre’s computer, document the constraint in an ADR and use a separate hosted development project through the CLI; migrations, synthetic seeds, reset/reproduction instructions, and environment separation remain mandatory.
+
 Implement one vertical workflow with runtime validation and clear UI states. Write tests for anonymous, owner, and different-user behavior before calling the milestone complete.
 
 ## Comprehension gate
@@ -51,6 +53,10 @@ Implement one vertical workflow with runtime validation and clear UI states. Wri
 - Trace a create action from form to validation, database row, RLS decision, and refreshed UI.
 - Add one constrained field through a migration and update the UI manually.
 - Fix the seeded overly broad select policy.
+
+## Interactive lab — LAB-07
+
+Complete [the AtlasOps RLS policy-gap lab](../labs/core/LAB-07/README.md). Use synthetic users and records in the browser lab; prove the real AtlasOps policies separately through migrations and Supabase access tests.
 
 ## Done when
 

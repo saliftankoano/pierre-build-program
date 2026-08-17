@@ -1,0 +1,75 @@
+name: Interactive lab checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.changed.outputs.matrix }}
+      count: ${{ steps.changed.outputs.count }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - id: changed
+        name: Select changed lab packages
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/changed-labs.mjs
+
+  labs:
+    needs: changes
+    if: needs.changes.outputs.count != '0'
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        lab: ${{ fromJSON(needs.changes.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/core/${{ matrix.lab }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: labs/core/${{ matrix.lab }}/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - name: Verify learner recovery or canonical fail-before state
+        shell: bash
+        run: |
+          if [[ -f "../../../evidence/labs/${{ matrix.lab }}.md" ]]; then
+            npm run test:challenge
+          elif npm run test:challenge; then
+            echo "Canonical starter must preserve a failing incident challenge."
+            exit 1
+          else
+            echo "Verified expected fail-before incident state."
+          fi
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Upload visual failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lab }}-failure-evidence
+          path: |
+            labs/core/${{ matrix.lab }}/playwright-report
+            labs/core/${{ matrix.lab }}/test-results
+          if-no-files-found: ignore
+          retention-days: 14

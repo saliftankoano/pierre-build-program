@@ -1,0 +1,48 @@
+{
+  "id": "LAB-10",
+  "storyId": "SWAI-806",
+  "title": "Lead the AtlasOps production game day",
+  "milestone": 10,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 150,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Incident command, blast radius, recovery, and postmortem",
+    "applicationConcept": "Application observability, environment drift, stale caches, authorization regression, rollback, and restore",
+    "analogyLimit": "Application incidents include product, data, provider, and user-experience failures that infrastructure health alone may not reveal."
+  },
+  "buildBrief": "Prepare AtlasOps release checks, safe logs, health signals, backup and restore evidence, rollback instructions, ownership, privacy retention, and client handoff.",
+  "incidentBrief": "A multi-fault scenario combines preview configuration drift, stale status data, a cross-tenant regression, and duplicate webhook delivery. Triage by impact, contain exposure, recover service, and write a blameless postmortem.",
+  "starterPath": "labs/core/LAB-10",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-10",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-10/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "Four signals appear together; one is a critical data boundary and the others affect freshness, delivery, and preview readiness.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "Triage prioritizes authorization containment before lower-severity availability symptoms",
+    "Rollback and restore steps are executed against synthetic state with measured results",
+    "The postmortem separates trigger, contributing conditions, impact, detection, recovery, and prevention"
+  ],
+  "evidence": [
+    "Incident timeline and redacted signal captures",
+    "Rollback, restore, and regression evidence",
+    "evidence/labs/LAB-10.md"
+  ],
+  "predictionQuestions": [
+    "Which symptom creates the largest confidentiality blast radius?",
+    "Which actions contain harm before root cause is fully known?"
+  ],
+  "defenseQuestions": [
+    "Explain the triage order and evidence that changed it.",
+    "Distinguish rollback, restore, retry, and failover in this incident.",
+    "Identify one monitoring signal that would reduce detection time."
+  ],
+  "hints": [
+    "Rank confidentiality, integrity, availability, and user impact before debugging convenience.",
+    "Contain the authorization path and preserve evidence before broad changes.",
+    "Build the timeline from observable facts and label every inference."
+  ]
+}

@@ -8,6 +8,10 @@ const apply = args.includes("--apply");
 const packet = (await packets())[0];
 const labels = [
   ["agency-story", "5319e7", "Progressive curriculum work item"],
+  ["lab", "7c3aed", "Interactive build-and-incident assignment"],
+  ["game-day", "d97706", "Synthetic operational failure exercise"],
+  ["evidence-ready", "f9d0c4", "Checks and evidence are ready for review"],
+  ["mission-control", "7c3aed", "Generated visual program dashboard"],
   ["milestone-0", "0969da", "Milestone 0 work"],
   ["milestone-accepted", "0e8a16", "Mentor/acceptance gate passed"],
   ["intake", "1d76db", "New idea intake"], ["needs-triage", "d4c5f9", "Needs review"],
@@ -21,6 +25,7 @@ console.log(`${apply ? "Creating" : "Dry run:"} milestone 0 agency board in ${re
 if (!apply) {
   console.log("Would create standard labels and these issues:");
   for (const story of packet.stories) console.log(`- [${story.id}] ${story.title}`);
+  console.log("Would create or refresh the visual Mission Control issue.");
   console.log("Run again with --apply after checking the repository name and output.");
   process.exit(0);
 }
@@ -32,6 +37,8 @@ for (const [name, color, description] of labels) {
 for (const story of packet.stories) {
   const existing = run("gh", ["issue", "list", "--repo", repo, "--state", "all", "--search", `\"${story.id}\" in:title`, "--json", "number", "--jq", "length"], { capture: true });
   if (existing !== "0") { console.log(`Skipping existing ${story.id}`); continue; }
-  run("gh", ["issue", "create", "--repo", repo, "--title", `[${story.id}] ${story.title}`, "--body", issueBody(story, packet), "--label", `agency-story,milestone-0`]);
+  const typeLabels = story.type === "lab" ? ",lab,game-day" : "";
+  run("gh", ["issue", "create", "--repo", repo, "--title", `[${story.id}] ${story.title}`, "--body", issueBody(story, packet, repo), "--label", `agency-story,milestone-0${typeLabels}`]);
 }
+run("node", ["scripts/mission-control.mjs", "--repo", repo, "--apply"]);
 console.log("Milestone 0 is ready. Complete its issues in order.");
