@@ -1,0 +1,48 @@
+{
+  "id": "LAB-03",
+  "storyId": "SWAI-104",
+  "title": "Recover a responsive vertical slice",
+  "milestone": 3,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 90,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Traffic flow through constrained links",
+    "applicationConcept": "Responsive layout, component state, wrapping, and overflow",
+    "analogyLimit": "A viewport is not a network link; content priority and human comprehension matter more than raw fitting capacity."
+  },
+  "buildBrief": "Implement the approved ClearPath service section as a responsive Next.js component with semantic structure, reusable props, and explicit loading-independent content.",
+  "incidentBrief": "A fixed minimum width and non-wrapping action row cause horizontal overflow. Use browser evidence to identify the owning rule and repair it without redesigning the section.",
+  "starterPath": "labs/core/LAB-03",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-03",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-03/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "The 320-pixel viewport test reports horizontal overflow and a clipped secondary action.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "The vertical slice matches the approved content hierarchy",
+    "No horizontal overflow occurs from 320 pixels through desktop widths",
+    "The learner identifies the exact component and CSS rule responsible"
+  ],
+  "evidence": [
+    "Responsive screenshots and browser measurement",
+    "Before-and-after diff with rule explanation",
+    "evidence/labs/LAB-03.md"
+  ],
+  "predictionQuestions": [
+    "Which element do you expect to define the minimum page width?",
+    "Will wrapping, shrinking, or clipping best preserve content priority?"
+  ],
+  "defenseQuestions": [
+    "Trace props into rendered semantic HTML and styles.",
+    "Explain why the failing rule affected the whole page.",
+    "Change one breakpoint behavior without rewriting the component."
+  ],
+  "hints": [
+    "Find the widest element before editing media queries.",
+    "Inspect min-width, white-space, flex-wrap, and child shrink behavior.",
+    "Prefer a layout rule that works across widths over a single device patch."
+  ]
+}

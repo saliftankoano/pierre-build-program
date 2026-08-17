@@ -1,11 +1,11 @@
 # Milestone 6 — Next.js API Data Product
 
 **Timebox:** 16 hours
-**Outcome:** a deployed, resilient dashboard powered by the API selected in milestone 5.
+**Outcome:** the first deployed AtlasOps service-health dashboard powered by the provider selected in milestone 5.
 
 ## Agency assignment
 
-The spike was accepted. Jon has supplied a user flow, Priya has constrained the first release to one valuable workflow, and QA will test slow, empty, malformed, and rate-limited responses.
+The AtlasOps spike was accepted. Jon has supplied an operator service-health flow, Priya has constrained the first release to one valuable dashboard workflow, and QA will test slow, stale, empty, malformed, and rate-limited responses.
 
 ## Visual map
 
@@ -40,7 +40,7 @@ Success, empty success, malformed data, rate limits, and provider failure remain
 
 ## Work
 
-Create a separate project repository. Implement only the accepted workflow: server-side API adapter, runtime validation, normalized internal type, dashboard UI, filters or pagination, refresh/freshness display, and useful failure states. Keep provider-specific shapes behind the adapter.
+Create the AtlasOps project repository. Implement only the accepted workflow: server-side API adapter, runtime validation, normalized internal type, service-health dashboard, filters or pagination, refresh/freshness display, and useful failure states. Keep provider-specific shapes behind the adapter.
 
 Add tests using recorded synthetic fixtures for success, empty result, malformed data, authorization failure, rate limiting, timeout, and provider outage. Do not call a paid API in unit tests.
 
@@ -49,6 +49,10 @@ Add tests using recorded synthetic fixtures for success, empty result, malformed
 - Trace a user query through URL state, server request, API adapter, validation, normalization, and rendered result.
 - Add a field to the normalized model and UI manually.
 - Fix the supplied bug where a failed request is cached as successful data.
+
+## Interactive lab — LAB-06
+
+Complete [the AtlasOps stale-data game day](../labs/core/LAB-06/README.md). Keep provider shapes behind the adapter, expose freshness explicitly, bound retries, and recover a useful degraded state without displaying false green health.
 
 ## Done when
 

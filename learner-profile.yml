@@ -1,0 +1,31 @@
+# Public, employer-neutral learning profile. Never add employer names, internal
+# systems, IP addresses, credentials, incident data, or client/forensic records.
+learner:
+  display_name: Pierre
+  current_level: application-construction beginner
+  known_programming_concepts:
+    - variables
+    - conditions
+    - loops
+  professional_strengths:
+    - nine years of hyperscale data-center operations
+    - CCNA and CCNP networking knowledge
+    - cybersecurity and digital-forensics graduate education
+    - Scrum Master practice
+    - troubleshooting, change control, and incident communication
+  growth_goals:
+    - plan and ship revenue-ready Next.js client products with Codex
+    - inspect, modify, test, and explain generated code
+    - build secure Supabase and Vercel products
+    - develop an infrastructure and operations product niche
+  teaching_preferences:
+    - visual system maps
+    - build-and-incident labs
+    - just-in-time field notes
+    - official documentation and small experiments
+privacy_rules:
+  employer_names: prohibited
+  internal_systems_and_networks: prohibited
+  real_credentials: prohibited
+  real_incident_or_forensic_data: prohibited
+  examples: synthetic_only

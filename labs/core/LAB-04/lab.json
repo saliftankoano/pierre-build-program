@@ -1,0 +1,48 @@
+{
+  "id": "LAB-04",
+  "storyId": "SWAI-205",
+  "title": "Restore a failed client form launch",
+  "milestone": 4,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 90,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Production change validation across environments",
+    "applicationConcept": "Browser/server boundaries, environment configuration, form validation, and provider failure",
+    "analogyLimit": "A successful deployment only proves artifacts were released; it does not prove the user workflow or external provider succeeded."
+  },
+  "buildBrief": "Complete a validated ClearPath contact flow with accessible feedback, a server-only email adapter, synthetic analytics, and local, preview, and production configuration notes.",
+  "incidentBrief": "Preview validation succeeds in the browser but submission fails because server configuration is missing and the client attempts to read a secret. Restore the correct boundary and user-safe failure state.",
+  "starterPath": "labs/core/LAB-04",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-04",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-04/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "Submission returns a safe configuration error while the boundary check detects secret access in client code.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "Invalid forms explain the exact correction and focus the relevant field",
+    "Only the server adapter reads the synthetic email credential",
+    "Preview failure returns a useful retry or contact alternative without exposing configuration"
+  ],
+  "evidence": [
+    "Successful and failed form recordings",
+    "Environment-boundary and accessibility checks",
+    "evidence/labs/LAB-04.md"
+  ],
+  "predictionQuestions": [
+    "Which validation must happen in both browser and server?",
+    "Which environment names may reach the browser and which values must remain server-only?"
+  ],
+  "defenseQuestions": [
+    "Trace submission from field input through server adapter and response.",
+    "Explain why a public prefix changes the secret boundary.",
+    "Demonstrate rollback to the last working deployment."
+  ],
+  "hints": [
+    "Separate user input validation from provider configuration validation.",
+    "Search the client bundle boundary for the credential name, not its value.",
+    "Return a stable user message while logging a safe operational category."
+  ]
+}

@@ -1,11 +1,11 @@
 # Milestone 9 — Integrations and AI
 
 **Timebox:** 16 hours
-**Outcome:** one reliable third-party integration and one bounded AI capability with measurable value.
+**Outcome:** AtlasOps has one reliable notification/webhook integration and one bounded AI handoff-summary capability with measurable value.
 
 ## Agency assignment
 
-Stakeholders have proposed email, payments, automation, webhooks, and AI. Your job is not to add all of them. Select the smallest capabilities that improve the primary user workflow and document why the others are deferred.
+AtlasOps stakeholders have proposed email, chat notifications, automation, webhooks, and AI-generated shift handoffs. Select the smallest notification and summarization capabilities that improve operational handoff, and document why the others are deferred.
 
 ## Visual map
 
@@ -51,6 +51,10 @@ Implement one AI feature only if a non-AI baseline cannot meet the user need as 
 - Trace an integration event from provider to verified request, business action, database update, and user-visible result.
 - Change one structured AI output field and its rendering manually.
 - Fix the seeded duplicate-webhook processing bug.
+
+## Interactive lab — LAB-09
+
+Complete [the replay and prompt-injection lab](../labs/core/LAB-09/README.md). Verify the synthetic signature, atomically contain duplicate delivery, validate structured output, and exercise the deterministic non-AI fallback.
 
 ## Done when
 

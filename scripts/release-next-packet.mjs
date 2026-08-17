@@ -22,6 +22,8 @@ run("gh", ["label", "create", `milestone-${packet.milestone}`, "--repo", repo, "
 for (const story of packet.stories) {
   const existing = run("gh", ["issue", "list", "--repo", repo, "--state", "all", "--search", `\"${story.id}\" in:title`, "--json", "number", "--jq", "length"], { capture: true });
   if (existing !== "0") { console.log(`Skipping existing ${story.id}`); continue; }
-  run("gh", ["issue", "create", "--repo", repo, "--title", `[${story.id}] ${story.title}`, "--body", issueBody(story, packet), "--label", `agency-story,milestone-${packet.milestone}`]);
+  const typeLabels = story.type === "lab" ? ",lab,game-day" : "";
+  run("gh", ["issue", "create", "--repo", repo, "--title", `[${story.id}] ${story.title}`, "--body", issueBody(story, packet, repo), "--label", `agency-story,milestone-${packet.milestone}${typeLabels}`]);
 }
+run("node", ["scripts/mission-control.mjs", "--repo", repo, "--apply"]);
 console.log(`Milestone ${packet.milestone} released.`);

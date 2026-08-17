@@ -68,6 +68,10 @@ Complete the released milestone 0 stories (SWAI-001 through SWAI-004):
 
 Submit screenshots of account security with codes/secrets hidden, the Hello World and curriculum-fork links, the idea scorecard, practice issues/PRs, conflict-resolution evidence, and a short retrospective.
 
+## Interactive lab — LAB-00
+
+Complete [the first Next.js change window](../labs/core/LAB-00/README.md): edit the browser-opened handoff page in your fork, submit it through a branch and PR, resolve the supplied conflict, and revert a bad merged message without deleting history. Create the sanitized [learner profile](../learner-profile.yml) as part of the PR.
+
 ## Done when
 
 No secrets appear in Git history, the three project candidates are selected, and you can create and explain the complete account-to-fork-to-local-to-PR workflow. Node, Codex, and deployment tooling are intentionally milestone 1.

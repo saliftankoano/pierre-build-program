@@ -6,7 +6,7 @@ This is a curated starting map, not a shopping list. Check the source's current 
 flowchart TD
     NEED["Story + user need"] --> BASE{"Choose one<br/>primary foundation"}
     BASE --> SHAD["shadcn/ui<br/>owned component source"]
-    BASE --> HEAD["Radix · Base UI · React Aria<br/>unstyled accessible behavior"]
+    BASE --> HEAD["Radix · Base UI · React Aria · Headless UI<br/>unstyled accessible behavior"]
     SHAD --> AUDIT["Audit source · license<br/>dependencies · accessibility"]
     HEAD --> AUDIT
     NEED --> SPECIAL{"Specialist visual value<br/>actually required?"}
@@ -53,6 +53,10 @@ Accessible, internationalized interaction components and hooks with support for 
 
 Explore: Button, ComboBox, DatePicker, Table, GridList, Menu, Dialog, and form validation.
 
+### [Headless UI](https://headlessui.com/)
+
+Unstyled accessible components maintained for React and Tailwind workflows. Explore Dialog, Menu, Listbox, Combobox, Tabs, Disclosure, and Transition. Compare its behavior and styling ownership with Radix and React Aria before choosing it as a foundation.
+
 ## Visual and specialist sources
 
 These can inspire or supply specialized components, but they do not replace a coherent product design system.
@@ -72,6 +76,20 @@ A large searchable registry of components from many authors and styles. Useful f
 ### [Motion for React](https://motion.dev/docs/react)
 
 A React animation library for state, gesture, layout, and presence transitions. Use when CSS transitions cannot express the required behavior. Start with subtle purposeful motion, support reduced-motion preferences, and measure bundle/runtime impact.
+
+### [Tremor](https://www.tremor.so/)
+
+Dashboard and data-visualization components that can help Pierre learn terms such as KPI card, legend, tooltip, category scale, trend, and composition. Use it as a comparison source for AtlasOps; verify its current package model, license, accessibility, React compatibility, and chart semantics before adoption.
+
+## Milestone 2 component safari
+
+1. Compare a status card, data table, dialog, form, badge, toast, skeleton, empty state, and error state across at least three sources.
+2. Record which code is copied, which remains a dependency, and who owns future accessibility fixes.
+3. Rebuild the same small AtlasOps status panel in three visual directions.
+4. Test keyboard, focus, touch, 320-pixel width, 200% zoom, reduced motion, and non-color status meaning.
+5. Normalize the selected direction to one token set and record the selection in an ADR.
+
+The exercise teaches vocabulary and judgment. It does not reward installing the most libraries.
 
 ## Component adoption checklist
 

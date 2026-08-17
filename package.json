@@ -7,13 +7,21 @@
   "engines": {
     "node": ">=24"
   },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  },
   "scripts": {
-    "validate": "node scripts/validate-curriculum.mjs && node scripts/scan-secrets.mjs",
+    "validate": "node scripts/validate-curriculum.mjs && node scripts/validate-labs.mjs && node scripts/scan-secrets.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "npm run validate && npm test",
     "agency:bootstrap": "node scripts/bootstrap-agency.mjs",
     "agency:next": "node scripts/release-next-packet.mjs",
-    "project:new": "node scripts/new-project.mjs"
+    "agency:mission-control": "node scripts/mission-control.mjs",
+    "project:new": "node scripts/new-project.mjs",
+    "labs:scaffold": "node scripts/scaffold-labs.mjs",
+    "lab": "node scripts/lab-cli.mjs start",
+    "lab:test": "node scripts/lab-cli.mjs test",
+    "lab:hint": "node scripts/lab-cli.mjs hint"
   },
   "license": "MIT"
 }

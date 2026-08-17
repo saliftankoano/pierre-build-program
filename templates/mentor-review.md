@@ -15,6 +15,7 @@ Score 0–4. Graduation requires at least 3 in every category and no critical au
 | Security | | |
 | Testing | | |
 | Deployment/operations | | |
+| Operational diagnosis and incident response | | |
 | Client communication | | |
 
 ## Comprehension questions and learner answers

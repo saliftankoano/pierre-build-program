@@ -59,6 +59,10 @@ When the change request arrives, respond with impact, recommendation, estimate, 
 
 The mentor scores client outcome, mobile UX, accessibility, code comprehension, form security, deployment, scope communication, and handoff. Address requested changes before acceptance.
 
+## Interactive lab — LAB-04
+
+Complete [the failed client-form launch lab](../labs/core/LAB-04/README.md). Prove the browser/server secret boundary, restore preview configuration, and demonstrate both accessible success and safe provider failure.
+
 ## Done when
 
 The production URL works, the client content is accurate, the form has a safe failure state, metadata is present, checks pass, analytics contains no sensitive form data, and the handoff explains content updates and credential ownership.

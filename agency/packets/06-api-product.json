@@ -1,10 +1,10 @@
 {
   "milestone": 6,
-  "title": "API data product",
+  "title": "AtlasOps service-health dashboard",
   "hours": 16,
-  "project": "Learner-selected API idea",
+  "project": "AtlasOps operations portal",
   "mentorGate": false,
-  "context": "Build the one approved API workflow and prove it handles real network and provider behavior without leaking credentials or confusing the user.",
+  "context": "Build the first AtlasOps service-health workflow and prove it handles real network, cache, and provider behavior without leaking credentials, hiding freshness, or confusing the user.",
   "stories": [
     {
       "id": "SWAI-401", "type": "story", "priority": "P0", "epic": "API product release", "title": "Implement the server-side provider adapter", "persona": "Developer", "outcome": "Provider behavior is isolated behind a validated internal contract.", "context": "The browser must not receive provider credentials or provider-specific response complexity.",

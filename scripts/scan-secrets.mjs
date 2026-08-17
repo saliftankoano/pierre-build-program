@@ -3,7 +3,7 @@ import path from "node:path";
 import { root } from "./lib.mjs";
 
 const findings = [];
-const ignored = new Set([".git", "node_modules", "package-lock.json"]);
+const ignored = new Set([".git", ".next", ".vercel", "coverage", "node_modules", "package-lock.json", "playwright-report", "test-results"]);
 const patterns = [
   ["private key", /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/g],
   ["GitHub token", /gh[pousr]_[A-Za-z0-9]{30,}/g],

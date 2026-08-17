@@ -1,0 +1,48 @@
+{
+  "id": "LAB-00",
+  "storyId": "SWAI-005",
+  "title": "Run the first Next.js change window",
+  "milestone": 0,
+  "delivery": "github",
+  "timeboxMinutes": 120,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Change window and rollback plan",
+    "applicationConcept": "Branch, commit, pull request, preview, merge, and revert",
+    "analogyLimit": "A pull request also validates user value, accessibility, and maintainability; it is not only an infrastructure change record."
+  },
+  "buildBrief": "Fork the program, open the onboarding Next.js lab, change the operator handoff message, create a focused branch, and submit the change through a pull request.",
+  "incidentBrief": "A conflicting handoff edit and a bad merged message simulate an unsafe change. Resolve the conflict, show the resulting diff, and perform a Git revert without deleting history.",
+  "starterPath": "labs/core/LAB-00",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-00",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-00/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "The incident check reports a conflicting and unsafe handoff message.",
+    "reset": "git revert <bad-commit>"
+  },
+  "acceptanceTests": [
+    "The Next.js page renders the approved handoff message",
+    "The pull request shows coherent commits and a resolved conflict",
+    "A revert restores the last accepted behavior without rewriting history"
+  ],
+  "evidence": [
+    "Fork and pull-request URLs",
+    "Before, conflict, resolution, and revert screenshots",
+    "evidence/labs/LAB-00.md"
+  ],
+  "predictionQuestions": [
+    "Which repository and branch will change after each action?",
+    "What history will remain after revert compared with deleting the commit?"
+  ],
+  "defenseQuestions": [
+    "Trace the change from browser edit to merged repository state.",
+    "Explain fork, clone, branch, commit, pull request, merge, and revert in your own words.",
+    "Show one controlled text change without asking Codex to regenerate the page."
+  ],
+  "hints": [
+    "Draw local, fork, and upstream as three separate boxes before clicking.",
+    "Compare both sides of the conflict marker and restate the desired final sentence.",
+    "Use a new commit that reverses the bad commit; do not erase shared history."
+  ]
+}

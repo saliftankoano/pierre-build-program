@@ -86,6 +86,12 @@ Create `docs/TOOLS.md` with each tool's job, authenticated account, commands Cod
 - Review a Codex-generated change with `git diff`, reject one unnecessary change, and keep the focused fix.
 - Explain the difference between a CLI, API, SDK, MCP server, plugin, and documentation website.
 
+Use the [PAUSE protocol](../playbooks/pause-protocol.md) whenever generated code is unclear.
+
+## Interactive lab — LAB-01
+
+Complete [the Codex and Vercel toolchain game day](../labs/core/LAB-01/README.md). Build the tool-access matrix, diagnose the missing preview configuration from evidence, make the smallest safe repair, and explain which tool could observe or mutate each system.
+
 ## Done when
 
 The tool inventory is complete; Codex loads the intended instructions; GitHub and Vercel read-only diagnostics work; no secret is stored in the repository or prompt history; and you can use Codex to teach, inspect, verify, and debug rather than merely generate.

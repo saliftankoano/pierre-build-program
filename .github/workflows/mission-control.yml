@@ -1,0 +1,32 @@
+name: Refresh Mission Control
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, closed, reopened, labeled, unlabeled]
+  pull_request:
+    types: [closed, labeled, unlabeled]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+concurrency:
+  group: mission-control-${{ github.repository }}
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Update generated dashboard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run agency:mission-control -- --repo "$GITHUB_REPOSITORY" --apply

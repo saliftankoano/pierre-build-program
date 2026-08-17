@@ -1,0 +1,48 @@
+{
+  "id": "LAB-07",
+  "storyId": "SWAI-505",
+  "title": "Repair an AtlasOps row-level policy gap",
+  "milestone": 7,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 120,
+  "core": true,
+  "bridge": {
+    "knownConcept": "ACL scope and least privilege",
+    "applicationConcept": "Relational ownership, migrations, authenticated identity, and Supabase Row Level Security",
+    "analogyLimit": "RLS decisions depend on database rows, joins, identity claims, and operation type; they are not static source/destination ACL entries."
+  },
+  "buildBrief": "Model AtlasOps organizations, memberships, sites, services, maintenance windows, incidents, updates, handoffs, subscriptions, and audit events using migrations and synthetic seeds.",
+  "incidentBrief": "An authenticated-select policy equivalent to unrestricted access exposes another organization’s site. Reproduce the exposure with two synthetic users, repair the policy, and add operation-specific regression tests.",
+  "starterPath": "labs/core/LAB-07",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-07",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-07/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "The policy simulator allows an operator in organization A to read organization B site metadata.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "Migrations and seeds reproduce the documented relational model",
+    "Two-user tests fail before and pass after the organization-scoped RLS repair",
+    "Select, insert, update, and delete policy intent is documented separately"
+  ],
+  "evidence": [
+    "Entity diagram, migrations, and synthetic seed output",
+    "Before-and-after authorization matrix",
+    "evidence/labs/LAB-07.md"
+  ],
+  "predictionQuestions": [
+    "Which join proves organization membership for this row?",
+    "How could a policy pass for select but fail safely for update?"
+  ],
+  "defenseQuestions": [
+    "Trace authenticated identity into an RLS decision.",
+    "Explain where the ACL analogy stops being accurate.",
+    "Modify one policy test for a stakeholder role."
+  ],
+  "hints": [
+    "Write the actor, action, resource, and organization before writing SQL.",
+    "Test direct data access rather than relying on a hidden page link.",
+    "Keep membership checks consistent while defining policies per operation."
+  ]
+}

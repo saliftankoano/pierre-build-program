@@ -96,6 +96,10 @@ Choose one direction through a scored critique against trust, clarity, conversio
 - Compare a component package, an unstyled primitive, and copied registry source.
 - Present the final plan and design direction without asking Codex to speak for you.
 
+## Interactive lab — LAB-02
+
+Complete [the accessible UI system lab](../labs/core/LAB-02/README.md) using the [UI library field guide](../resources/ui-library-field-guide.md). The lab code is an isolated design experiment, not ClearPath production implementation.
+
 ## Done when
 
 The planning packet contains an approved PRD, user journey, sitemap, architecture/tool decision matrix, risks, non-goals, story map, acceptance strategy, three design directions, selected design system, component-source audit, and unresolved questions. No production application code is written in this milestone.

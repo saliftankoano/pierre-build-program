@@ -4,16 +4,17 @@
 flowchart LR
     ACCOUNT["Account<br/>identity + security"] --> WEB["Browser practice<br/>repo + branch + PR"]
     WEB --> FORK["Fork<br/>your GitHub copy"]
-    FORK --> CLONE["Clone<br/>your computer"]
+    FORK --> START["Enable Actions<br/>run Start Program"]
+    START --> LAB["LAB-00<br/>first Next.js browser change"]
+    LAB --> CLONE["Clone<br/>your computer"]
     CLONE --> TOOLS["Install tools<br/>Git · Node · Codex · CLIs"]
-    TOOLS --> ISSUES["Create milestone 0 issues<br/>begin one story"]
 
     classDef context fill:#dbeafe,stroke:#2563eb,color:#172554;
     classDef plan fill:#fef3c7,stroke:#d97706,color:#451a03;
     classDef build fill:#dcfce7,stroke:#16a34a,color:#052e16;
     class ACCOUNT,WEB context;
-    class FORK,CLONE plan;
-    class TOOLS,ISSUES build;
+    class FORK,START plan;
+    class LAB,CLONE,TOOLS build;
 ```
 
 Move from left to right. Do not install the developer toolchain before you understand the account, repository, fork, and local-copy relationship.
@@ -48,9 +49,17 @@ The canonical `saliftankoano/pierre-build-program` repository is the curriculum 
 
 GitHub's [forking and cloning explanation](https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop) is required milestone 0 reading.
 
-## Create your agency workspace after milestones 0–1 setup
+## Create your agency workspace before installing local tools
 
 Fork this repository rather than editing the canonical curriculum. Your fork keeps its own issues, pull requests, Actions, and progress while retaining an upstream relationship for curriculum updates.
+
+1. Open your fork’s **Actions** tab and enable workflows after reviewing them.
+2. Open **Start Pierre Build Program** and select **Run workflow**.
+3. The workflow idempotently creates Mission Control, milestone 0 stories, and `LAB-00`.
+4. Follow the lab link, edit the small Next.js handoff page, and move the change through a branch and pull request.
+5. Create or update [the employer-neutral learner profile](learner-profile.yml). Never add employer names, internal systems, network details, credentials, or incident data.
+
+The browser path is primary for milestone 0. After the first change window, install the local toolchain in milestone 1. The local equivalent remains available:
 
 ```bash
 gh repo fork saliftankoano/pierre-build-program --clone
@@ -61,7 +70,7 @@ npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program
 npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program --apply
 ```
 
-The first bootstrap command is a dry run; read its output before using `--apply`. Invite your mentor as a collaborator on your fork. In repository **Settings → Actions → General → Workflow permissions**, allow GitHub Actions to create issues. Keep your application repositories separate from this curriculum fork. If a command is unfamiliar, ask Codex what it will read or change before running it.
+The first bootstrap command is a dry run; read its output before using `--apply`. Invite your mentor as a collaborator on your fork. In repository **Settings → Actions → General → Workflow permissions**, allow GitHub Actions to create issues. Keep your application repositories separate from this curriculum fork. If a command is unfamiliar, use the [PAUSE protocol](playbooks/pause-protocol.md) before running it.
 
 ## Work one issue at a time
 
@@ -73,6 +82,8 @@ The first bootstrap command is a dry run; read its output before using `--apply`
 6. Push and open a PR using the supplied template.
 7. Complete the evidence and comprehension sections.
 8. Merge only after checks and required review pass.
+
+Every milestone also releases one `lab` issue. Begin with a prediction, run the normal baseline, activate the synthetic incident, collect evidence, make a focused repair, and submit `evidence/labs/LAB-XX.md`. The generated Mission Control issue displays active, blocked, evidence-ready, accepted, and locked milestones.
 
 Use `npm run agency:next -- --repo OWNER/REPO --milestone 0` to preview what the progressive release automation will open next.
 

@@ -1,0 +1,48 @@
+{
+  "id": "LAB-01",
+  "storyId": "SWAI-016",
+  "title": "Diagnose the Codex and Vercel toolchain",
+  "milestone": 1,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 90,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Out-of-band management and diagnostic tooling",
+    "applicationConcept": "Codex context, local CLIs, deployment inspection, and evidence boundaries",
+    "analogyLimit": "A CLI may have write privileges and cloud credentials; it is not inherently a read-only management plane."
+  },
+  "buildBrief": "Complete a tool-access matrix, add project AGENTS.md guidance, deploy the practice app, and use Codex plus Vercel CLI evidence to explain the deployment state.",
+  "incidentBrief": "The preview build receives a deliberately missing public configuration name. Diagnose the build log, distinguish build-time from runtime state, and make the smallest safe correction.",
+  "starterPath": "labs/core/LAB-01",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-01",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-01/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "The preview reports a missing NEXT_PUBLIC training variable and shows which phase read it.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "Codex reports the intended repository instructions",
+    "The tool matrix separates read, write, authentication, sensitive data, and revocation",
+    "The deployment diagnosis cites a specific safe log line and focused diff"
+  ],
+  "evidence": [
+    "Redacted tool and deployment transcript",
+    "AGENTS.md explanation and focused diff",
+    "evidence/labs/LAB-01.md"
+  ],
+  "predictionQuestions": [
+    "Which tool can observe the deployment and which can mutate it?",
+    "At what phase is each environment value read?"
+  ],
+  "defenseQuestions": [
+    "Explain why Codex must start in the correct repository.",
+    "Compare a CLI, API, SDK, plugin, MCP server, and documentation site.",
+    "Identify one tool permission you would revoke after the exercise."
+  ],
+  "hints": [
+    "Ask each tool what it can read, write, and authenticate to.",
+    "Search the first relevant build error rather than the final generic failure line.",
+    "Match the variable name and environment before changing application code."
+  ]
+}

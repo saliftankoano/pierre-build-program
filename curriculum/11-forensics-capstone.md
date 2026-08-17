@@ -76,6 +76,10 @@ Discovery notes, PRD, estimate, architecture decision records, ER diagram/data d
 
 Without relying on generated prose, explain the architecture and trace client intake through validation, authorization, storage, audit event, notification, and dashboard. Make a requested field change through migration and UI. Diagnose a seeded direct-object-access failure. Rotate a fictional credential and explain rollback.
 
+## Interactive lab — LAB-11
+
+Run the capstone launch-defense lab against the Northstar preview using the `LAB-11` contract released in the milestone packet. Attempt cross-client access, expired signed access, audit-event mutation, provider failure, and rollback using synthetic data only. Record the defense in `evidence/labs/LAB-11.md`.
+
 ## Graduation rubric
 
-Score at least 3 of 4 in product usefulness, UI/UX, code comprehension, maintainability, security, testing/reliability, deployment/operations, and client communication. Any unresolved critical authorization or credential failure blocks graduation.
+Score at least 3 of 4 in product usefulness, UI/UX, code comprehension, maintainability, security, testing/reliability, deployment/operations, operational diagnosis and incident response, and client communication. Any unresolved critical authorization or credential failure blocks graduation.

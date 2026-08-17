@@ -1,10 +1,10 @@
 {
   "milestone": 8,
-  "title": "Authenticated product",
+  "title": "Authenticated AtlasOps product",
   "hours": 18,
-  "project": "Learner-selected database idea",
+  "project": "AtlasOps operations portal",
   "mentorGate": true,
-  "context": "Add identity, ownership or organization membership, roles, protected routes/storage, and a tested authorization matrix while handling a mid-sprint sharing request.",
+  "context": "Add AtlasOps identity, organization ownership, operator/lead/stakeholder roles, protected routes/storage, and a tested authorization matrix while handling a mid-sprint cross-site sharing request.",
   "stories": [
     {
       "id": "SWAI-601", "type": "story", "priority": "P0", "epic": "Identity and ownership", "title": "Implement authentication and onboarding", "persona": "New user", "outcome": "A user can sign in, establish the required profile/ownership state, and recover from incomplete onboarding.", "context": "Treat authentication as identity only; resource authorization is delivered separately.",

@@ -1,0 +1,48 @@
+{
+  "id": "LAB-05",
+  "storyId": "SWAI-305",
+  "title": "Qualify an unreliable AtlasOps provider",
+  "milestone": 5,
+  "delivery": "stackblitz",
+  "timeboxMinutes": 90,
+  "core": true,
+  "bridge": {
+    "knownConcept": "Protocol response and fault classification",
+    "applicationConcept": "HTTP authentication, status codes, rate limits, timeouts, payload validation, and provider evaluation",
+    "analogyLimit": "An HTTP status alone rarely establishes business cause; provider documentation, headers, payloads, and product context are also required."
+  },
+  "buildBrief": "Define AtlasOps service-health requirements, compare three providers from official documentation, test synthetic requests, and propose a provider-independent internal contract.",
+  "incidentBrief": "The provider fixture rotates through 401, 429, timeout, and malformed JSON. Classify each failure, choose safe retry behavior, and preserve a usable product state.",
+  "starterPath": "labs/core/LAB-05",
+  "sandboxUrl": "https://stackblitz.com/github/OWNER/pierre-build-program/tree/main?configPath=labs/core/LAB-05",
+  "fallbackUrl": "https://codesandbox.io/p/github/OWNER/pierre-build-program/main?file=labs/core/LAB-05/app/page.tsx",
+  "scenario": {
+    "activation": "npm run incident",
+    "symptoms": "Four synthetic provider modes produce distinct authentication, quota, transport, and contract failures.",
+    "reset": "npm run lab:reset"
+  },
+  "acceptanceTests": [
+    "Three providers are compared with official docs, cost, rights, limits, support, and exit risk",
+    "The adapter distinguishes 401, 429, timeout, malformed payload, and empty success",
+    "The ADR defines retry, cache, fallback, and stop conditions"
+  ],
+  "evidence": [
+    "Redacted request and response matrix",
+    "Provider ADR and normalized contract",
+    "evidence/labs/LAB-05.md"
+  ],
+  "predictionQuestions": [
+    "Which failures are safe to retry automatically?",
+    "Which response details must be validated before the UI trusts the payload?"
+  ],
+  "defenseQuestions": [
+    "Explain authentication, authorization, transport, quota, and schema failures.",
+    "Trace one provider response into the normalized contract.",
+    "Defend when AtlasOps should stop using the provider."
+  ],
+  "hints": [
+    "Classify the layer before changing retry behavior.",
+    "Read status, headers, body shape, and elapsed time as separate evidence.",
+    "Normalize provider data at one server boundary rather than throughout the UI."
+  ]
+}

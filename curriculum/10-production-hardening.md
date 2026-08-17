@@ -2,11 +2,11 @@
 
 **Timebox:** 14 hours
 **Mentor gate:** required
-**Outcome:** the product is supportable after launch.
+**Outcome:** AtlasOps is supportable after launch and has survived a synthetic multi-fault game day.
 
 ## Agency assignment
 
-Elena and Marcus have completed release review. Their tickets cover accessibility, performance, authorization regression, logging, dependency risk, backup/restore, a simulated credential leak, and rollback. The client also needs an operating handoff.
+Elena and Marcus have completed the AtlasOps release review. Their tickets cover accessibility, stale status data, authorization regression, duplicate webhooks, environment drift, logging, dependency risk, backup/restore, a simulated credential leak, and rollback. The client also needs an operating handoff.
 
 ## Visual map
 
@@ -57,6 +57,10 @@ Triage the supplied findings by severity and user impact. Resolve release blocke
 ## Mentor review
 
 The mentor runs the launch review, challenges one risk decision, observes the incident drill, and scores the handoff as if inheriting support.
+
+## Interactive lab — LAB-10
+
+Lead [the AtlasOps production game day](../labs/core/LAB-10/README.md). Prioritize the authorization blast radius, contain harm, recover synthetic service, perform rollback/restore, and submit a blameless postmortem.
 
 ## Done when
 
