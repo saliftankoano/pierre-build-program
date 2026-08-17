@@ -10,3 +10,5 @@ test-results/
 playwright-report/
 .vercel/
 *.log
+# Next.js 16 generates different route-type imports for dev and production builds.
+labs/core/*/next-env.d.ts

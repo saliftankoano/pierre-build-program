@@ -9,8 +9,8 @@ let changed = all;
 
 if (base && !/^0+$/.test(base)) {
   const files = run("git", ["diff", "--name-only", base, head], { capture: true }).split("\n").filter(Boolean);
-  const shared = files.some((file) => ["labs/catalog.json", "scripts/scaffold-labs.mjs", "scripts/validate-labs.mjs"].includes(file));
-  if (!shared) changed = [...new Set(files.map((file) => file.match(/^labs\/core\/(LAB-\d{2})\//)?.[1]).filter(Boolean))].sort();
+  const shared = files.some((file) => ["labs/catalog.json", "scripts/scaffold-labs.mjs", "scripts/validate-labs.mjs", "scripts/validate-evidence.mjs", "scripts/evidence-lib.mjs"].includes(file));
+  if (!shared) changed = [...new Set(files.map((file) => file.match(/^(?:labs\/core\/|evidence\/labs\/)(LAB-(?:0[0-9]|10))(?:\/|\.md$)/)?.[1]).filter(Boolean))].sort();
 }
 
 console.log(JSON.stringify(changed));

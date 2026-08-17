@@ -24,7 +24,7 @@
   "acceptanceTests": [
     "The vertical slice matches the approved content hierarchy",
     "No horizontal overflow occurs from 320 pixels through desktop widths",
-    "The learner identifies the exact component and CSS rule responsible"
+    "You identify the exact component and CSS rule responsible"
   ],
   "evidence": [
     "Responsive screenshots and browser measurement",

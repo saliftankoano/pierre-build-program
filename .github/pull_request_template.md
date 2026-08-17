@@ -37,4 +37,11 @@ Closes #
 
 ## Limitations and retrospective
 
-<!-- An accepted milestone PR must include the label milestone-accepted and title "Milestone N: ..." to release the next packet. -->
+## Release decision
+
+- [ ] I followed `playbooks/milestone-release.md`.
+- [ ] Every linked story and the milestone lab are complete.
+- [ ] This is not a mentor gate, or the mentor approval issue/comment is linked below.
+- Mentor approval link when required:
+
+<!-- Only after the release checklist passes, use the exact title "Milestone N: ..." and add milestone-accepted. Merging then releases the next packet. -->

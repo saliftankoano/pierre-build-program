@@ -37,6 +37,9 @@ flowchart LR
 
 | Watch when | Video | Why it helps | Verify afterward |
 | --- | --- | --- | --- |
+| Markdown syntax makes the story packet hard to structure or preview | [Markdown Crash Course — Traversy Media](https://www.youtube.com/watch?v=HUBNt18RFbo) | Demonstrates headings, lists, links, tables, code, and GitHub-oriented Markdown | [GitHub writing and formatting](https://docs.github.com/en/get-started/writing-on-github) |
+| You need to see text become an editable software flow diagram | [Flowcharts and class diagrams with Mermaid Chart](https://www.youtube.com/watch?v=SOHJHgLC2Pg) | Shows the connection between diagram intent and Mermaid source | [GitHub Mermaid diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams) and [Mermaid syntax](https://mermaid.js.org/intro/syntax-reference.html) |
+| A user-story headline is being mistaken for the complete requirement | [User stories with examples and a template — Atlassian](https://www.atlassian.com/agile/project-management/user-stories) | Reinforces user value, conversation, examples, and usable story detail | [Visual story-writing field guide](visual-story-writing.md) and the current agency story schema |
 | A form's labels, controls, validation, and submission path are unclear | [Learn HTML Forms in 25 Minutes — Web Dev Simplified](https://www.youtube.com/watch?v=fNcJuPIZ2WE) | Visually connects semantic form elements, labels, validation, and submission | [MDN web forms](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms) |
 | You are reviewing keyboard, semantic, screen-reader, and visual behavior | [How to Handle Accessibility Like a Senior Dev — Web Dev Simplified](https://www.youtube.com/watch?v=Y7nhXvJ7yH8) | Provides a current practical accessibility review mindset | [WAI accessibility fundamentals](https://www.w3.org/WAI/fundamentals/accessibility-intro/) |
 

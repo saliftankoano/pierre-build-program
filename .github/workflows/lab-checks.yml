@@ -49,6 +49,10 @@ jobs:
           cache-dependency-path: labs/core/${{ matrix.lab }}/package-lock.json
       - run: npm ci
       - run: npm test
+      - name: Validate completed evidence contract
+        if: ${{ hashFiles(format('evidence/labs/{0}.md', matrix.lab)) != '' }}
+        working-directory: .
+        run: npm run validate:evidence -- "evidence/labs/${{ matrix.lab }}.md"
       - name: Verify learner recovery or canonical fail-before state
         shell: bash
         run: |

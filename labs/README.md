@@ -29,13 +29,13 @@ npm run lab:test -- LAB-00
 npm run lab:hint -- LAB-00 1
 ```
 
-Replace `OWNER` in a sandbox link with the GitHub account that owns the learner’s fork. StackBlitz is primary; CodeSandbox is used only when browser or WebContainer compatibility blocks the primary lab. Local execution remains available after milestone 1.
+Replace `OWNER` in a sandbox link with the GitHub account that owns your fork. StackBlitz is primary; use CodeSandbox only when browser or WebContainer compatibility blocks the primary lab. Local execution remains available after milestone 1.
 
-The upstream starter passes its normal-state test and intentionally fails its incident challenge. Once `evidence/labs/LAB-XX.md` exists in a learner fork, lab CI requires the recovery test to pass.
+The upstream starter passes its normal-state test and intentionally fails its incident challenge. Once `evidence/labs/LAB-XX.md` exists in your fork, lab CI requires your recovery test to pass.
 
 ## Safety boundary
 
-- Browser labs use synthetic fixtures and visibly fictional credential values.
+- Browser labs use synthetic fixtures and only the visibly fictional value defined by the [credential leak drill](../resources/secret-leak-drill.md).
 - Do not paste real tokens, cookies, headers, client data, forensic evidence, or employer information.
 - No lab requires Docker, a native database server, a paid API, or personal infrastructure.
 - Milestone 7 uses the real Supabase local-development workflow in the AtlasOps project, outside the browser lab. A documented hosted-development ADR is the fallback when Docker cannot run.

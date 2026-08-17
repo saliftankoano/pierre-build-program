@@ -9,7 +9,7 @@
     {
       "id": "SWAI-601", "type": "story", "priority": "P0", "epic": "Identity and ownership", "title": "Implement authentication and onboarding", "persona": "New user", "outcome": "A user can sign in, establish the required profile/ownership state, and recover from incomplete onboarding.", "context": "Treat authentication as identity only; resource authorization is delivered separately.",
       "acceptanceCriteria": ["Signed-out, signed-in incomplete, active, and disabled states have defined behavior", "Protected server actions derive user identity from trusted session", "Redirects preserve a safe intended destination", "Errors do not reveal whether another person's account exists"],
-      "designRefs": ["Learner-created onboarding flow"], "dataContract": "Profile and optional organization/membership model from approved migration.",
+      "designRefs": ["Your approved onboarding flow"], "dataContract": "Profile and optional organization/membership model from approved migration.",
       "expectations": {"security": "No client-supplied user ID or role is trusted.", "privacy": "Minimum profile data.", "accessibility": "Form errors and focus behavior work.", "analytics": "Track onboarding completion only."},
       "dependencies": ["SWAI-504"], "nonGoals": ["Every social provider"], "definitionOfDone": ["Auth-state browser tests pass"], "evidence": ["State matrix", "Session-to-profile trace"], "concepts": ["authentication", "session", "profile", "redirect"]
     },

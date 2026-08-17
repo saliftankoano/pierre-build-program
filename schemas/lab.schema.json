@@ -44,6 +44,11 @@
     },
     "buildBrief": { "type": "string", "minLength": 20 },
     "incidentBrief": { "type": "string", "minLength": 20 },
+    "instructions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 12 }
+    },
     "starterPath": { "type": "string", "pattern": "^(labs/core/LAB-(0[0-9]|10)|project-preview)$" },
     "sandboxUrl": { "type": "string", "minLength": 1 },
     "fallbackUrl": { "type": "string", "minLength": 1 },

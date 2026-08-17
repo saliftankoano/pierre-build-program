@@ -11,7 +11,7 @@
       "acceptanceCriteria": ["Service and service-area pages derive from typed configuration", "Unknown slugs produce a real not-found response", "Every page has accurate unique title, description, canonical, and useful internal links"],
       "designRefs": ["agency/clients/clearpath-home-services/design-handoff.md"], "dataContract": "Service has slug, name, summary, body, featured flag; location has slug, name, region, summary.",
       "expectations": {"security": "Configured content is trusted repository content only.", "privacy": "No visitor data.", "accessibility": "Logical headings and descriptive link text.", "analytics": "Page views may use route only, not personal data."},
-      "dependencies": ["SWAI-102"], "nonGoals": ["A content-management system"], "definitionOfDone": ["Adding one fixture generates the expected page and sitemap entry"], "evidence": ["Example generated pages", "Configuration walkthrough"], "concepts": ["dynamic route", "object", "array", "type", "metadata"]
+      "dependencies": ["Milestone 3 accepted"], "nonGoals": ["A content-management system"], "definitionOfDone": ["Adding one fixture generates the expected page and sitemap entry"], "evidence": ["Example generated pages", "Configuration walkthrough"], "concepts": ["dynamic route", "object", "array", "type", "metadata"]
     },
     {
       "id": "SWAI-202", "type": "story", "priority": "P0", "epic": "ClearPath lead flow", "title": "Deliver validated quote requests", "persona": "Homeowner", "outcome": "A qualified visitor can request a quote and understands success or failure.", "context": "Collect only name, contact method/value, service, suburb, and a short description. Email is delivered through Resend from server code.",

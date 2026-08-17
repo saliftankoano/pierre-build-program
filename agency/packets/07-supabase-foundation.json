@@ -9,9 +9,9 @@
     {
       "id": "SWAI-501", "type": "spike", "priority": "P0", "epic": "Data product foundation", "title": "Model the minimum product data", "persona": "Product builder", "outcome": "The schema supports one valuable workflow without speculative tables.", "context": "Create the user journey, entity-relationship diagram, data dictionary, access matrix, and threat model before migrations.",
       "acceptanceCriteria": ["Every table maps to a required entity in the user journey", "Primary keys, foreign keys, required fields, timestamps, ownership, and deletion behavior are documented", "Anonymous, owner, different-user, and privileged access expectations are explicit"],
-      "designRefs": ["Learner-created journey"], "dataContract": "ER diagram, data dictionary, and access matrix.",
+      "designRefs": ["Your approved journey"], "dataContract": "ER diagram, data dictionary, and access matrix.",
       "expectations": {"security": "Authorization belongs in the model, not only UI.", "privacy": "Collect minimum fields and define retention.", "accessibility": "Field names map to understandable labels.", "analytics": "Product events do not duplicate sensitive row data."},
-      "dependencies": ["Database idea selected"], "nonGoals": ["Future enterprise entities"], "definitionOfDone": ["Schema reviewed against workflow and threats"], "evidence": ["ER diagram", "Data dictionary", "Threat model"], "concepts": ["table", "row", "column", "primary key", "foreign key", "relationship"]
+      "dependencies": ["Milestone 6 accepted"], "nonGoals": ["Future enterprise entities"], "definitionOfDone": ["Schema reviewed against workflow and threats"], "evidence": ["ER diagram", "Data dictionary", "Threat model"], "concepts": ["table", "row", "column", "primary key", "foreign key", "relationship"]
     },
     {
       "id": "SWAI-502", "type": "story", "priority": "P0", "epic": "Data product foundation", "title": "Create reproducible schema and seed data", "persona": "Developer", "outcome": "Any developer can recreate a safe local database from versioned files.", "context": "Initialize Supabase locally and represent schema, policies, and synthetic development data in Git.",
@@ -23,7 +23,7 @@
     {
       "id": "SWAI-503", "type": "story", "priority": "P0", "epic": "Data product foundation", "title": "Ship the first CRUD workflow", "persona": "Primary user", "outcome": "The user can complete the selected create/read/update workflow with understandable feedback.", "context": "Build one end-to-end workflow with server validation and intentional loading, empty, success, and failure states.",
       "acceptanceCriteria": ["Create, read, and required update behavior match the accepted journey", "Server validation rejects invalid values and UI preserves safe input", "Database errors map to safe actionable messages", "Owner and different-user behavior is integration tested"],
-      "designRefs": ["Learner-created wireframe"], "dataContract": "Validated form maps explicitly to schema fields.",
+      "designRefs": ["Your approved wireframe"], "dataContract": "Validated form maps explicitly to schema fields.",
       "expectations": {"security": "Derive actor identity from session.", "privacy": "Do not log submitted sensitive values.", "accessibility": "Labels, errors, focus, pending state.", "analytics": "Track successful workflow completion without values."},
       "dependencies": ["SWAI-502"], "nonGoals": ["Bulk operations", "Admin reporting"], "definitionOfDone": ["Preview and integration tests pass"], "evidence": ["Workflow recording", "Data-flow explanation"], "concepts": ["CRUD", "validation", "server action", "database error"]
     },

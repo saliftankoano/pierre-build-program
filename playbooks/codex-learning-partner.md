@@ -5,7 +5,7 @@ Codex is the required AI environment for the core program. Use it for routine ex
 ```mermaid
 flowchart LR
     I["Issue<br/>outcome + criteria"] --> C["Codex inspects<br/>repo + current state"]
-    C --> P["Pierre predicts<br/>plan + risk"]
+    C --> P["You predict<br/>plan + risk"]
     P --> W["Small work step<br/>build or diagnose"]
     W --> V["Verify<br/>diff + tests + evidence"]
     V --> E["Explain back<br/>record understanding"]

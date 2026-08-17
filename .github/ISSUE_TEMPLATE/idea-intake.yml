@@ -30,16 +30,9 @@ body:
     attributes:
       label: Data/security risk
       options:
-        [
-          Low — public or synthetic data,
-          Medium — accounts or private data,
-          High — regulated,
-          financial,
-          health,
-          legal,
-          employer,
-          or forensic data,
-        ]
+        - Low — public or synthetic data
+        - Medium — accounts or private data
+        - High — regulated, financial, health, legal, employer, or forensic data
     validations: { required: true }
   - type: textarea
     id: unknowns

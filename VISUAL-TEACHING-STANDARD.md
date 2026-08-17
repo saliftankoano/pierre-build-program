@@ -1,6 +1,6 @@
 # Visual teaching standard
 
-Pierre should be able to understand the shape of a lesson before reading every paragraph. Visuals are part of the instruction and evidence—not decoration.
+You should be able to understand the shape of a lesson before reading every paragraph. Visuals are part of your instruction and evidence—not decoration.
 
 ## Every learning guide includes
 
@@ -44,6 +44,6 @@ flowchart LR
 
 Keep diagrams focused. Split a crowded diagram instead of shrinking labels. Use words, shapes, arrows, and line styles so the lesson still works without color.
 
-## Learner-created visual evidence
+## Your visual evidence
 
-Codex may draft a diagram, but Pierre must verify every node and arrow against code, logs, or documentation. A milestone is not complete until he can redraw or narrate its critical flow without generated prose.
+Codex may draft a diagram, but you must verify every node and arrow against code, logs, or documentation. A milestone is not complete until you can redraw or narrate its critical flow without generated prose.

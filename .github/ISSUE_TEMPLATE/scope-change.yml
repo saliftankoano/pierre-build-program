@@ -14,11 +14,12 @@ body:
   - type: textarea
     id: impact
     attributes:
-      { label: Time, cost, data, security, design, testing, and support impact }
+      label: Time, cost, data, security, design, testing, and support impact
     validations: { required: true }
   - type: textarea
     id: options
-    attributes: { label: Defer, swap, or expand options and recommendation }
+    attributes:
+      label: Defer, swap, or expand options and recommendation
     validations: { required: true }
   - type: textarea
     id: approval

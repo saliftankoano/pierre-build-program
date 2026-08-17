@@ -1,4 +1,4 @@
-# Start here — Pierre's first guided session
+# Start here — your first guided session
 
 This page assumes no GitHub account, no fork, and no installed developer tools. Keep it open until Mission Control exists in your own fork.
 
@@ -186,10 +186,10 @@ Stop. The core onboarding path uses free GitHub features. Verify that you are cr
 
 | Situation | First helper | Human-only boundary |
 | --- | --- | --- |
-| A term, button, command, error, or generated file is unclear | Codex explains it using this repository and current official docs | Pierre confirms understanding and chooses whether to continue |
-| A workflow, test, build, or deployment fails | Codex inspects redacted evidence and proposes the smallest diagnostic step | Pierre approves commands and external changes |
-| Account login, password, MFA, recovery code, billing, or legal agreement | Codex may explain the public page | Pierre enters and approves private information personally |
-| Product scope has several reasonable choices | Codex compares options and consequences | Pierre owns the product decision |
+| A term, button, command, error, or generated file is unclear | Codex explains it using this repository and current official docs | You confirm understanding and choose whether to continue |
+| A workflow, test, build, or deployment fails | Codex inspects redacted evidence and proposes the smallest diagnostic step | You approve commands and external changes |
+| Account login, password, MFA, recovery code, billing, or legal agreement | Codex may explain the public page | You enter and approve private information personally |
+| Product scope has several reasonable choices | Codex compares options and consequences | You own the product decision |
 | Milestones 4, 8, 10, and 11 | Codex prepares evidence and performs the defense practice | The mentor provides the required formal approval |
 
 Routine setup and troubleshooting belong with Codex and the repository. Mentor time is reserved for the four explicit review gates, material client/product decisions, and situations where external authority is genuinely required.

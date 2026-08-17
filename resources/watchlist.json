@@ -42,7 +42,7 @@
       "expiresOn": "2026-11-16"
     },
     {
-      "name": "Pierre task-specific video learning path",
+      "name": "Your task-specific video learning path",
       "url": "resources/video-learning-path.md",
       "category": "curated-project-video-path",
       "whyUseful": "Maps verified videos to the exact milestone confusion they support, followed by official documentation and a project experiment.",

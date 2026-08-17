@@ -62,7 +62,7 @@ Fork this repository rather than editing the canonical curriculum. Your fork kee
 2. Open **Start Pierre Build Program** and select **Run workflow**.
 3. The workflow idempotently creates Mission Control, milestone 0 stories, and `LAB-00`.
 4. Follow the lab link, edit the small Next.js handoff page, and move the change through a branch and pull request.
-5. Create or update [the employer-neutral learner profile](learner-profile.yml). Never add employer names, internal systems, network details, credentials, or incident data.
+5. Create or update [your employer-neutral technical profile](learner-profile.yml). Never add employer names, internal systems, network details, credentials, or incident data.
 
 The browser path is primary for milestone 0. After the first change window, install the local toolchain in milestone 1. The local equivalent remains available:
 
@@ -75,7 +75,7 @@ npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program
 npm run agency:bootstrap -- --repo YOUR_HANDLE/pierre-build-program --apply
 ```
 
-The first bootstrap command is a dry run; read its output before using `--apply`. Invite your mentor as a collaborator on your fork. In repository **Settings → Actions → General → Workflow permissions**, allow GitHub Actions to create issues. Keep your application repositories separate from this curriculum fork. If a command is unfamiliar, use the [PAUSE protocol](playbooks/pause-protocol.md) before running it.
+The first bootstrap command is a dry run; read its output before using `--apply`. You do not need to invite a mentor during browser onboarding. Before Milestone 4, invite your chosen mentor as a collaborator so that person can review the four formal gates. In repository **Settings → Actions → General → Workflow permissions**, allow GitHub Actions to create issues. Keep your application repositories separate from this curriculum fork. If a command is unfamiliar, use the [PAUSE protocol](playbooks/pause-protocol.md) before running it.
 
 ## Work one issue at a time
 
@@ -87,6 +87,8 @@ The first bootstrap command is a dry run; read its output before using `--apply`
 6. Push and open a PR using the supplied template.
 7. Complete the evidence and comprehension sections.
 8. Merge only after checks and required review pass.
+
+When the milestone is complete, follow [Close a milestone and release the next packet](playbooks/milestone-release.md). That checklist tells you exactly when Codex and CI are sufficient, when a human mentor is required, how to title and label the PR, how to verify the automation, and what to do if the next packet does not appear.
 
 Every milestone also releases one `lab` issue. Begin with a prediction, run the normal baseline, activate the synthetic incident, collect evidence, make a focused repair, and submit `evidence/labs/LAB-XX.md`. The generated Mission Control issue displays active, blocked, evidence-ready, accepted, and locked milestones.
 

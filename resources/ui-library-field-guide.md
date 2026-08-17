@@ -79,7 +79,7 @@ A React animation library for state, gesture, layout, and presence transitions. 
 
 ### [Tremor](https://www.tremor.so/)
 
-Dashboard and data-visualization components that can help Pierre learn terms such as KPI card, legend, tooltip, category scale, trend, and composition. Use it as a comparison source for AtlasOps; verify its current package model, license, accessibility, React compatibility, and chart semantics before adoption.
+Dashboard and data-visualization components that help you learn terms such as KPI card, legend, tooltip, category scale, trend, and composition. Use Tremor as a comparison source for AtlasOps; verify its current package model, license, accessibility, React compatibility, and chart semantics before adoption.
 
 ## Milestone 2 component safari
 

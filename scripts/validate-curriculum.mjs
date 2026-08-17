@@ -2,6 +2,7 @@ import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import Ajv2020 from "ajv/dist/2020.js";
 import { packets, root } from "./lib.mjs";
+import { directAddressFindings } from "./language-lib.mjs";
 
 const errors = [];
 const requiredStory = ["id", "type", "priority", "epic", "title", "persona", "outcome", "context", "acceptanceCriteria", "expectations", "dependencies", "nonGoals", "definitionOfDone", "evidence", "concepts"];
@@ -79,6 +80,9 @@ if (curriculum.length !== 12) errors.push(`expected 12 curriculum guides, found 
 for (const guide of curriculum) {
   const content = await readFile(path.join(root, "curriculum", guide), "utf8");
   if (!content.includes("```mermaid")) errors.push(`${guide} is missing its required visual map`);
+  for (const heading of ["## Agency assignment", "## Visual map", "## Interactive lab", "## Done when"]) {
+    if (!content.includes(heading)) errors.push(`${guide} is missing required path section: ${heading}`);
+  }
 }
 const readme = await readFile(path.join(root, "README.md"), "utf8");
 const readmeDiagrams = readme.match(/```mermaid/g)?.length ?? 0;
@@ -94,6 +98,14 @@ async function walk(directory) {
   }
 }
 await walk(root);
+for (const file of markdownFiles) {
+  const content = await readFile(file, "utf8");
+  for (const finding of directAddressFindings(content)) errors.push(`${path.relative(root, file)} uses ${finding}; address Pierre as you/your`);
+}
+for (const file of [path.join(root, "labs", "catalog.json"), path.join(root, "resources", "watchlist.json"), ...(await readdir(path.join(root, "agency", "packets"))).filter((name) => name.endsWith(".json")).map((name) => path.join(root, "agency", "packets", name))]) {
+  const content = await readFile(file, "utf8");
+  for (const finding of directAddressFindings(content)) errors.push(`${path.relative(root, file)} uses ${finding}; address Pierre as you/your`);
+}
 const linkPattern = /\[[^\]]*\]\(([^)]+)\)/g;
 for (const file of markdownFiles) {
   const content = await readFile(file, "utf8");

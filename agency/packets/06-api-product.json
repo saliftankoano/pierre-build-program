@@ -16,7 +16,7 @@
     {
       "id": "SWAI-402", "type": "story", "priority": "P0", "epic": "API product release", "title": "Build the primary dashboard workflow", "persona": "Target user", "outcome": "The user can make the decision identified in milestone 5 using current, understandable data.", "context": "Implement the approved flow with URL/shareable state where appropriate and without speculative secondary features.",
       "acceptanceCriteria": ["Initial, loading, result, empty, stale, partial, and error states are intentionally designed", "Filters or pagination remain keyboard accessible and preserve understandable URL state", "Data freshness and source are visible", "Mobile and desktop layouts preserve the primary decision"],
-      "designRefs": ["Learner-created user flow and wireframe"], "dataContract": "Consumes normalized adapter output only.",
+      "designRefs": ["Your approved user flow and wireframe"], "dataContract": "Consumes normalized adapter output only.",
       "expectations": {"security": "No direct browser call requiring secret.", "privacy": "Do not persist query data beyond the declared need.", "accessibility": "Status announcements, labels, focus, non-color meaning.", "analytics": "Track workflow completion and error category only."},
       "dependencies": ["SWAI-401"], "nonGoals": ["Admin portal", "Provider-specific debug UI"], "definitionOfDone": ["Critical browser journey passes", "Vercel preview works"], "evidence": ["State screenshots", "Preview URL", "User-flow trace"], "concepts": ["server component", "client state", "URL state", "loading", "pagination"]
     },
@@ -25,7 +25,7 @@
       "acceptanceCriteria": ["Provider failure remains distinguishable from a valid empty result", "Only accepted successful data is cached", "A regression test fails before and passes after the fix"],
       "designRefs": [], "dataContract": "Result type distinguishes success, empty success, and failure.",
       "expectations": {"security": "Errors expose no credentials.", "privacy": "No payload in logs.", "accessibility": "Failure message includes next action.", "analytics": "Outage is an operational error, not empty-result product telemetry."},
-      "dependencies": ["SWAI-401", "SWAI-402"], "nonGoals": ["Changing providers"], "definitionOfDone": ["Regression test and production-like verification pass"], "evidence": ["Failing/passing test", "Root-cause explanation"], "concepts": ["cache", "error model", "regression test"], "seededBug": "Catch every adapter error and return an empty array, then cache that value. Learner must replace this with a typed failure path."
+      "dependencies": ["SWAI-401", "SWAI-402"], "nonGoals": ["Changing providers"], "definitionOfDone": ["Regression test and production-like verification pass"], "evidence": ["Failing/passing test", "Root-cause explanation"], "concepts": ["cache", "error model", "regression test"], "seededBug": "Catch every adapter error and return an empty array, then cache that value. Replace this with a typed failure path."
     },
     {
       "id": "SWAI-404", "type": "review", "priority": "P1", "epic": "API product release", "title": "Deploy and document provider operations", "persona": "Technical lead", "outcome": "The dashboard can be operated within provider limits and switched off safely.", "context": "Document local/preview/production configuration, rate-limit behavior, cost monitoring, cache rules, provider status response, and rollback.",

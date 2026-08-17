@@ -53,7 +53,7 @@ export function missionControlBody(packets, issues, pullRequests, repo = "OWNER/
 
 - **Accepted core time:** ${completedHours}/178 hours
 - **Next action:** ${nextAction}
-- **Evidence rule:** CI proves behavior; Pierre’s trace, controlled modification, and Codex defense prove comprehension.
+- **Evidence rule:** CI proves behavior; your trace, controlled modification, and Codex defense prove comprehension.
 - **Help route:** Give the recommended issue URL to Codex and use the prompt in [the learning-partner playbook](${repositoryFiles}/playbooks/codex-learning-partner.md). Begin from [START_HERE](${repositoryFiles}/START_HERE.md) if onboarding is incomplete.
 
 \`\`\`mermaid

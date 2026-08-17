@@ -4,6 +4,7 @@ Copy these documents into the project repository and complete them as story evid
 
 | Template | Use |
 | --- | --- |
+| `agency-user-story.md` | Turn one user outcome into an implementation-ready visual story contract |
 | `prd.md` | Product problem, users, scope, and success |
 | `discovery-notes.md` | Interview evidence and unresolved questions |
 | `user-journey.md` | User steps, states, and failure paths |

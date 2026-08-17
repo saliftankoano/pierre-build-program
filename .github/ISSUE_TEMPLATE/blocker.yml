@@ -14,21 +14,14 @@ body:
   - type: textarea
     id: evidence
     attributes:
-      {
-        label: Evidence,
-        description: Redacted error,
-        relevant log lines,
-        commands,
-        and links. Never paste tokens.,
-      }
+      label: Evidence
+      description: Redacted error, relevant log lines, commands, and links. Never paste tokens.
     validations: { required: true }
   - type: textarea
     id: attempts
     attributes:
-      {
-        label: Attempts and results,
-        description: Include predictions and what each result ruled out.,
-      }
+      label: Attempts and results
+      description: Include predictions and what each result ruled out.
     validations: { required: true }
   - type: textarea
     id: request

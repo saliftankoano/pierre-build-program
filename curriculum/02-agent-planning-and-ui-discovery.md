@@ -55,6 +55,14 @@ produce a decision-complete Next.js plan with stories, acceptance criteria,
 risks, non-goals, validation, and rollback. Cite the documentation you rely on.
 ```
 
+## Turn ideas into visual user stories
+
+Use [Build user stories with Codex and visual Markdown](../resources/visual-story-writing.md) and the [agency user-story template](../templates/agency-user-story.md). Start from one ambiguous ClearPath request, let Codex interview you, and create one vertical story that a fresh coding task could implement without inventing product decisions.
+
+Your story must include the persona, trigger, capability, outcome, facts, assumptions, unknowns, observable Given/When/Then examples, data/API boundaries, loading/empty/error/success behavior, security, privacy, accessibility, analytics, dependencies, non-goals, Definition of Done, and evidence. Add a Mermaid diagram only when it materially clarifies flow, state, ownership, hierarchy, or a system boundary. Follow every diagram with the same route in plain text.
+
+Do not accept Codex’s first draft. Ask it to review the packet as the client, PM, designer, senior Next.js engineer, security reviewer, accessibility reviewer, and QA analyst. Answer material questions yourself, reject invented requirements, and inspect the Markdown diff after revision.
+
 ## Frontend language is part of the specification
 
 “Make it clean and modern” gives Codex little usable direction. Learn to name the layout, hierarchy, components, states, interaction, motion, density, and responsive behavior you want.
@@ -96,6 +104,8 @@ Choose one direction through a scored critique against trust, clarity, conversio
 - Reject one agent recommendation with evidence.
 - Identify ten frontend patterns by name from live examples and explain their job.
 - Compare a component package, an unstyled primitive, and copied registry source.
+- Turn a vague client sentence into a vertical story and explain why it is not a frontend/backend/database task list.
+- Render and narrate one Mermaid flow, then identify one diagram you deliberately omitted because prose was clearer.
 - Present the final plan and design direction without asking Codex to speak for you.
 
 ## Interactive lab — LAB-02
@@ -104,4 +114,4 @@ Complete [the accessible UI system lab](../labs/core/LAB-02/README.md) using the
 
 ## Done when
 
-The planning packet contains an approved PRD, user journey, sitemap, architecture/tool decision matrix, risks, non-goals, story map, acceptance strategy, three design directions, selected design system, component-source audit, and unresolved questions. No production application code is written in this milestone.
+The planning packet contains an approved PRD, user journey, sitemap, architecture/tool decision matrix, risks, non-goals, story map, at least one implementation-ready visual agency story, acceptance strategy, three design directions, selected design system, component-source audit, and resolved or explicitly escalated questions. Markdown lint and Mermaid rendering pass. No production application code is written in this milestone.
